@@ -577,6 +577,12 @@ footer{
     100%{transform:scale(1.08) translateX(0) translateY(0);}
 }
 
+@keyframes mobileReelFade{
+    0%{opacity:0; transform:scale(.995);}
+    4%, 17%{opacity:1; transform:scale(1);}
+    22%, 100%{opacity:0; transform:scale(1.01);}
+}
+
 @keyframes premiumFocus{
     0%, 100%{filter:saturate(1) contrast(1.04);}
     50%{filter:saturate(1.08) contrast(1.13);}
@@ -1479,29 +1485,44 @@ footer{
     }
 
     .hero-wrapper{
-        gap:36px;
+        gap:28px;
+        min-height:auto;
     }
 
     .hero-cinematic{
-        min-height:420px;
+        flex:none;
+        width:100%;
+        max-width:380px;
+        height:min(76vh, 560px);
+        min-height:430px;
+        margin:0 auto;
+        overflow:hidden;
+        perspective:none;
     }
 
     .hero-cinematic::before{
-        inset:13% 0 5% 0;
+        display:none;
+    }
+
+    .hero-cinematic::after{
+        width:240px;
+        height:240px;
+        right:8%;
+        top:18%;
+        opacity:.42;
+        filter:blur(42px);
     }
 
     .luxury-orbit{
-        width:330px;
-        height:330px;
-        right:2%;
-        top:60px;
+        display:none;
     }
 
     .luxury-scan{
-        width:420px;
-        height:92px;
-        right:-58px;
-        top:180px;
+        display:none;
+    }
+
+    #stoneCanvas{
+        opacity:.18;
     }
 
     .hero-photo-main{
@@ -1533,23 +1554,49 @@ footer{
     .hero-photo-back,
     .hero-photo-side,
     .hero-photo-cover-end{
-        inset:82px 0 54px 0;
+        inset:0;
         width:auto;
         height:auto;
         right:0;
         left:0;
-        top:82px;
-        bottom:54px;
+        top:0;
+        bottom:0;
         border-radius:8px;
+        animation-name:mobileReelFade;
+        box-shadow:0 24px 56px rgba(0,0,0,.48);
+        transform:none;
+    }
+
+    .hero-photo::before{
+        background:
+            linear-gradient(180deg, rgba(5,7,11,.08), transparent 34%, rgba(5,7,11,.46)),
+            linear-gradient(90deg, rgba(5,7,11,.34), transparent 32%, rgba(5,7,11,.20));
+    }
+
+    .hero-photo::after{
+        opacity:.55;
+    }
+
+    .hero-photo img{
+        object-position:center;
+    }
+
+    .hero-photo-cover-start img,
+    .hero-photo-cover-end img{
+        object-position:center top;
     }
 
     .hero-rail{
-        right:6%;
-        bottom:34px;
+        left:50%;
+        right:auto;
+        bottom:14px;
+        transform:translateX(-50%);
+        gap:8px;
     }
 
     .hero-rail span{
-        width:32px;
+        width:28px;
+        height:2px;
     }
 
     .material-label{
