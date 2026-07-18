@@ -298,6 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     revealOnScroll();
+    initStoneCanvas();
     initProProductPage();
 });
 
@@ -315,6 +316,17 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 
+function scrollToVisibleSection(element) {
+    const navbar = document.querySelector(".navbar");
+    const offset = navbar ? navbar.offsetHeight + 18 : 80;
+    const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
+
+    window.scrollTo({
+        top: Math.max(0, top),
+        behavior: "smooth"
+    });
+}
+
 function showCategory(id) {
     document.querySelectorAll(".kategori").forEach((el) => {
         el.classList.remove("active");
@@ -323,6 +335,7 @@ function showCategory(id) {
     const target = document.getElementById(id);
     if (target) {
         target.classList.add("active");
+        requestAnimationFrame(() => scrollToVisibleSection(target));
     }
 }
 
@@ -336,7 +349,7 @@ function showProSeries() {
 
     if (proSeries) {
         proSeries.classList.add("active");
-        proSeries.scrollIntoView({ behavior: "smooth", block: "start" });
+        requestAnimationFrame(() => scrollToVisibleSection(proSeries));
     }
 }
 
@@ -345,6 +358,105 @@ function degistir(resim) {
     if (image) {
         image.src = resim;
     }
+}
+
+function initStoneCanvas() {
+    const canvas = document.getElementById("stoneCanvas");
+    if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+    }
+
+    const ctx = canvas.getContext("2d");
+    const veins = Array.from({ length: 18 }, (_, index) => ({
+        x: Math.random(),
+        y: Math.random(),
+        length: 130 + Math.random() * 260,
+        width: .5 + Math.random() * 1.8,
+        speed: .12 + Math.random() * .24,
+        phase: Math.random() * Math.PI * 2,
+        alpha: .12 + Math.random() * .28,
+        angle: -0.55 + Math.random() * .35,
+        index
+    }));
+    const particles = Array.from({ length: 46 }, () => ({
+        x: Math.random(),
+        y: Math.random(),
+        size: .8 + Math.random() * 2.2,
+        speed: .08 + Math.random() * .28,
+        alpha: .18 + Math.random() * .55
+    }));
+
+    let width = 0;
+    let height = 0;
+    let frame = 0;
+
+    function resize() {
+        const rect = canvas.getBoundingClientRect();
+        const ratio = Math.min(window.devicePixelRatio || 1, 2);
+        width = Math.max(1, rect.width);
+        height = Math.max(1, rect.height);
+        canvas.width = Math.floor(width * ratio);
+        canvas.height = Math.floor(height * ratio);
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    }
+
+    function drawVein(vein, time) {
+        const startX = ((vein.x * width) + time * vein.speed * 42 + vein.index * 31) % (width + 220) - 110;
+        const startY = vein.y * height + Math.sin(time * .7 + vein.phase) * 32;
+
+        ctx.save();
+        ctx.translate(startX, startY);
+        ctx.rotate(vein.angle);
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+
+        for (let i = 0; i <= 9; i += 1) {
+            const step = i / 9;
+            const x = step * vein.length;
+            const y = Math.sin(step * Math.PI * 2 + time + vein.phase) * (12 + vein.index % 5 * 4);
+            ctx.lineTo(x, y);
+        }
+
+        ctx.strokeStyle = `rgba(245,247,250,${vein.alpha})`;
+        ctx.lineWidth = vein.width;
+        ctx.shadowColor = "rgba(255,255,255,.55)";
+        ctx.shadowBlur = 10;
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    function drawParticle(particle, time) {
+        const x = (particle.x * width + time * particle.speed * 55) % width;
+        const y = particle.y * height + Math.sin(time + particle.x * 8) * 18;
+
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(255,255,255,${particle.alpha})`;
+        ctx.arc(x, y, particle.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    function render() {
+        frame += 1;
+        const time = frame / 60;
+
+        ctx.clearRect(0, 0, width, height);
+
+        const glow = ctx.createRadialGradient(width * .62, height * .38, 20, width * .62, height * .38, width * .55);
+        glow.addColorStop(0, "rgba(255,255,255,.16)");
+        glow.addColorStop(.42, "rgba(148,163,184,.08)");
+        glow.addColorStop(1, "rgba(255,255,255,0)");
+        ctx.fillStyle = glow;
+        ctx.fillRect(0, 0, width, height);
+
+        veins.forEach((vein) => drawVein(vein, time));
+        particles.forEach((particle) => drawParticle(particle, time));
+
+        requestAnimationFrame(render);
+    }
+
+    resize();
+    window.addEventListener("resize", resize);
+    render();
 }
 
 const proProducts = {
