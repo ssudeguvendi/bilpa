@@ -309,6 +309,7 @@ function setLanguage(lang) {
 
 document.addEventListener("DOMContentLoaded", () => {
     callButton.style.cssText = "width:54px;height:54px;min-height:54px;padding:0;border-radius:50%;justify-content:center;background:#05070b;";
+callButton.style.cssText = "width:54px;height:54px;min-height:54px;padding:0;border-radius:50%;justify-content:center;background:#05070b;";
 callButton.innerHTML = '<span style="color:white;background:transparent;font-size:23px;">☎</span>';
 
     const savedLanguage = localStorage.getItem("siteLanguage") || "tr";
@@ -456,6 +457,7 @@ function initStoneCanvas() {
 
     let width = 0;
     let height = 0;
+ 
     let frame = 0;
 
     function resize() {
