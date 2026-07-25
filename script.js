@@ -308,8 +308,9 @@ function setLanguage(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-   initCallButton();
-initProductBackButton();
+    initCallButton();
+    initProductBackButton();
+    initProductColorPalette();
 
     const savedLanguage = localStorage.getItem("siteLanguage") || "tr";
     setLanguage(savedLanguage);
@@ -323,6 +324,41 @@ initProductBackButton();
     initProProductPage();
 });
 
+function initProductColorPalette() {
+    document.querySelectorAll(".renk").forEach((color) => {
+        color.setAttribute("role", "button");
+        color.setAttribute("tabindex", "0");
+        color.setAttribute("aria-pressed", "false");
+
+        const selectColor = () => {
+            document.querySelectorAll(".renk").forEach((item) => {
+                item.classList.remove("selected");
+                item.setAttribute("aria-pressed", "false");
+            });
+
+            color.classList.add("selected");
+            color.setAttribute("aria-pressed", "true");
+
+            if (window.matchMedia("(max-width: 900px)").matches) {
+                const image = document.getElementById("anaResim");
+                const imageArea = image?.closest(".urun-resim") || image;
+
+                if (imageArea) {
+                    requestAnimationFrame(() => scrollToVisibleSection(imageArea));
+                }
+            }
+        };
+
+        color.addEventListener("click", selectColor);
+        color.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                color.click();
+            }
+        });
+    });
+}
+
 function initCallButton() {
     if (document.querySelector(".floating-call-button")) {
         return;
@@ -332,9 +368,21 @@ function initCallButton() {
     callButton.className = "floating-call-button";
     callButton.href = "tel:+905334026564";
     callButton.setAttribute("aria-label", "0533 402 65 64 numarasını ara");
+    callButton.style.cssText = `
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:54px;
+        height:54px;
+        min-height:54px;
+        padding:0;
+        background:#05070b;
+        border:1px solid #455064;
+        border-radius:50%;
+        color:#fff;
+    `;
     callButton.innerHTML = `
-        <span class="call-icon" aria-hidden="true">☎</span>
-        <span>0533 402 65 64</span>
+        <span aria-hidden="true" style="color:#fff;background:transparent;font-size:23px;line-height:1;">☎</span>
     `;
     document.body.appendChild(callButton);
 }
@@ -409,22 +457,6 @@ function degistir(resim) {
     const image = document.getElementById("anaResim");
     if (image) {
         image.src = resim;
-
-        document.querySelectorAll(".renk").forEach((color) => {
-            color.classList.remove("selected");
-            color.setAttribute("aria-pressed", "false");
-        });
-
-        const selectedColor = window.event?.currentTarget;
-        if (selectedColor?.classList.contains("renk")) {
-            selectedColor.classList.add("selected");
-            selectedColor.setAttribute("aria-pressed", "true");
-        }
-
-        if (window.matchMedia("(max-width: 900px)").matches) {
-            const imageArea = image.closest(".urun-resim") || image;
-            requestAnimationFrame(() => scrollToVisibleSection(imageArea));
-        }
     }
 }
 
@@ -456,7 +488,6 @@ function initStoneCanvas() {
 
     let width = 0;
     let height = 0;
- 
     let frame = 0;
 
     function resize() {
