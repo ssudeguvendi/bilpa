@@ -516,9 +516,9 @@ footer{
     font-weight:700;
 }
 .hero-logo{
-    display:flex;
+    display:inline-flex;
     align-items:center;
-    gap:14px;
+    gap:16px;
     color:white;
     margin-bottom:24px;
 
@@ -526,64 +526,37 @@ footer{
     animation:fadeUp .8s ease forwards;
 }
 
-.hero-monogram{
-    position:relative;
-    display:grid;
-    place-items:center;
-    width:52px;
-    height:52px;
-    flex:0 0 52px;
-    border:1px solid rgba(216,222,232,.62);
-    color:#f5f7fa;
-    font-family:Georgia, "Times New Roman", serif;
-    font-size:19px;
-    font-weight:700;
-    letter-spacing:1px;
-    line-height:1;
-    transform:rotate(45deg);
-    background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.01));
-    box-shadow:inset 0 0 18px rgba(255,255,255,.04),0 10px 28px rgba(0,0,0,.28);
-    text-shadow:0 0 16px rgba(255,255,255,.34);
-    color:transparent;
-}
-
-.hero-monogram::after{
+.hero-logo::before,
+.hero-logo::after{
     content:"";
-    position:absolute;
-    inset:5px;
-    border:1px solid rgba(216,222,232,.16);
+    width:34px;
+    height:1px;
+    background:linear-gradient(90deg,transparent,rgba(216,222,232,.7));
 }
 
-.hero-monogram::before{
-    content:"BILPATIC";
-    position:absolute;
-    color:#f5f7fa;
-    font-size:9px;
-    letter-spacing:.5px;
-    transform:rotate(-45deg);
-
+.hero-logo::after{
+    background:linear-gradient(90deg,rgba(216,222,232,.7),transparent);
 }
 
-.hero-brand-name{
-    display:flex;
-    flex-direction:column;
-    gap:3px;
-}
-
-.hero-brand-name strong{
-    color:#f5f7fa;
+.luxury-brand-line{
+    position:relative;
     font-family:Georgia, "Times New Roman", serif;
-    font-size:25px;
-    font-weight:500;
-    letter-spacing:5px;
+    font-size:22px;
+    font-weight:400;
+    letter-spacing:7px;
     line-height:1;
+    background:linear-gradient(110deg,#8f99a8 0%,#fff 42%,#b8c1ce 62%,#f7f8fa 100%);
+    background-size:220% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    text-shadow:0 8px 26px rgba(196,205,219,.12);
+    animation:brandShine 5s ease-in-out infinite;
 }
 
-.hero-brand-name small{
-    color:#8e99aa;
-    font-size:9px;
-    font-weight:700;
-    letter-spacing:7px;
+@keyframes brandShine{
+    0%,100%{background-position:0% center;}
+    50%{background-position:100% center;}
 }
 
 .hero-category{
@@ -1685,6 +1658,20 @@ footer{
 }
 
 @media(max-width:560px){
+    .hero-logo{
+        gap:10px;
+    }
+
+    .hero-logo::before,
+    .hero-logo::after{
+        width:18px;
+    }
+
+    .luxury-brand-line{
+        font-size:17px;
+        letter-spacing:4px;
+    }
+
     .floating-call-button{
         right:14px;
         bottom:14px;
@@ -1931,6 +1918,102 @@ footer{
     .hero-photo-side,
     .hero-photo-cover-end{
         opacity:0;
+    }
+}
+
+@media(max-width:560px){
+    body{
+        overflow-x:hidden;
+    }
+
+    section{
+        padding:52px 18px;
+    }
+
+    .navbar,
+    .product-navbar{
+        padding:14px 16px;
+        gap:9px;
+    }
+
+    .brand{
+        font-size:14px;
+        letter-spacing:2px;
+    }
+
+    .nav-links{
+        justify-content:center;
+        gap:10px;
+    }
+
+    .nav-links a,
+    .navbar a{
+        margin:0;
+        font-size:12px;
+    }
+
+    .language-switcher button{
+        padding:7px 10px;
+        font-size:11px;
+    }
+
+    .hero{
+        min-height:auto;
+        padding:22px 18px 46px;
+    }
+
+    .hero-content{
+        margin-top:38px;
+    }
+
+    .hero-title{
+        font-size:36px;
+        letter-spacing:-1px;
+    }
+
+    .hero-description,
+    .hero-description.secondary{
+        font-size:15px;
+        line-height:1.65;
+    }
+
+    .hero-cinematic{
+        height:360px;
+        min-height:360px;
+        max-width:330px;
+    }
+
+    h2{
+        font-size:30px;
+    }
+
+    button{
+        padding:13px 19px;
+        font-size:14px;
+    }
+
+    .kategori-kart img,
+    .seri-kart img{
+        height:205px;
+    }
+
+    .pro-urun-kart img{
+        height:185px;
+    }
+
+    .urun-resim img{
+        max-height:320px;
+        object-fit:contain;
+        background:#090d14;
+    }
+
+    .urun-bilgi h1{
+        font-size:34px;
+    }
+
+    .contact{
+        margin:32px 18px;
+        padding:38px 18px;
     }
 }
 
