@@ -24,13 +24,15 @@ const translations = {
             quoteButton: "Teklif Al"
         },
         features: {
-            title: "Profesyonel İşletmeler İçin Doğru Malzeme",
-            card1Title: "Dayanıklı Ürünler",
-            card1Text: "Zorlu çalışma koşullarına uygun ekipmanlar.",
-            card2Title: "Hızlı Çözüm",
-            card2Text: "İş süreçlerini hızlandıran profesyonel destek.",
-            card3Title: "Teknik Destek",
-            card3Text: "Doğru ürün seçimi için uzman yönlendirme."
+            eyebrow: "BIL-PA AYRICALIĞI",
+            title: "İhtiyacınıza Hızlı, Güvenilir Çözüm",
+            intro: "Doğru ürünü, güçlü tedarik ve hızlı iletişimle işletmenize ulaştırıyoruz.",
+            card1Title: "Seçkin Ürünler",
+            card1Text: "Dayanıklılık ve estetiği bir araya getiren güvenilir ürün seçenekleri.",
+            card2Title: "Hızlı Geri Dönüş",
+            card2Text: "Talebinize vakit kaybetmeden net ve çözüm odaklı yanıt.",
+            card3Title: "Uzman Yönlendirme",
+            card3Text: "Projenize ve kullanım alanınıza en uygun ürünü birlikte belirleyelim."
         },
         products: {
             title: "Ürün Grupları",
@@ -60,11 +62,18 @@ const translations = {
         },
         productPage: {
             colorsTitle: "Renk Seçenekleri",
+            backToProducts: "Ürünlere Dön",
             specsTitle: "Teknik Özellikler",
             quoteButton: "Teklif Al",
             flatstoneText: "Flatstone serisi modern banyolar için tasarlanmış, yüksek dayanımlı granit lavabo çözümüdür. Estetik görünümü, çizilmeye dayanıklı yapısı ve kolay temizlenebilir yüzeyiyle uzun yıllar kullanım sağlar.",
             pureHeading: "Pure",
             pureText: "Ürün Ölçüsü: 120x50. Ürün Kalınlığı: 8 mm ince. Pure, banyolarda estetik ve konforu bir araya getiren, RealStone'un tasarım güvencesiyle geliştirilen özel bir lavabo serisidir. 18 farklı renk seçeneğiyle her zevke hitap eder.",
+            proSubtitle: "Pro Serisi Granit Evye",
+            proDescription: "Pro Serisi granit evye, mutfak kullanımında dayanıklılık, hijyen ve kolay temizliği bir araya getirir. Sıkı ve pürüzsüz yüzey yapısı sayesinde modern mutfaklarda uzun ömürlü ve şık bir kullanım sunar.",
+            proFeature1: "✓ Granit yapı",
+            proFeature2: "✓ Antibakteriyel ve hijyenik yüzey",
+            proFeature3: "✓ Kolay temizlenebilir pürüzsüz doku",
+            proFeature4: "✓ Modern mutfaklara uyumlu tasarım",
             avokadoText: "Avokado, doğadan ilham alan yumuşak yeşil tonuyla banyolara ferahlık ve huzur katıyor. Modern tasarımı ve mat dokusuyla estetik görünümü fonksiyonellikle buluşturarak yaşam alanlarına doğal bir karakter kazandırıyor.",
             aura80Subtitle: "Zarafetin ve Konforun Buluştuğu Nokta",
             aura80Intro: "Modern banyolar için tasarlanan Aura 80, yumuşak geçişlere sahip formu ve dengeli tasarım anlayışıyla yaşam alanlarına estetik bir dokunuş kazandırır. Keskin çizgiler yerine akıcı hatların tercih edildiği iç hazne yapısı, hem görsel bütünlük hem de kullanım rahatlığı sunar.",
@@ -156,13 +165,15 @@ const translations = {
             quoteButton: "Get a Quote"
         },
         features: {
-            title: "The Right Materials for Professional Businesses",
-            card1Title: "Durable Products",
-            card1Text: "Equipment suitable for demanding working conditions.",
-            card2Title: "Fast Solutions",
-            card2Text: "Professional support that speeds up business processes.",
-            card3Title: "Technical Support",
-            card3Text: "Expert guidance for choosing the right product."
+            eyebrow: "THE BIL-PA DIFFERENCE",
+            title: "Fast, Reliable Solutions for Your Needs",
+            intro: "We deliver the right product to your business through strong supply and responsive communication.",
+            card1Title: "Selected Products",
+            card1Text: "Reliable product options that combine durability with refined design.",
+            card2Title: "Quick Response",
+            card2Text: "Clear, solution-focused answers to your request without delay.",
+            card3Title: "Expert Guidance",
+            card3Text: "Let us identify the best product for your project and intended use."
         },
         products: {
             title: "Product Groups",
@@ -192,11 +203,18 @@ const translations = {
         },
         productPage: {
             colorsTitle: "Color Options",
+            backToProducts: "Back to Products",
             specsTitle: "Technical Features",
             quoteButton: "Get a Quote",
             flatstoneText: "The Flatstone series is a high-strength granite sink solution designed for modern bathrooms. Its elegant look, scratch-resistant structure and easy-to-clean surface provide long-lasting use.",
             pureHeading: "Pure",
             pureText: "Product size: 120x50. Thickness: 8 mm slim. Pure combines aesthetics and comfort in bathrooms, developed with RealStone's design assurance. With 18 color options, it suits a wide range of styles.",
+            proSubtitle: "Pro Series Granite Sink",
+            proDescription: "The Pro Series granite sink brings durability, hygiene and easy cleaning together for everyday kitchen use. Its dense, smooth surface offers a refined and long-lasting solution for modern kitchens.",
+            proFeature1: "✓ Granite construction",
+            proFeature2: "✓ Antibacterial and hygienic surface",
+            proFeature3: "✓ Smooth, easy-to-clean texture",
+            proFeature4: "✓ Design suited to modern kitchens",
             avokadoText: "Avokado brings freshness and calm to bathrooms with its soft green tone inspired by nature. Its modern design and matte texture combine an elegant appearance with function, adding a natural character to living spaces.",
             aura80Subtitle: "Where Elegance Meets Comfort",
             aura80Intro: "Designed for modern bathrooms, Aura 80 adds an elegant touch to living spaces with its soft transitions and balanced design approach. Its inner bowl favors flowing lines instead of sharp edges, offering both visual harmony and comfortable use.",
@@ -290,6 +308,9 @@ function setLanguage(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    initCallButton();
+    initProductBackButton();
+
     const savedLanguage = localStorage.getItem("siteLanguage") || "tr";
     setLanguage(savedLanguage);
 
@@ -301,6 +322,37 @@ document.addEventListener("DOMContentLoaded", () => {
     initStoneCanvas();
     initProProductPage();
 });
+
+function initCallButton() {
+    if (document.querySelector(".floating-call-button")) {
+        return;
+    }
+
+    const callButton = document.createElement("a");
+    callButton.className = "floating-call-button";
+    callButton.href = "tel:+905334026564";
+    callButton.setAttribute("aria-label", "0533 402 65 64 numarasını ara");
+    callButton.innerHTML = `
+        <span class="call-icon" aria-hidden="true">☎</span>
+        <span>0533 402 65 64</span>
+    `;
+    document.body.appendChild(callButton);
+}
+
+function initProductBackButton() {
+    const productPage = document.querySelector(".urun-sayfa");
+    if (!productPage || productPage.querySelector(".product-back-button")) {
+        return;
+    }
+
+    const backButton = document.createElement("a");
+    backButton.className = "product-back-button";
+    backButton.href = "index.html#urunler";
+    backButton.setAttribute("data-i18n", "productPage.backToProducts");
+    backButton.setAttribute("aria-label", "Ürünlere dön");
+    backButton.textContent = "Ürünlere Dön";
+    productPage.prepend(backButton);
+}
 
 function revealOnScroll() {
     const triggerBottom = window.innerHeight * 0.85;
@@ -357,6 +409,22 @@ function degistir(resim) {
     const image = document.getElementById("anaResim");
     if (image) {
         image.src = resim;
+
+        document.querySelectorAll(".renk").forEach((color) => {
+            color.classList.remove("selected");
+            color.setAttribute("aria-pressed", "false");
+        });
+
+        const selectedColor = window.event?.currentTarget;
+        if (selectedColor?.classList.contains("renk")) {
+            selectedColor.classList.add("selected");
+            selectedColor.setAttribute("aria-pressed", "true");
+        }
+
+        if (window.matchMedia("(max-width: 900px)").matches) {
+            const imageArea = image.closest(".urun-resim") || image;
+            requestAnimationFrame(() => scrollToVisibleSection(imageArea));
+        }
     }
 }
 

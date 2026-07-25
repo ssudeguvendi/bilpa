@@ -14,6 +14,47 @@ body{
     font-family: Inter, Arial, sans-serif;
 }
 
+.floating-call-button{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    z-index:9998;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    min-height:48px;
+    padding:12px 17px;
+    color:#f5f7fa;
+    background:rgba(8,11,16,.94);
+    border:1px solid #344052;
+    border-radius:15px;
+    box-shadow:0 12px 34px rgba(0,0,0,.48);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:800;
+    letter-spacing:.3px;
+    backdrop-filter:blur(12px);
+    transition:.25s ease;
+}
+
+.floating-call-button:hover{
+    color:white;
+    border-color:#7b8798;
+    transform:translateY(-3px);
+}
+
+.call-icon{
+    display:grid;
+    place-items:center;
+    width:29px;
+    height:29px;
+    color:#05070b;
+    background:#f5f7fa;
+    border-radius:9px;
+    font-size:18px;
+    line-height:1;
+}
+
 /* HERO */
 .hero{
     min-height:100vh;
@@ -223,6 +264,77 @@ h2{
 .card h3{
     color:white;
     margin-bottom:10px;
+}
+
+.solution-section{
+    position:relative;
+    overflow:hidden;
+    margin:30px 8% 0;
+    padding:80px 6%;
+    border:1px solid #202a38;
+    border-radius:28px;
+    background:
+        radial-gradient(circle at 85% 10%, rgba(142,154,174,.10), transparent 34%),
+        linear-gradient(145deg,#090d14,#0d131d);
+}
+
+.solution-section::after{
+    content:"";
+    position:absolute;
+    right:-80px;
+    bottom:-110px;
+    width:290px;
+    height:290px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+}
+
+.solution-eyebrow{
+    display:block;
+    margin-bottom:16px;
+    color:#8f9aad;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:4px;
+}
+
+.solution-section h2{
+    max-width:760px;
+    margin-bottom:18px;
+}
+
+.solution-intro{
+    max-width:680px;
+    margin:0 0 42px;
+    color:#9da8b8;
+    font-size:18px;
+}
+
+.solution-cards{
+    position:relative;
+    z-index:1;
+}
+
+.solution-card{
+    min-height:220px;
+    padding:28px;
+    background:rgba(7,10,15,.68);
+}
+
+.solution-number{
+    display:block;
+    margin-bottom:38px;
+    color:#667184;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.solution-card p{
+    margin-top:12px;
+    color:#8f9aaa;
+    font-size:16px;
+    line-height:1.7;
 }
 
 /* CONTACT */
@@ -1383,6 +1495,30 @@ footer{
     padding:80px 40px;
 }
 
+.product-back-button{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:28px;
+    color:#d8dee8;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.2px;
+    transition:.25s ease;
+}
+
+.product-back-button::before{
+    content:"←";
+    font-size:21px;
+    line-height:1;
+}
+
+.product-back-button:hover{
+    color:white;
+    transform:translateX(-3px);
+}
+
 .urun-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -1393,6 +1529,7 @@ footer{
 .urun-resim img{
     width:100%;
     border-radius:25px;
+    display:block;
 }
 
 .urun-bilgi h1{
@@ -1429,6 +1566,12 @@ footer{
 .renk:hover{
     border-color:#7b8798;
     transform:translateY(-2px);
+}
+
+.renk.selected{
+    border-color:#d8dee8;
+    background:#1a2230;
+    box-shadow:0 0 0 2px rgba(216,222,232,.12);
 }
 
 .renk span:first-child{
@@ -1468,6 +1611,12 @@ footer{
 @media(max-width:900px){
     .urun-grid{
         grid-template-columns:1fr;
+        gap:34px;
+        align-items:start;
+    }
+
+    .urun-resim{
+        scroll-margin-top:100px;
     }
 
     .urun-bilgi h1{
@@ -1480,6 +1629,39 @@ footer{
 }
 
 @media(max-width:560px){
+    .floating-call-button{
+        right:14px;
+        bottom:14px;
+        min-height:46px;
+        padding:9px 13px;
+        border-radius:13px;
+        font-size:13px;
+    }
+
+    .solution-section{
+        margin:24px 18px 0;
+        padding:48px 20px;
+        border-radius:22px;
+    }
+
+    .solution-section h2{
+        font-size:32px;
+    }
+
+    .solution-intro{
+        margin-bottom:28px;
+        font-size:16px;
+    }
+
+    .solution-card{
+        min-height:auto;
+        padding:24px;
+    }
+
+    .solution-number{
+        margin-bottom:24px;
+    }
+
     .hero{
         padding:28px 6%;
     }
@@ -1614,13 +1796,51 @@ footer{
         top:92px;
     }
 
-    .kategori-kartlar,
-    .urun-bilgi .renk-paleti{
+    .kategori-kartlar{
         grid-template-columns:1fr;
     }
 
+    .urun-bilgi .renk-paleti{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
+    }
+
+    .renk{
+        min-height:48px;
+        padding:10px;
+        font-size:14px;
+        touch-action:manipulation;
+    }
+
     .urun-sayfa{
-        padding:50px 22px;
+        padding:36px 18px 60px;
+    }
+
+    .product-back-button{
+        position:sticky;
+        top:76px;
+        z-index:20;
+        min-height:44px;
+        margin-bottom:18px;
+        padding:10px 14px;
+        border:1px solid #273244;
+        border-radius:12px;
+        background:rgba(11,16,24,.92);
+        box-shadow:0 8px 24px rgba(0,0,0,.24);
+        backdrop-filter:blur(10px);
+    }
+
+    .urun-resim img{
+        border-radius:16px;
+    }
+
+    .urun-bilgi h1{
+        margin-bottom:14px;
+    }
+
+    .urun-bilgi p{
+        line-height:1.7;
+        margin-bottom:24px;
     }
 
     .pro-urun-icerik h3{
