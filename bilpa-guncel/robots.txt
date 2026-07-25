@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ssudeguvendi.github.io/bilpa/sitemap.xml

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.homeTitle">Bil-Pa Ticaret | Mermer & Granit</title>
+<meta name="description" content="Bil-Pa Ticaret; mermer ve granit işleme malzemeleri, mutfak evyeleri ve banyo lavabolarında güvenilir ürün ve hızlı teklif çözümleri sunar.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://ssudeguvendi.github.io/bilpa/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Bil-Pa Ticaret">
+<meta property="og:title" content="Bil-Pa Ticaret | Mermer, Granit, Mutfak ve Banyo Çözümleri">
+<meta property="og:description" content="Kaliteli ürün, güçlü tedarik ve hızlı teklif çözümleri. Mutfak ve banyo ürünlerini inceleyin.">
+<meta property="og:url" content="https://ssudeguvendi.github.io/bilpa/">
+<meta property="og:image" content="https://ssudeguvendi.github.io/bilpa/bilpa-deger.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Bil-Pa Ticaret",
+  "url": "https://ssudeguvendi.github.io/bilpa/",
+  "telephone": "+90 533 402 65 64",
+  "description": "Mermer ve granit işleme malzemeleri ile mutfak ve banyo ürünlerinde tedarik ve teklif çözümleri."
+}
+</script>
+</head>
+
+<body>
+<header class="hero">
+    <nav class="navbar">
+        <a class="brand" href="index.html">BIL-PA TICARET</a>
+
+        <div class="nav-links">
+            <a href="#urunler" data-i18n="nav.products">Ürünler</a>
+            <a href="#hakkimizda" data-i18n="nav.about">Hakkımızda</a>
+            <a href="#iletisim" data-i18n="nav.contact">İletişim</a>
+        </div>
+
+        <div class="language-switcher" aria-label="Dil seçimi">
+            <button type="button" data-lang-button="tr" aria-pressed="true">TR</button>
+            <button type="button" data-lang-button="en" aria-pressed="false">EN</button>
+        </div>
+    </nav>
+
+    <div class="hero-wrapper">
+        <div class="hero-content reveal">
+            <div class="hero-logo" data-i18n="hero.logo">★ BILPA-TICARET</div>
+            <div class="hero-category" data-i18n="hero.category">Mermer & Granit İşleme Malzemeleri</div>
+
+            <h1 class="hero-title">
+                <span data-i18n="hero.titleLine1">Kaliteyi İşleyen</span><br>
+                <span data-i18n="hero.titleLine2">Tedarik Gücü.</span>
+            </h1>
+
+            <p class="hero-description" data-i18n="hero.description1">
+                Mermer, granit ve doğal taş sektörüne yönelik geniş ürün yelpazemizle;
+                işleme malzemelerinden evyelere, sarf ürünlerinden ekipmanlara kadar
+                kaliteli ve güvenilir çözümler sunuyoruz.
+            </p>
+
+            <p class="hero-description secondary" data-i18n="hero.description2">
+                Tecrübe, kalite ve güçlü tedarik anlayışımızla işletmelerin üretim
+                süreçlerine değer katıyor, ihtiyaç duydukları ürünleri hızlı ve
+                güvenilir şekilde ulaştırıyoruz.
+            </p>
+
+            <button type="button" onclick="document.getElementById('urunler').scrollIntoView({behavior:'smooth'})" data-i18n="hero.productsButton">
+                Ürünleri İncele →
+            </button>
+
+            <button type="button" class="dark" onclick="document.getElementById('iletisim').scrollIntoView({behavior:'smooth'})" data-i18n="hero.quoteButton">
+                Teklif Al
+            </button>
+        </div>
+
+        <div class="hero-cinematic" aria-hidden="true">
+            <canvas id="stoneCanvas"></canvas>
+            <div class="luxury-orbit"></div>
+            <div class="luxury-scan"></div>
+            <div class="hero-photo hero-photo-cover-start">
+                <img src="bilpa-deger.jpeg" alt="Bil-Pa Ticaret mutfak ve banyo çözümleri">
+            </div>
+            <div class="hero-photo hero-photo-main">
+                <img src="pro 86xl.jpeg" alt="Bil-Pa Pro Serisi granit mutfak evyesi">
+            </div>
+            <div class="hero-photo hero-photo-back">
+                <img src="siyah.jpg.jpeg" alt="Siyah granit banyo lavabosu">
+            </div>
+            <div class="hero-photo hero-photo-side">
+                <img src="assos86xl.jpeg" alt="Assos 86 XL granit mutfak evyesi">
+            </div>
+            <div class="hero-photo hero-photo-cover-end">
+                <img src="bilpa-deger.jpeg" alt="Bil-Pa Ticaret ürün koleksiyonu">
+            </div>
+            <div class="hero-rail">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="urunler" class="reveal">
+        <h2 data-i18n="products.title">Ürün Grupları</h2>
+
+        <div class="kategori-kartlar">
+            <div class="kategori-kart" onclick="showCategory('mutfak')">
+                <img src="fotoo.jpg.jpeg" alt="Mutfak">
+                <div class="kategori-yazi" data-i18n="products.kitchen">MUTFAK</div>
+            </div>
+
+            <div class="kategori-kart" onclick="showCategory('banyo')">
+                <img src="banyo.jpeg" alt="Banyo">
+                <div class="kategori-yazi" data-i18n="products.bathroom">BANYO</div>
+            </div>
+        </div>
+
+        <div id="mutfak" class="kategori">
+            <div class="seri-kart">
+                <img src="foto.jpg.jpeg" alt="Pro Serisi">
+                <div class="seri-icerik">
+                    <h3 data-i18n="series.pro">Pro - Serisi</h3>
+                    <button type="button" onclick="showProSeries()" data-i18n="products.discoverSeries">SERİYİ KEŞFET →</button>
+                </div>
+            </div>
+
+            <div class="seri-kart">
+                <img src="paslanmaz.jpg.jpeg" alt="K Serisi">
+                <div class="seri-icerik">
+                    <h3 data-i18n="series.k">K - Serisi</h3>
+                    <button type="button" data-i18n="products.discoverSeries">SERİYİ KEŞFET →</button>
+                </div>
+            </div>
+
+            <div class="seri-kart">
+                <img src="mutfak.jpg.jpeg" alt="Armatürler">
+                <div class="seri-icerik">
+                    <h3 data-i18n="series.faucets">Armatürler</h3>
+                    <button type="button" data-i18n="products.viewProducts">ÜRÜNLERİ İNCELE →</button>
+                </div>
+            </div>
+
+            <div class="seri-kart">
+                <img src="akilli.jpg.jpeg" alt="Akıllı Evye">
+                <div class="seri-icerik">
+                    <h3 data-i18n="series.smartSink">Akıllı Evye</h3>
+                    <button type="button" data-i18n="products.viewProducts">ÜRÜNLERİ İNCELE →</button>
+                </div>
+            </div>
+
+            <div class="seri-kart">
+                <img src="aksesuar.jpg" alt="Aksesuarlar">
+                <div class="seri-icerik">
+                    <h3 data-i18n="series.accessories">Aksesuarlar</h3>
+                    <button type="button" data-i18n="products.viewProducts">ÜRÜNLERİ İNCELE →</button>
+                </div>
+            </div>
+
+            <div id="pro-serisi" class="pro-urunler">
+                <h2>Pro Serisi</h2>
+
+                <div class="pro-urun-grid">
+                    <div class="pro-urun-kart">
+                        <img src="assos86xl.jpeg" alt="P011 ASSOS 86 XL">
+                        <div class="pro-urun-icerik">
+                            <h3>P011 ASSOS 86 XL</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p011-assos-86-xl'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P012 EFES 100">
+                        <div class="pro-urun-icerik">
+                            <h3>P012 EFES 100</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p012-efes-100'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P013 SALDA 100">
+                        <div class="pro-urun-icerik">
+                            <h3>P013 SALDA 100</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p013-salda-100'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P014 LOADIKYA 86 XL">
+                        <div class="pro-urun-icerik">
+                            <h3>P014 LOADIKYA 86 XL</h3>
+                            <button type="button" onclick="window.location.href='p014-loadikya-86-xl.html'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P015 LOADIKYA 100 XL">
+                        <div class="pro-urun-icerik">
+                            <h3>P015 LOADIKYA 100 XL</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p015-loadikya-100-xl'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="ALMİLA">
+                        <div class="pro-urun-icerik">
+                            <h3>ALMİLA</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=almila'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="LİKYA">
+                        <div class="pro-urun-icerik">
+                            <h3>LİKYA</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=likya'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P017 PATARA">
+                        <div class="pro-urun-icerik">
+                            <h3>P017 PATARA</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p017-patara'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P022 ASPENDOS">
+                        <div class="pro-urun-icerik">
+                            <h3>P022 ASPENDOS</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p022-aspendos'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P023 KNIDOS">
+                        <div class="pro-urun-icerik">
+                            <h3>P023 KNIDOS</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p023-knidos'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P010 ASSOS 76 XL">
+                        <div class="pro-urun-icerik">
+                            <h3>P010 ASSOS 76 XL</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p010-assos-76-xl'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P021 ESİLA">
+                        <div class="pro-urun-icerik">
+                            <h3>P021 ESİLA</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p021-esila'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P018 BERGAMA">
+                        <div class="pro-urun-icerik">
+                            <h3>P018 BERGAMA</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p018-bergama'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P019 NEMRUT 97">
+                        <div class="pro-urun-icerik">
+                            <h3>P019 NEMRUT 97</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p019-nemrut-97'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P004 TROYA 86">
+                        <div class="pro-urun-icerik">
+                            <h3>P004 TROYA 86</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p004-troya-86'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P016 CAPPADOCIA">
+                        <div class="pro-urun-icerik">
+                            <h3>P016 CAPPADOCIA</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p016-cappadocia'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P005 TROYA 100">
+                        <div class="pro-urun-icerik">
+                            <h3>P005 TROYA 100</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p005-troya-100'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-urun-kart">
+                        <img src="pro 86xl.jpeg" alt="P024 ARTEMIS">
+                        <div class="pro-urun-icerik">
+                            <h3>P024 ARTEMIS</h3>
+                            <button type="button" onclick="window.location.href='pro-urun.html?urun=p024-artemis'" data-i18n="products.viewProduct">ÜRÜNÜ İNCELE →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="banyo" class="kategori">
+            <div class="seri-kart">
+                <img src="siyah.jpg.jpeg" alt="Flatstone">
+                <div class="seri-icerik">
+                    <h3>Flatstone</h3>
+                    <button type="button" onclick="window.location.href='flatstone.html'" data-i18n="products.viewProducts">ÜRÜNLERİ İNCELE →</button>
+                </div>
+            </div>
+
+            <div class="seri-kart">
+                <img src="siyah.jpg.jpeg" alt="Pure">
+                <div class="seri-icerik">
+                    <h3>Pure</h3>
+                    <button type="button" onclick="window.location.href='pure.html'" data-i18n="products.viewProducts">ÜRÜNLERİ İNCELE →</button>
+                </div>
+            </div>
+
+            <div class="seri-kart">
+                <img src="gri.jpg.jpeg" alt="Avokado">
+                <div class="seri-icerik">
+                    <h3>Avokado</h3>
+                    <button type="button" onclick="window.location.href='avokado.html'" data-i18n="products.viewProducts">ÜRÜNLERİ İNCELE →</button>
+                </div>
+            </div>
+
+            <div class="seri-kart">
+                <img src="banyo.jpeg" alt="Aura 65">
+                <div class="seri-icerik">
+                    <h3>Aura 65</h3>
+                    <button type="button" data-i18n="products.viewProducts">ÜRÜNLERİ İNCELE →</button>
+                </div>
+            </div>
+
+            <div class="seri-kart">
+                <img src="banyo.jpeg" alt="Aura 80">
+                <div class="seri-icerik">
+                    <h3>Aura 80</h3>
+                    <button type="button" onclick="window.location.href='aura80.html'" data-i18n="products.viewProducts">ÜRÜNLERİ İNCELE →</button>
+                </div>
+            </div>
+
+            <div class="seri-kart">
+                <img src="banyo.jpeg" alt="Zenith 80">
+                <div class="seri-icerik">
+                    <h3>Zenith 80</h3>
+                    <button type="button" data-i18n="products.viewProducts">ÜRÜNLERİ İNCELE →</button>
+                </div>
+            </div>
+
+            <div class="seri-kart">
+                <img src="banyo.jpeg" alt="Zenith 65">
+                <div class="seri-icerik">
+                    <h3>Zenith 65</h3>
+                    <button type="button" data-i18n="products.viewProducts">ÜRÜNLERİ İNCELE →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hakkimizda" class="about reveal">
+        <h2 data-i18n="about.title">Kalite & Güven</h2>
+        <p data-i18n="about.text">Bil-Pa Ticaret, mermer ve granit sektöründe profesyonel çözümler sunar.</p>
+    </section>
+
+    <section class="solution-section reveal">
+        <span class="solution-eyebrow" data-i18n="features.eyebrow">BIL-PA AYRICALIĞI</span>
+        <h2 data-i18n="features.title">İhtiyacınıza Hızlı, Güvenilir Çözüm</h2>
+        <p class="solution-intro" data-i18n="features.intro">
+            Doğru ürünü, güçlü tedarik ve hızlı iletişimle işletmenize ulaştırıyoruz.
+        </p>
+
+        <div class="cards solution-cards">
+            <div class="card solution-card">
+                <span class="solution-number">01</span>
+                <h3 data-i18n="features.card1Title">Seçkin Ürünler</h3>
+                <p data-i18n="features.card1Text">Dayanıklılık ve estetiği bir araya getiren güvenilir ürün seçenekleri.</p>
+            </div>
+
+            <div class="card solution-card">
+                <span class="solution-number">02</span>
+                <h3 data-i18n="features.card2Title">Hızlı Geri Dönüş</h3>
+                <p data-i18n="features.card2Text">Talebinize vakit kaybetmeden net ve çözüm odaklı yanıt.</p>
+            </div>
+
+            <div class="card solution-card">
+                <span class="solution-number">03</span>
+                <h3 data-i18n="features.card3Title">Uzman Yönlendirme</h3>
+                <p data-i18n="features.card3Text">Projenize ve kullanım alanınıza en uygun ürünü birlikte belirleyelim.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="iletisim" class="contact reveal">
+        <h2 data-i18n="contact.title">Teklif Al</h2>
+        <a href="https://wa.me/905334026564" target="_blank" rel="noopener">
+            <button type="button" data-i18n="contact.whatsapp">WhatsApp'tan Ulaş</button>
+        </a>
+    </section>
+</main>
+
+<footer data-i18n="footer.text">
+    BIL-PA TICARET — Mermer & Granit Çözümleri
+</footer>
+</body>
+</html>
