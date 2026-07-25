@@ -555,10 +555,9 @@ footer{
 }
 
 .hero-monogram::before{
-    content:"BP";
-    position:absolute;
-    color:#f5f7fa;
-    transform:rotate(-45deg);
+    content:"BILPATIC";
+font-size:9px;
+letter-spacing:.5px;
 }
 
 .hero-brand-name{
