@@ -555,7 +555,6 @@ footer{
 }
 
 .hero-monogram::before{
-    .hero-monogram::before{
     content:"BILPATIC";
     position:absolute;
     color:#f5f7fa;
