@@ -84,7 +84,7 @@
                 </ul>
             </div>
 
-            <a href="https://wa.me/905334026564" target="_blank" rel="noopener">
+            <a href="https://wa.me/905334026564" target="_blank" rel="noopener" onclick="var n=this.closest('.urun-bilgi').querySelector('h1').textContent.trim();var e=document.documentElement.lang==='en';var m=e?'Hello, I would like to receive a quote for the '+n+' product.':'Merhaba, '+n+' ürünü için teklif almak istiyorum.';this.href='https://wa.me/905334026564?text='+encodeURIComponent(m+'\n'+(e?'Product link: ':'Ürün bağlantısı: ')+window.location.href.split('#')[0]);">
                 <button type="button" class="whatsapp-btn" data-i18n="productPage.quoteButton">Teklif Al</button>
             </a>
         </div>
