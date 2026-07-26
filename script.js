@@ -38,6 +38,9 @@ const translations = {
             title: "Ürün Grupları",
             kitchen: "MUTFAK",
             bathroom: "BANYO",
+            filterAll: "TÜMÜ",
+            searchPlaceholder: "Ürün veya seri ara...",
+            noResults: "Aradığınız ürün bulunamadı.",
             discoverSeries: "SERİYİ KEŞFET →",
             viewProducts: "ÜRÜNLERİ İNCELE →",
             viewProduct: "ÜRÜNÜ İNCELE →"
@@ -179,6 +182,9 @@ const translations = {
             title: "Product Groups",
             kitchen: "KITCHEN",
             bathroom: "BATHROOM",
+            filterAll: "ALL",
+            searchPlaceholder: "Search products or series...",
+            noResults: "No matching product was found.",
             discoverSeries: "DISCOVER SERIES →",
             viewProducts: "VIEW PRODUCTS →",
             viewProduct: "VIEW PRODUCT →"
@@ -300,6 +306,14 @@ function setLanguage(lang) {
         }
     });
 
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+        const value = getTranslation(el.dataset.i18nPlaceholder, nextLang);
+        if (value) {
+            el.placeholder = value;
+            el.setAttribute("aria-label", value);
+        }
+    });
+
     document.querySelectorAll("[data-lang-button]").forEach((button) => {
         const isActive = button.dataset.langButton === nextLang;
         button.classList.toggle("active", isActive);
@@ -311,6 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initCallButton();
     initProductBackButton();
     initProductColorPalette();
+    initCatalogSearch();
 
     const savedLanguage = localStorage.getItem("siteLanguage") || "tr";
     setLanguage(savedLanguage);
@@ -323,6 +338,102 @@ document.addEventListener("DOMContentLoaded", () => {
     initStoneCanvas();
     initProProductPage();
 });
+
+function normalizeCatalogText(value) {
+    return value
+        .toLocaleLowerCase("tr-TR")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/ı/g, "i");
+}
+
+function initCatalogSearch() {
+    const search = document.getElementById("catalogSearch");
+    const filters = Array.from(document.querySelectorAll("[data-catalog-filter]"));
+    const categoryCards = document.querySelector(".kategori-kartlar");
+    const noResults = document.getElementById("catalogNoResults");
+
+    if (!search || !filters.length) {
+        return;
+    }
+
+    let selectedFilter = "all";
+
+    const resetCards = () => {
+        document.querySelectorAll(".seri-kart, .pro-urun-kart").forEach((card) => {
+            card.classList.remove("catalog-hidden");
+        });
+    };
+
+    const applyCatalogFilter = () => {
+        const query = normalizeCatalogText(search.value.trim());
+        const isSearching = query.length > 0;
+        const categories = Array.from(document.querySelectorAll("#urunler > .kategori"));
+        let totalMatches = 0;
+
+        resetCards();
+
+        categories.forEach((category) => {
+            const allowed = selectedFilter === "all" || category.id === selectedFilter;
+            const seriesCards = Array.from(category.querySelectorAll(":scope > .seri-kart"));
+            const productCards = Array.from(category.querySelectorAll(".pro-urun-kart"));
+            let categoryMatches = 0;
+            let productMatches = 0;
+
+            seriesCards.forEach((card) => {
+                const matches = !isSearching || normalizeCatalogText(card.textContent).includes(query);
+                card.classList.toggle("catalog-hidden", !matches);
+                if (matches) {
+                    categoryMatches += 1;
+                }
+            });
+
+            productCards.forEach((card) => {
+                const matches = !isSearching || normalizeCatalogText(card.textContent).includes(query);
+                card.classList.toggle("catalog-hidden", !matches);
+                if (matches) {
+                    productMatches += 1;
+                }
+            });
+
+            const hasMatches = allowed && (categoryMatches > 0 || productMatches > 0);
+            const shouldOpen = isSearching ? hasMatches : selectedFilter !== "all" && category.id === selectedFilter;
+            category.classList.toggle("active", shouldOpen);
+
+            const proSeries = category.querySelector("#pro-serisi");
+            if (proSeries) {
+                proSeries.classList.toggle("active", isSearching && productMatches > 0);
+            }
+
+            if (hasMatches) {
+                totalMatches += categoryMatches + productMatches;
+            }
+        });
+
+        if (categoryCards) {
+            categoryCards.hidden = isSearching || selectedFilter !== "all";
+        }
+
+        if (noResults) {
+            noResults.hidden = !isSearching || totalMatches > 0;
+        }
+    };
+
+    filters.forEach((button) => {
+        button.addEventListener("click", () => {
+            selectedFilter = button.dataset.catalogFilter;
+            filters.forEach((item) => {
+                const active = item === button;
+                item.classList.toggle("active", active);
+                item.setAttribute("aria-pressed", String(active));
+            });
+            applyCatalogFilter();
+        });
+    });
+
+    search.addEventListener("input", applyCatalogFilter);
+    applyCatalogFilter();
+}
 
 function initProductColorPalette() {
     document.querySelectorAll(".renk").forEach((color) => {

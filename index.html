@@ -117,6 +117,30 @@
     <section id="urunler" class="reveal">
         <h2 data-i18n="products.title">Ürün Grupları</h2>
 
+        <div class="catalog-tools" role="search">
+            <label class="catalog-search">
+                <span aria-hidden="true">⌕</span>
+                <input
+                    id="catalogSearch"
+                    type="search"
+                    autocomplete="off"
+                    data-i18n-placeholder="products.searchPlaceholder"
+                    placeholder="Ürün veya seri ara..."
+                    aria-label="Ürün veya seri ara"
+                >
+            </label>
+
+            <div class="catalog-filters" aria-label="Katalog kategorileri">
+                <button type="button" class="catalog-filter active" data-catalog-filter="all" data-i18n="products.filterAll">Tümü</button>
+                <button type="button" class="catalog-filter" data-catalog-filter="mutfak" data-i18n="products.kitchen">Mutfak</button>
+                <button type="button" class="catalog-filter" data-catalog-filter="banyo" data-i18n="products.bathroom">Banyo</button>
+            </div>
+        </div>
+
+        <p id="catalogNoResults" class="catalog-no-results" data-i18n="products.noResults" hidden>
+            Aradığınız ürün bulunamadı.
+        </p>
+
         <div class="kategori-kartlar">
             <div class="kategori-kart" onclick="showCategory('mutfak')">
                 <img src="fotoo.jpg.jpeg" alt="Mutfak">

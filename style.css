@@ -1270,6 +1270,96 @@ footer{
     transition:.3s;
     margin-bottom:25px;
 }
+
+.catalog-tools{
+    max-width:900px;
+    margin:28px auto 8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.catalog-search{
+    min-width:min(100%, 360px);
+    flex:1 1 360px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:0 16px;
+    min-height:52px;
+    background:#0b1018;
+    border:1px solid #263143;
+    border-radius:16px;
+    color:#aeb7c5;
+    box-shadow:0 14px 34px rgba(0,0,0,.2);
+}
+
+.catalog-search:focus-within{
+    border-color:#748096;
+    box-shadow:0 0 0 3px rgba(148,163,184,.12);
+}
+
+.catalog-search input{
+    width:100%;
+    border:0;
+    outline:0;
+    padding:15px 0;
+    background:transparent;
+    color:#f8fafc;
+    font:inherit;
+}
+
+.catalog-search input::placeholder{
+    color:#8993a3;
+}
+
+.catalog-filters{
+    display:flex;
+    gap:8px;
+    padding:5px;
+    background:#0b1018;
+    border:1px solid #263143;
+    border-radius:16px;
+}
+
+.catalog-filter{
+    min-height:42px;
+    margin:0;
+    padding:10px 16px;
+    border:0;
+    border-radius:11px;
+    background:transparent;
+    color:#aeb7c5;
+    font-size:13px;
+    letter-spacing:.5px;
+}
+
+.catalog-filter:hover,
+.catalog-filter.active{
+    background:#f1f5f9;
+    color:#05070b;
+}
+
+.catalog-no-results{
+    margin:32px auto;
+    padding:22px;
+    max-width:700px;
+    border:1px solid #263143;
+    border-radius:16px;
+    background:#0b1018;
+    color:#cbd5e1;
+    text-align:center;
+}
+
+.catalog-hidden{
+    display:none !important;
+}
+
+.kategori-kartlar[hidden]{
+    display:none !important;
+}
 .seri-kart:hover{
     transform:translateY(-8px);
     border-color:#5e6878;
@@ -1374,6 +1464,23 @@ footer{
 }
 
 @media(max-width:768px){
+
+    .catalog-tools{
+        align-items:stretch;
+    }
+
+    .catalog-search{
+        min-width:100%;
+    }
+
+    .catalog-filters{
+        width:100%;
+    }
+
+    .catalog-filter{
+        flex:1;
+        padding-inline:8px;
+    }
 
     .seri-kartlar{
         grid-template-columns:1fr;
