@@ -351,8 +351,9 @@ function initProductQuoteButtons() {
         }
 
         const updateQuoteLink = () => {
-            const productTitle = document.querySelector(".urun-detay h1") ||
+            const productTitle = document.querySelector(".urun-bilgi h1") ||
                 document.getElementById("proUrunBaslik") ||
+                document.querySelector(".urun-sayfa h1") ||
                 document.querySelector("main h1");
 
             if (!productTitle) {
