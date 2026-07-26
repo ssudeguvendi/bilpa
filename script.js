@@ -337,7 +337,43 @@ document.addEventListener("DOMContentLoaded", () => {
     revealOnScroll();
     initStoneCanvas();
     initProProductPage();
+    initProductQuoteButtons();
 });
+
+function initProductQuoteButtons() {
+    const quoteButtons = document.querySelectorAll(".whatsapp-btn");
+
+    quoteButtons.forEach((button) => {
+        const link = button.closest("a");
+
+        if (!link) {
+            return;
+        }
+
+        const updateQuoteLink = () => {
+            const productTitle = document.querySelector(".urun-detay h1") ||
+                document.getElementById("proUrunBaslik") ||
+                document.querySelector("main h1");
+
+            if (!productTitle) {
+                return;
+            }
+
+            const productName = productTitle.textContent.trim();
+            const pageUrl = new URL(window.location.href);
+            pageUrl.hash = "";
+            const isEnglish = document.documentElement.lang === "en";
+            const message = isEnglish
+                ? `Hello, I would like to receive a quote for the ${productName} product.\nProduct link: ${pageUrl.href}`
+                : `Merhaba, ${productName} ürünü için teklif almak istiyorum.\nÜrün bağlantısı: ${pageUrl.href}`;
+
+            link.href = `https://wa.me/905334026564?text=${encodeURIComponent(message)}`;
+        };
+
+        updateQuoteLink();
+        link.addEventListener("click", updateQuoteLink);
+    });
+}
 
 function normalizeCatalogText(value) {
     return value
