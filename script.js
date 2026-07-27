@@ -9,7 +9,7 @@ const translations = {
             aura80Title: "Aura 80 | Bil-Pa Ticaret",
             zenith65Title: "Zenith 65 | Bil-Pa Ticaret",
             zenith80Title: "Zenith 80 | Bil-Pa Ticaret",
-            artemiseTitle: "P024 ARTEMISE | Bil-Pa Ticaret",
+            artemiseTitle: "P024 ARTEMIS | Bil-Pa Ticaret",
             loadikya86xlTitle: "P014 LOADIKYA 86 XL | Bil-Pa Ticaret"
         },
         nav: {
@@ -91,7 +91,7 @@ const translations = {
             zenith80Subtitle: "Geniş Hazne, Güçlü Tasarım",
             zenith80Intro: "Zenith 80, geniş iç hacmi ve dengeli köşeli formuyla yoğun mutfak kullanımı için konforlu bir çalışma alanı sunar. Dayanıklı granit yüzeyi, kolay temizlenen yapısı ve zengin renk seçenekleriyle modern mutfaklara güçlü bir görünüm kazandırır.",
             artemiseSubtitle: "Çift Hazneli Granit Evye",
-            artemiseIntro: "P024 Artemise, iki ayrı haznesi ve geniş süzgeç alanıyla mutfakta düzenli ve konforlu kullanım sunar. Dayanıklı granit yüzeyi, kolay temizlenen yapısı ve altı seçkin renk seçeneğiyle modern mutfaklara uyum sağlar.",
+            artemiseIntro: "P024 Artemis, iki ayrı haznesi ve geniş süzgeç alanıyla mutfakta düzenli ve konforlu kullanım sunar. Dayanıklı granit yüzeyi, kolay temizlenen yapısı ve altı seçkin renk seçeneğiyle modern mutfaklara uyum sağlar.",
             artemiseFeature1Title: "Çift Hazneli Kullanım",
             artemiseFeature1Text: "İki ayrı hazne, hazırlık ve yıkama işlemlerini aynı anda düzenli şekilde yapmayı kolaylaştırır.",
             artemiseFeature2Title: "Dayanıklı Granit Yüzey",
@@ -182,7 +182,7 @@ const translations = {
             aura80Title: "Aura 80 | Bil-Pa Trade",
             zenith65Title: "Zenith 65 | Bil-Pa Trade",
             zenith80Title: "Zenith 80 | Bil-Pa Trade",
-            artemiseTitle: "P024 ARTEMISE | Bil-Pa Trade",
+            artemiseTitle: "P024 ARTEMIS | Bil-Pa Trade",
             loadikya86xlTitle: "P014 LOADIKYA 86 XL | Bil-Pa Trade"
         },
         nav: {
@@ -264,7 +264,7 @@ const translations = {
             zenith80Subtitle: "Spacious Bowl, Strong Design",
             zenith80Intro: "Zenith 80 offers a comfortable working area for busy kitchens with its spacious inner volume and balanced angular form. Its durable granite surface, easy-to-clean structure and rich color options bring a strong look to modern kitchens.",
             artemiseSubtitle: "Double-Bowl Granite Sink",
-            artemiseIntro: "P024 Artemise offers organized and comfortable kitchen use with two separate bowls and a spacious drainboard. Its durable granite surface, easy-to-clean structure and six selected color options suit modern kitchens.",
+            artemiseIntro: "P024 Artemis offers organized and comfortable kitchen use with two separate bowls and a spacious drainboard. Its durable granite surface, easy-to-clean structure and six selected color options suit modern kitchens.",
             artemiseFeature1Title: "Double-Bowl Convenience",
             artemiseFeature1Text: "Two separate bowls make it easier to organize preparation and washing tasks at the same time.",
             artemiseFeature2Title: "Durable Granite Surface",
