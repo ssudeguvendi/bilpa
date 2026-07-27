@@ -5,6 +5,7 @@ const translations = {
             flatstoneTitle: "Flatstone | Bil-Pa Ticaret",
             pureTitle: "Pure | Bil-Pa Ticaret",
             avokadoTitle: "Avokado | Bil-Pa Ticaret",
+            aura65Title: "Aura 65 | Bil-Pa Ticaret",
             aura80Title: "Aura 80 | Bil-Pa Ticaret",
             loadikya86xlTitle: "P014 LOADIKYA 86 XL | Bil-Pa Ticaret"
         },
@@ -78,6 +79,8 @@ const translations = {
             proFeature3: "✓ Kolay temizlenebilir pürüzsüz doku",
             proFeature4: "✓ Modern mutfaklara uyumlu tasarım",
             avokadoText: "Avokado, doğadan ilham alan yumuşak yeşil tonuyla banyolara ferahlık ve huzur katıyor. Modern tasarımı ve mat dokusuyla estetik görünümü fonksiyonellikle buluşturarak yaşam alanlarına doğal bir karakter kazandırıyor.",
+            aura65Subtitle: "Kompakt Form, Güçlü Tasarım",
+            aura65Intro: "Aura 65, modern banyolar için geliştirilen kompakt ölçüsü, geniş iç haznesi ve dengeli çizgileriyle estetik ve işlevselliği bir araya getirir. Dayanıklı yüzeyi ve zengin renk seçenekleriyle farklı dekorasyon stillerine kolayca uyum sağlar.",
             aura80Subtitle: "Zarafetin ve Konforun Buluştuğu Nokta",
             aura80Intro: "Modern banyolar için tasarlanan Aura 80, yumuşak geçişlere sahip formu ve dengeli tasarım anlayışıyla yaşam alanlarına estetik bir dokunuş kazandırır. Keskin çizgiler yerine akıcı hatların tercih edildiği iç hazne yapısı, hem görsel bütünlük hem de kullanım rahatlığı sunar.",
             highlightsTitle: "Öne Çıkan Özellikler",
@@ -149,6 +152,7 @@ const translations = {
             flatstoneTitle: "Flatstone | Bil-Pa Trade",
             pureTitle: "Pure | Bil-Pa Trade",
             avokadoTitle: "Avokado | Bil-Pa Trade",
+            aura65Title: "Aura 65 | Bil-Pa Trade",
             aura80Title: "Aura 80 | Bil-Pa Trade",
             loadikya86xlTitle: "P014 LOADIKYA 86 XL | Bil-Pa Trade"
         },
@@ -222,6 +226,8 @@ const translations = {
             proFeature3: "✓ Smooth, easy-to-clean texture",
             proFeature4: "✓ Design suited to modern kitchens",
             avokadoText: "Avokado brings freshness and calm to bathrooms with its soft green tone inspired by nature. Its modern design and matte texture combine an elegant appearance with function, adding a natural character to living spaces.",
+            aura65Subtitle: "Compact Form, Strong Design",
+            aura65Intro: "Developed for modern bathrooms, Aura 65 combines aesthetics and functionality with its compact dimensions, spacious bowl and balanced lines. Its durable surface and rich color options adapt easily to different decoration styles.",
             aura80Subtitle: "Where Elegance Meets Comfort",
             aura80Intro: "Designed for modern bathrooms, Aura 80 adds an elegant touch to living spaces with its soft transitions and balanced design approach. Its inner bowl favors flowing lines instead of sharp edges, offering both visual harmony and comfortable use.",
             highlightsTitle: "Highlights",
