@@ -7,6 +7,7 @@ const translations = {
             avokadoTitle: "Avokado | Bil-Pa Ticaret",
             aura65Title: "Aura 65 | Bil-Pa Ticaret",
             aura80Title: "Aura 80 | Bil-Pa Ticaret",
+            zenith65Title: "Zenith 65 | Bil-Pa Ticaret",
             loadikya86xlTitle: "P014 LOADIKYA 86 XL | Bil-Pa Ticaret"
         },
         nav: {
@@ -83,6 +84,8 @@ const translations = {
             aura65Intro: "Aura 65, modern banyolar için geliştirilen kompakt ölçüsü, geniş iç haznesi ve dengeli çizgileriyle estetik ve işlevselliği bir araya getirir. Dayanıklı yüzeyi ve zengin renk seçenekleriyle farklı dekorasyon stillerine kolayca uyum sağlar.",
             aura80Subtitle: "Zarafetin ve Konforun Buluştuğu Nokta",
             aura80Intro: "Modern banyolar için tasarlanan Aura 80, yumuşak geçişlere sahip formu ve dengeli tasarım anlayışıyla yaşam alanlarına estetik bir dokunuş kazandırır. Keskin çizgiler yerine akıcı hatların tercih edildiği iç hazne yapısı, hem görsel bütünlük hem de kullanım rahatlığı sunar.",
+            zenith65Subtitle: "Kompakt Ölçü, Derin Hazne",
+            zenith65Intro: "Zenith 65, kompakt mutfaklarda güçlü kullanım alanı sunan derin haznesi ve modern köşeli formuyla öne çıkar. Dayanıklı granit yüzeyi, kolay temizlenen yapısı ve seçkin renk seçenekleriyle farklı mutfak stillerine uyum sağlar.",
             highlightsTitle: "Öne Çıkan Özellikler",
             aura80Feature1Title: "Akıcı ve Modern Tasarım",
             aura80Feature1Text: "Yuvarlatılmış iç formu sayesinde sade ve zamansız bir görünüm sunan Aura 80, farklı dekorasyon stilleriyle uyum içerisinde kullanılabilir.",
@@ -154,6 +157,7 @@ const translations = {
             avokadoTitle: "Avokado | Bil-Pa Trade",
             aura65Title: "Aura 65 | Bil-Pa Trade",
             aura80Title: "Aura 80 | Bil-Pa Trade",
+            zenith65Title: "Zenith 65 | Bil-Pa Trade",
             loadikya86xlTitle: "P014 LOADIKYA 86 XL | Bil-Pa Trade"
         },
         nav: {
@@ -230,6 +234,8 @@ const translations = {
             aura65Intro: "Developed for modern bathrooms, Aura 65 combines aesthetics and functionality with its compact dimensions, spacious bowl and balanced lines. Its durable surface and rich color options adapt easily to different decoration styles.",
             aura80Subtitle: "Where Elegance Meets Comfort",
             aura80Intro: "Designed for modern bathrooms, Aura 80 adds an elegant touch to living spaces with its soft transitions and balanced design approach. Its inner bowl favors flowing lines instead of sharp edges, offering both visual harmony and comfortable use.",
+            zenith65Subtitle: "Compact Size, Deep Bowl",
+            zenith65Intro: "Zenith 65 stands out with a deep bowl that provides generous working space in compact kitchens and a modern angular form. Its durable granite surface, easy-to-clean structure and selected color options adapt to different kitchen styles.",
             highlightsTitle: "Highlights",
             aura80Feature1Title: "Fluid and Modern Design",
             aura80Feature1Text: "With its rounded inner form, Aura 80 offers a simple and timeless look that works well with different decoration styles.",
