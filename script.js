@@ -10,6 +10,7 @@ const translations = {
             zenith65Title: "Zenith 65 | Bil-Pa Ticaret",
             zenith80Title: "Zenith 80 | Bil-Pa Ticaret",
             artemiseTitle: "P024 ARTEMIS | Bil-Pa Ticaret",
+            olympos56Title: "K004 OLYMPOS 56 | Bil-Pa Ticaret",
             loadikya86xlTitle: "P014 LOADIKYA 86 XL | Bil-Pa Ticaret"
         },
         nav: {
@@ -109,6 +110,25 @@ const translations = {
             artemiseWhiteCode: "Beyaz / Ürün Kodu: P2466010511",
             artemiseCreamCode: "Krem / Ürün Kodu: P2466010521",
             artemiseCappuccinoCode: "Kapuçino / Ürün Kodu: P2466010519",
+            olympos56Subtitle: "K Serisi Granit Evye",
+            olympos56Intro: "K004 Olympos 56, kompakt ölçüsü ve geniş tek haznesiyle günlük mutfak kullanımında konfor sağlar. Modern köşeli formu, dayanıklı granit yüzeyi ve altı seçkin renk seçeneğiyle farklı mutfak stillerine uyum sağlar.",
+            olympos56Feature1Title: "Kompakt ve Kullanışlı Form",
+            olympos56Feature1Text: "56 cm'lik dengeli yapısı, dar ve orta ölçülü mutfak tezgâhlarında verimli kullanım alanı sunar.",
+            olympos56Feature2Title: "Geniş Tek Hazne",
+            olympos56Feature2Text: "Derin ve ferah hazne yapısı, günlük bulaşıkların ve büyük mutfak gereçlerinin rahatça yıkanmasını kolaylaştırır.",
+            olympos56Feature3Title: "Dayanıklı Granit Yüzey",
+            olympos56Feature3Text: "Yoğun mutfak kullanımına uygun sağlam yüzeyi, uzun ömürlü ve güvenilir kullanım sağlar.",
+            olympos56Feature4Title: "Kolay Temizlik",
+            olympos56Feature4Text: "Pürüzsüz yüzey dokusu, günlük lekelerin ve yemek kalıntılarının kolayca temizlenmesine yardımcı olur.",
+            olympos56Spec1: "Ürün Ölçüsü: 560x530",
+            olympos56Spec2: "Tezgaha Sıfır Kesim Ölçüsü: 560x530",
+            olympos56Spec3: "Tezgah Üstü Kesim Ölçüsü: 540x510",
+            olympos56BlackCode: "Siyah / Ürün Kodu: K0466010113",
+            olympos56AnthraciteCode: "Antrasit / Ürün Kodu: K0466010117",
+            olympos56GrayCode: "Gri / Ürün Kodu: K0466010115",
+            olympos56CreamCode: "Krem / Ürün Kodu: K0466010121",
+            olympos56CappuccinoCode: "Kapuçino / Ürün Kodu: K0466010119",
+            olympos56WhiteCode: "Beyaz / Ürün Kodu: K0466010111",
             highlightsTitle: "Öne Çıkan Özellikler",
             aura80Feature1Title: "Akıcı ve Modern Tasarım",
             aura80Feature1Text: "Yuvarlatılmış iç formu sayesinde sade ve zamansız bir görünüm sunan Aura 80, farklı dekorasyon stilleriyle uyum içerisinde kullanılabilir.",
@@ -183,6 +203,7 @@ const translations = {
             zenith65Title: "Zenith 65 | Bil-Pa Trade",
             zenith80Title: "Zenith 80 | Bil-Pa Trade",
             artemiseTitle: "P024 ARTEMIS | Bil-Pa Trade",
+            olympos56Title: "K004 OLYMPOS 56 | Bil-Pa Trade",
             loadikya86xlTitle: "P014 LOADIKYA 86 XL | Bil-Pa Trade"
         },
         nav: {
@@ -282,6 +303,25 @@ const translations = {
             artemiseWhiteCode: "White / Product Code: P2466010511",
             artemiseCreamCode: "Cream / Product Code: P2466010521",
             artemiseCappuccinoCode: "Cappuccino / Product Code: P2466010519",
+            olympos56Subtitle: "K Series Granite Sink",
+            olympos56Intro: "K004 Olympos 56 provides comfortable everyday kitchen use with its compact size and spacious single bowl. Its modern angular form, durable granite surface and six selected color options suit different kitchen styles.",
+            olympos56Feature1Title: "Compact and Practical Form",
+            olympos56Feature1Text: "Its balanced 56 cm structure provides efficient working space on compact and medium-sized kitchen countertops.",
+            olympos56Feature2Title: "Spacious Single Bowl",
+            olympos56Feature2Text: "The deep, generous bowl makes it easier to wash everyday dishes and larger kitchenware.",
+            olympos56Feature3Title: "Durable Granite Surface",
+            olympos56Feature3Text: "Its solid surface is suited to busy kitchen use and provides reliable, long-lasting performance.",
+            olympos56Feature4Title: "Easy Cleaning",
+            olympos56Feature4Text: "The smooth surface helps daily stains and food residue clean away easily.",
+            olympos56Spec1: "Product Size: 560x530",
+            olympos56Spec2: "Flush Countertop Cut Size: 560x530",
+            olympos56Spec3: "Top-Mount Countertop Cut Size: 540x510",
+            olympos56BlackCode: "Black / Product Code: K0466010113",
+            olympos56AnthraciteCode: "Anthracite / Product Code: K0466010117",
+            olympos56GrayCode: "Gray / Product Code: K0466010115",
+            olympos56CreamCode: "Cream / Product Code: K0466010121",
+            olympos56CappuccinoCode: "Cappuccino / Product Code: K0466010119",
+            olympos56WhiteCode: "White / Product Code: K0466010111",
             highlightsTitle: "Highlights",
             aura80Feature1Title: "Fluid and Modern Design",
             aura80Feature1Text: "With its rounded inner form, Aura 80 offers a simple and timeless look that works well with different decoration styles.",
@@ -495,10 +535,11 @@ function initCatalogSearch() {
             const shouldOpen = isSearching ? hasMatches : selectedFilter !== "all" && category.id === selectedFilter;
             category.classList.toggle("active", shouldOpen);
 
-            const proSeries = category.querySelector("#pro-serisi");
-            if (proSeries) {
-                proSeries.classList.toggle("active", isSearching && productMatches > 0);
-            }
+            category.querySelectorAll(".pro-urunler").forEach((seriesSection) => {
+                const hasVisibleProduct = Array.from(seriesSection.querySelectorAll(".pro-urun-kart"))
+                    .some((card) => !card.classList.contains("catalog-hidden"));
+                seriesSection.classList.toggle("active", isSearching && hasVisibleProduct);
+            });
 
             if (hasMatches) {
                 totalMatches += categoryMatches + productMatches;
@@ -648,14 +689,38 @@ function showCategory(id) {
 function showProSeries() {
     const kitchen = document.getElementById("mutfak");
     const proSeries = document.getElementById("pro-serisi");
+    const kSeries = document.getElementById("k-serisi");
+
+    if (kitchen) {
+        kitchen.classList.add("active");
+    }
+
+    if (kSeries) {
+        kSeries.classList.remove("active");
+    }
+
+    if (proSeries) {
+        proSeries.classList.add("active");
+        requestAnimationFrame(() => scrollToVisibleSection(proSeries));
+    }
+}
+
+function showKSeries() {
+    const kitchen = document.getElementById("mutfak");
+    const kSeries = document.getElementById("k-serisi");
+    const proSeries = document.getElementById("pro-serisi");
 
     if (kitchen) {
         kitchen.classList.add("active");
     }
 
     if (proSeries) {
-        proSeries.classList.add("active");
-        requestAnimationFrame(() => scrollToVisibleSection(proSeries));
+        proSeries.classList.remove("active");
+    }
+
+    if (kSeries) {
+        kSeries.classList.add("active");
+        requestAnimationFrame(() => scrollToVisibleSection(kSeries));
     }
 }
 
