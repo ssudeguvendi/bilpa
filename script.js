@@ -10,6 +10,7 @@ const translations = {
             zenith65Title: "Zenith 65 | Bil-Pa Ticaret",
             zenith80Title: "Zenith 80 | Bil-Pa Ticaret",
             artemiseTitle: "P024 ARTEMIS | Bil-Pa Ticaret",
+            didyma77Title: "K003 DIDYMA 77 | Bil-Pa Ticaret",
             olympos56Title: "K004 OLYMPOS 56 | Bil-Pa Ticaret",
             loadikya86xlTitle: "P014 LOADIKYA 86 XL | Bil-Pa Ticaret"
         },
@@ -110,6 +111,27 @@ const translations = {
             artemiseWhiteCode: "Beyaz / Ürün Kodu: P2466010511",
             artemiseCreamCode: "Krem / Ürün Kodu: P2466010521",
             artemiseCappuccinoCode: "Kapuçino / Ürün Kodu: P2466010519",
+            didyma77Subtitle: "K Serisi Granit Evye",
+            didyma77Intro: "K003 Didyma 77, 77 cm genişliği ve ferah tek haznesiyle yoğun mutfak kullanımında konfor sağlar. Modern köşeli formu, dayanıklı granit yüzeyi ve altı seçkin renk seçeneğiyle farklı mutfak stillerine uyum sağlar.",
+            didyma77Feature1Title: "Geniş ve Kullanışlı Form",
+            didyma77Feature1Text: "77 cm'lik dengeli yapısı, günlük hazırlık ve yıkama işlemleri için ferah bir çalışma alanı sunar.",
+            didyma77Feature2Title: "Ferah Tek Hazne",
+            didyma77Feature2Text: "Derin ve geniş haznesi, büyük tencere, tava ve mutfak gereçlerinin rahatça yıkanmasını kolaylaştırır.",
+            didyma77Feature3Title: "Dayanıklı Granit Yüzey",
+            didyma77Feature3Text: "Yoğun mutfak kullanımına uygun sağlam yüzeyi, uzun ömürlü ve güvenilir kullanım sağlar.",
+            didyma77Feature4Title: "Kolay Temizlik",
+            didyma77Feature4Text: "Pürüzsüz yüzey dokusu, günlük lekelerin ve yemek kalıntılarının kolayca temizlenmesine yardımcı olur.",
+            didyma77Spec1: "Ürün Ölçüsü: 770x530",
+            didyma77Spec2: "Tezgaha Sıfır Kesim Ölçüsü: 770x530",
+            didyma77Spec3: "Tezgah Üstü Kesim Ölçüsü: 750x510",
+            didyma77BlackCode: "Siyah / Ürün Kodu: K0366010113",
+            didyma77AnthraciteCode: "Antrasit / Ürün Kodu: K0366010117",
+            didyma77GrayCode: "Gri / Ürün Kodu: K0366010115",
+            didyma77WhiteCode: "Beyaz / Ürün Kodu: K0366010111",
+            didyma77CreamCode: "Krem / Ürün Kodu: K0366010121",
+            didyma77CappuccinoCode: "Kapuçino / Ürün Kodu: K0366010119",
+            technicalDrawingTitle: "Teknik Çizim",
+            didyma77TechnicalAlt: "K003 Didyma 77 teknik ölçü çizimi",
             olympos56Subtitle: "K Serisi Granit Evye",
             olympos56Intro: "K004 Olympos 56, kompakt ölçüsü ve geniş tek haznesiyle günlük mutfak kullanımında konfor sağlar. Modern köşeli formu, dayanıklı granit yüzeyi ve altı seçkin renk seçeneğiyle farklı mutfak stillerine uyum sağlar.",
             olympos56Feature1Title: "Kompakt ve Kullanışlı Form",
@@ -203,6 +225,7 @@ const translations = {
             zenith65Title: "Zenith 65 | Bil-Pa Trade",
             zenith80Title: "Zenith 80 | Bil-Pa Trade",
             artemiseTitle: "P024 ARTEMIS | Bil-Pa Trade",
+            didyma77Title: "K003 DIDYMA 77 | Bil-Pa Trade",
             olympos56Title: "K004 OLYMPOS 56 | Bil-Pa Trade",
             loadikya86xlTitle: "P014 LOADIKYA 86 XL | Bil-Pa Trade"
         },
@@ -303,6 +326,27 @@ const translations = {
             artemiseWhiteCode: "White / Product Code: P2466010511",
             artemiseCreamCode: "Cream / Product Code: P2466010521",
             artemiseCappuccinoCode: "Cappuccino / Product Code: P2466010519",
+            didyma77Subtitle: "K Series Granite Sink",
+            didyma77Intro: "K003 Didyma 77 provides comfort for busy kitchens with its 77 cm width and spacious single bowl. Its modern angular form, durable granite surface and six selected color options suit different kitchen styles.",
+            didyma77Feature1Title: "Spacious and Practical Form",
+            didyma77Feature1Text: "Its balanced 77 cm structure provides generous working space for everyday preparation and washing.",
+            didyma77Feature2Title: "Spacious Single Bowl",
+            didyma77Feature2Text: "Its deep, wide bowl makes it easier to wash large pots, pans and kitchenware.",
+            didyma77Feature3Title: "Durable Granite Surface",
+            didyma77Feature3Text: "Its solid surface is suited to busy kitchen use and provides reliable, long-lasting performance.",
+            didyma77Feature4Title: "Easy Cleaning",
+            didyma77Feature4Text: "The smooth surface helps daily stains and food residue clean away easily.",
+            didyma77Spec1: "Product Size: 770x530",
+            didyma77Spec2: "Flush Countertop Cut Size: 770x530",
+            didyma77Spec3: "Top-Mount Countertop Cut Size: 750x510",
+            didyma77BlackCode: "Black / Product Code: K0366010113",
+            didyma77AnthraciteCode: "Anthracite / Product Code: K0366010117",
+            didyma77GrayCode: "Gray / Product Code: K0366010115",
+            didyma77WhiteCode: "White / Product Code: K0366010111",
+            didyma77CreamCode: "Cream / Product Code: K0366010121",
+            didyma77CappuccinoCode: "Cappuccino / Product Code: K0366010119",
+            technicalDrawingTitle: "Technical Drawing",
+            didyma77TechnicalAlt: "K003 Didyma 77 technical dimension drawing",
             olympos56Subtitle: "K Series Granite Sink",
             olympos56Intro: "K004 Olympos 56 provides comfortable everyday kitchen use with its compact size and spacious single bowl. Its modern angular form, durable granite surface and six selected color options suit different kitchen styles.",
             olympos56Feature1Title: "Compact and Practical Form",
@@ -409,6 +453,13 @@ function setLanguage(lang) {
         if (value) {
             el.placeholder = value;
             el.setAttribute("aria-label", value);
+        }
+    });
+
+    document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+        const value = getTranslation(el.dataset.i18nAlt, nextLang);
+        if (value) {
+            el.alt = value;
         }
     });
 
