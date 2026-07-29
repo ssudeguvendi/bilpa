@@ -2189,20 +2189,30 @@ footer{
 
 @media(max-width:600px){
     .technical-drawing-section{
-        padding:12px;
+        width:calc(100% - 20px);
+        margin-top:34px;
+        padding:10px;
         border-radius:18px;
     }
 
     .technical-drawing-heading{
         gap:12px;
-        margin:6px 4px 16px;
+        margin:4px 6px 14px;
     }
 
     .technical-drawing-heading > span{
-        width:36px;
+        width:30px;
+    }
+
+    .technical-drawing-heading h2{
+        font-size:20px;
     }
 
     .technical-drawing-section > img{
+        width:88%;
+        max-height:54vh;
+        margin-inline:auto;
+        object-fit:contain;
         border-radius:12px;
     }
 }
