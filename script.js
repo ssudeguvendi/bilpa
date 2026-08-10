@@ -874,7 +874,7 @@ function initCallButton() {
         color:#fff;
     `;
     callButton.innerHTML = `
-        <span aria-hidden="true" style="color:#fff;background:transparent;font-size:23px;line-height:1;">☎</span>
+        <span aria-hidden="true" class="call-icon">📞</span>
     `;
     document.body.appendChild(callButton);
 }
