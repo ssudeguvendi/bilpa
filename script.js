@@ -65,7 +65,7 @@ const translations = {
         about: {
             eyebrow: "BIL-PA HİZMET AĞI",
             title: "Türkiye Çapında Güçlü Hizmet Ağı",
-            text: "İstanbul Kartal merkezli saha ağımızla; Marmara, Trakya ve Ege Bölgesi'ndeki müşterilerimizi düzenli olarak ziyaret ediyor, ürün ve proje ihtiyaçlarına yerinde destek sunuyoruz.",
+            text: "İstanbul Kartal merkezli hizmet ağımızla; Trakya, Marmara ve Ege'deki 10 şehirde müşterilerimizi düzenli olarak ziyaret ediyoruz. Yerinde ürün desteğimizi, güvenli paketleme ve Türkiye'nin 81 iline kargo imkânıyla tamamlıyoruz.",
             stat1: "İle Kargo İmkânı",
             stat2: "Aktif Hizmet Rotası",
             stat3: "İstanbul / Kartal Merkez",
@@ -377,7 +377,7 @@ const translations = {
         about: {
             eyebrow: "BIL-PA SERVICE NETWORK",
             title: "A Strong Service Network Across Türkiye",
-            text: "From our headquarters in Kartal, Istanbul, we regularly visit customers across Marmara, Thrace and the Aegean Region, providing on-site support for product and project needs.",
+            text: "From our headquarters in Kartal, Istanbul, we regularly visit customers across 10 cities in Thrace, Marmara and the Aegean Region. We complement our on-site product support with secure packaging and nationwide delivery across Türkiye.",
             stat1: "Nationwide Delivery",
             stat2: "Active Service Routes",
             stat3: "Kartal / Istanbul Headquarters",
