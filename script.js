@@ -1108,6 +1108,23 @@ function initProductBackButton() {
     backButton.setAttribute("data-i18n", "productPage.backToProducts");
     backButton.setAttribute("aria-label", "Ürünlere dön");
     backButton.textContent = "Ürünlere Dön";
+    backButton.addEventListener("click", (event) => {
+        let sameSitePreviousPage = false;
+
+        if (document.referrer) {
+            try {
+                const previousUrl = new URL(document.referrer);
+                sameSitePreviousPage = previousUrl.origin === window.location.origin;
+            } catch (error) {
+                sameSitePreviousPage = false;
+            }
+        }
+
+        if (sameSitePreviousPage && window.history.length > 1) {
+            event.preventDefault();
+            window.history.back();
+        }
+    });
     productPage.prepend(backButton);
 }
 
