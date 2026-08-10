@@ -434,7 +434,7 @@ h2{
     .service-map-card{padding:12px 9px;border-radius:18px}
     .map-topline small{display:none}
     .turkey-network-map{margin-block:8px}
-    .city-label{font-size:22px}
+    .city-label{display:none}
     .map-label rect{width:190px}
     .map-label text{font-size:14px}
     .map-label .label-main{font-size:18px}
