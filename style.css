@@ -997,8 +997,7 @@ footer{
 }
 
 @keyframes reelFade{
-    0%{opacity:0; transform:rotate(-2deg) scale(.985);}
-    4%, 17%{opacity:1; transform:rotate(-2deg) scale(1);}
+    0%, 18%{opacity:1; transform:rotate(-2deg) scale(1);}
     22%, 100%{opacity:0; transform:rotate(-2deg) scale(1.015);}
 }
 
@@ -1010,8 +1009,7 @@ footer{
 }
 
 @keyframes mobileReelFade{
-    0%{opacity:0; transform:scale(.995);}
-    4%, 17%{opacity:1; transform:scale(1);}
+    0%, 18%{opacity:1; transform:scale(1);}
     22%, 100%{opacity:0; transform:scale(1.01);}
 }
 

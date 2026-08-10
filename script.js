@@ -889,6 +889,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     revealOnScroll();
     initStoneCanvas();
+    initHeroPlaybackRecovery();
     initProProductPage();
     initProductQuoteButtons();
 });
@@ -1230,6 +1231,9 @@ function initStoneCanvas() {
     }
 
     const ctx = canvas.getContext("2d");
+    if (!ctx) {
+        return;
+    }
     const veins = Array.from({ length: 18 }, (_, index) => ({
         x: Math.random(),
         y: Math.random(),
@@ -1320,6 +1324,48 @@ function initStoneCanvas() {
     resize();
     window.addEventListener("resize", resize);
     render();
+}
+
+function restartHeroAnimations() {
+    const hero = document.querySelector(".hero-cinematic");
+    if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+    }
+
+    if (typeof hero.getAnimations === "function") {
+        try {
+            hero.getAnimations({ subtree: true }).forEach((animation) => {
+                animation.cancel();
+                animation.play();
+            });
+            return;
+        } catch (error) {
+            // Older in-app browsers use the CSS fallback below.
+        }
+    }
+
+    const animatedElements = [hero, ...hero.querySelectorAll(".hero-photo, .hero-photo img, .hero-rail span, .luxury-orbit, .luxury-scan")];
+    animatedElements.forEach((element) => {
+        element.style.animation = "none";
+    });
+    void hero.offsetWidth;
+    animatedElements.forEach((element) => {
+        element.style.animation = "";
+    });
+}
+
+function initHeroPlaybackRecovery() {
+    window.addEventListener("pageshow", (event) => {
+        if (event.persisted) {
+            window.requestAnimationFrame(restartHeroAnimations);
+        }
+    });
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") {
+            window.requestAnimationFrame(restartHeroAnimations);
+        }
+    });
 }
 
 const proProducts = {
