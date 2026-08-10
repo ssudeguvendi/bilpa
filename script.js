@@ -56,6 +56,12 @@ const translations = {
             filterAll: "TÜMÜ",
             searchPlaceholder: "Ürün veya seri ara...",
             noResults: "Aradığınız ürün bulunamadı.",
+            catalogEyebrow: "KATALOG KOLEKSİYONLARI",
+            catalogChoiceTitle: "Yaşam alanınıza göre keşfedin",
+            catalogChoiceText: "Mutfak ve banyo koleksiyonlarımızı incelemek için bir kataloğa dokunun.",
+            kitchenCatalog: "MUTFAK KATALOĞU",
+            bathroomCatalog: "BANYO KATALOĞU",
+            openCatalog: "Kataloğu Aç",
             discoverSeries: "SERİYİ KEŞFET →",
             viewProducts: "ÜRÜNLERİ İNCELE →",
             viewProduct: "ÜRÜNÜ İNCELE →"
@@ -467,6 +473,12 @@ const translations = {
             filterAll: "ALL",
             searchPlaceholder: "Search products or series...",
             noResults: "No matching product was found.",
+            catalogEyebrow: "CATALOG COLLECTIONS",
+            catalogChoiceTitle: "Explore by living space",
+            catalogChoiceText: "Choose a catalog to browse our kitchen and bathroom collections.",
+            kitchenCatalog: "KITCHEN CATALOG",
+            bathroomCatalog: "BATHROOM CATALOG",
+            openCatalog: "Open Catalog",
             discoverSeries: "DISCOVER SERIES →",
             viewProducts: "VIEW PRODUCTS →",
             viewProduct: "VIEW PRODUCT →"
@@ -935,7 +947,7 @@ function initCatalogSearch() {
         return;
     }
 
-    let selectedFilter = "all";
+    let selectedFilter = "mutfak";
 
     const resetCards = () => {
         document.querySelectorAll(".seri-kart, .pro-urun-kart").forEach((card) => {
@@ -990,7 +1002,7 @@ function initCatalogSearch() {
         });
 
         if (categoryCards) {
-            categoryCards.hidden = isSearching || selectedFilter !== "all";
+            categoryCards.hidden = isSearching;
         }
 
         if (noResults) {
@@ -1005,6 +1017,11 @@ function initCatalogSearch() {
                 const active = item === button;
                 item.classList.toggle("active", active);
                 item.setAttribute("aria-pressed", String(active));
+            });
+            document.querySelectorAll("[data-category-choice]").forEach((card) => {
+                const active = card.dataset.categoryChoice === selectedFilter;
+                card.classList.toggle("active-choice", active);
+                card.setAttribute("aria-pressed", String(active));
             });
             applyCatalogFilter();
         });
@@ -1127,8 +1144,21 @@ function showCategory(id) {
     const target = document.getElementById(id);
     if (target) {
         target.classList.add("active");
+        document.querySelectorAll("[data-category-choice]").forEach((card) => {
+            const active = card.dataset.categoryChoice === id;
+            card.classList.toggle("active-choice", active);
+            card.setAttribute("aria-pressed", String(active));
+        });
         requestAnimationFrame(() => scrollToVisibleSection(target));
     }
+}
+
+function selectCatalogCategory(id) {
+    const filter = document.querySelector(`[data-catalog-filter="${id}"]`);
+    if (filter) {
+        filter.click();
+    }
+    showCategory(id);
 }
 
 function showProSeries() {

@@ -15,8 +15,8 @@
 <meta property="og:url" content="https://ssudeguvendi.github.io/bilpa/">
 <meta property="og:image" content="https://ssudeguvendi.github.io/bilpa/bilpa-deger.jpeg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=20260810-11">
-<script defer src="script.js?v=20260810-12"></script>
+<link rel="stylesheet" href="style.css?v=20260810-13">
+<script defer src="script.js?v=20260810-13"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -131,8 +131,8 @@
             </label>
 
             <div class="catalog-filters" aria-label="Katalog kategorileri">
-                <button type="button" class="catalog-filter active" data-catalog-filter="all" data-i18n="products.filterAll">Tümü</button>
-                <button type="button" class="catalog-filter" data-catalog-filter="mutfak" data-i18n="products.kitchen">Mutfak</button>
+                <button type="button" class="catalog-filter" data-catalog-filter="all" data-i18n="products.filterAll">Tümü</button>
+                <button type="button" class="catalog-filter active" data-catalog-filter="mutfak" data-i18n="products.kitchen">Mutfak</button>
                 <button type="button" class="catalog-filter" data-catalog-filter="banyo" data-i18n="products.bathroom">Banyo</button>
             </div>
         </div>
@@ -141,19 +141,35 @@
             Aradığınız ürün bulunamadı.
         </p>
 
-        <div class="kategori-kartlar">
-            <div class="kategori-kart" onclick="showCategory('mutfak')">
+        <div class="catalog-choice-intro">
+            <span data-i18n="products.catalogEyebrow">KATALOG KOLEKSİYONLARI</span>
+            <h3 data-i18n="products.catalogChoiceTitle">Yaşam alanınıza göre keşfedin</h3>
+            <p data-i18n="products.catalogChoiceText">Mutfak ve banyo koleksiyonlarımızı incelemek için bir kataloğa dokunun.</p>
+        </div>
+
+        <div class="kategori-kartlar" aria-label="Ürün katalogları">
+            <div class="kategori-kart active-choice" data-category-choice="mutfak" role="button" tabindex="0" aria-pressed="true" onclick="selectCatalogCategory('mutfak')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectCatalogCategory('mutfak')}">
                 <img src="fotoo.jpg.jpeg" alt="Mutfak">
-                <div class="kategori-yazi" data-i18n="products.kitchen">MUTFAK</div>
+                <div class="kategori-yazi">
+                    <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 6v16M8 6v10c0 4 2 6 5 6s5-2 5-6V6M13 22v20M32 6c-4 5-6 11-6 17h8v19M34 6v17"/></svg>
+                    <small data-i18n="products.catalogEyebrow">KATALOG KOLEKSİYONLARI</small>
+                    <strong data-i18n="products.kitchenCatalog">MUTFAK KATALOĞU</strong>
+                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
+                </div>
             </div>
 
-            <div class="kategori-kart" onclick="showCategory('banyo')">
+            <div class="kategori-kart" data-category-choice="banyo" role="button" tabindex="0" aria-pressed="false" onclick="selectCatalogCategory('banyo')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectCatalogCategory('banyo')}">
                 <img src="banyo.jpeg" alt="Banyo">
-                <div class="kategori-yazi" data-i18n="products.bathroom">BANYO</div>
+                <div class="kategori-yazi">
+                    <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 24h34v5a10 10 0 0 1-10 10H17A10 10 0 0 1 7 29v-5ZM12 24V13a6 6 0 0 1 12 0M17 39v3M35 39v3"/></svg>
+                    <small data-i18n="products.catalogEyebrow">KATALOG KOLEKSİYONLARI</small>
+                    <strong data-i18n="products.bathroomCatalog">BANYO KATALOĞU</strong>
+                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
+                </div>
             </div>
         </div>
 
-        <div id="mutfak" class="kategori">
+        <div id="mutfak" class="kategori active">
             <div class="seri-kart">
                 <img src="foto.jpg.jpeg" alt="Pro Serisi">
                 <div class="seri-icerik">
