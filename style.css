@@ -22,13 +22,13 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-    width:54px;
-    height:54px;
-    color:white;
-    background:#05070b;
-    border:1px solid #455064;
-    border-radius:50%;
-    box-shadow:0 12px 34px rgba(0,0,0,.48);
+    width:52px;
+    height:52px;
+    color:#d8b276;
+    background:transparent;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
     text-decoration:none;
     backdrop-filter:blur(12px);
     transition:.25s ease;
@@ -39,16 +39,24 @@ body{
 }
 
 .floating-call-button:hover{
-    color:white;
-    border-color:#7b8798;
-    transform:translateY(-3px);
+    color:#f1d5a8;
+    transform:translateY(-3px) scale(1.06);
 }
 
 .call-icon{
-    color:white;
-    background:transparent;
-    font-size:23px;
-    line-height:1;
+    display:block;
+    width:31px;
+    height:31px;
+    color:inherit;
+    filter:drop-shadow(0 4px 9px rgba(216,178,118,.26));
+}
+
+.call-icon path{
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.65;
+    stroke-linecap:round;
+    stroke-linejoin:round;
 }
 
 /* HERO */

@@ -864,17 +864,19 @@ function initCallButton() {
         display:flex;
         align-items:center;
         justify-content:center;
-        width:54px;
-        height:54px;
-        min-height:54px;
+        width:52px;
+        height:52px;
+        min-height:52px;
         padding:0;
-        background:#05070b;
-        border:1px solid #455064;
-        border-radius:50%;
-        color:#fff;
+        background:transparent;
+        border:0;
+        border-radius:0;
+        color:#d8b276;
     `;
     callButton.innerHTML = `
-        <span aria-hidden="true" class="call-icon">📞</span>
+        <svg class="call-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+            <path d="M7.2 3.4 9.7 7.8c.3.5.2 1.1-.2 1.5l-1.7 1.6a15.2 15.2 0 0 0 5.3 5.3l1.6-1.7c.4-.4 1-.5 1.5-.2l4.4 2.5c.5.3.7.8.6 1.3l-.5 2.3c-.1.6-.6 1-1.2 1C10.2 21.4 2.6 13.8 2.6 4.5c0-.6.4-1.1 1-1.2l2.3-.5c.5-.1 1 .1 1.3.6Z"/>
+        </svg>
     `;
     document.body.appendChild(callButton);
 }
