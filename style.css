@@ -369,19 +369,45 @@ h2{
 .map-topline small{color:#697587;font-size:10px;font-weight:800;letter-spacing:1.4px}
 
 .turkey-network-map{display:block;width:100%;height:auto;overflow:visible}
-.turkey-shape{fill:url(#mapFill);stroke:#344052;stroke-width:2}
-.map-contour{fill:none;stroke:#273241;stroke-width:1.5;stroke-dasharray:5 9;opacity:.8}
-.service-routes path{fill:none;stroke:#d7aa67;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:7 10;animation:serviceRouteFlow 7s linear infinite}
+.turkey-shape{fill:url(#mapFill);stroke:#425066;stroke-width:2;filter:drop-shadow(0 18px 28px rgba(0,0,0,.42))}
+.map-grid-points circle{fill:#536073;opacity:.62}
+.map-grid-points path{fill:none;stroke:#3d495b;stroke-width:1;stroke-dasharray:2 7;opacity:.48}
+.service-route-bases path{fill:none;stroke:#7f694b;stroke-width:1.4;stroke-linecap:round;opacity:.48}
+.service-routes path{fill:none;stroke:#e1b675;stroke-width:2;stroke-linecap:round;stroke-dasharray:3 11;animation:serviceRouteFlow 7s linear infinite}
 .location-pulse{fill:rgba(216,174,104,.13);stroke:rgba(216,174,104,.3);stroke-width:1;transform-origin:center;animation:mapPulse 2.7s ease-out infinite}
 .location-dot{fill:#e3bc7f;stroke:#fff1d5;stroke-width:1.5;filter:drop-shadow(0 0 6px rgba(227,188,127,.8))}
 .map-hq .location-dot{fill:#fff3df}
-.city-label{fill:#c7cdd6;font-size:12px;font-weight:800;letter-spacing:1.1px}
+.city-label{fill:#c7cdd6;font-size:16px;font-weight:800;letter-spacing:1.1px}
 .map-label rect{fill:#0d131c;stroke:rgba(217,179,118,.38)}
-.map-label text{fill:#8e9aaa;font-size:9px;font-weight:800;letter-spacing:1.2px}
-.map-label .label-main{fill:#f0d09f;font-size:12px;letter-spacing:.4px}
+.map-label text{fill:#8e9aaa;font-size:11px;font-weight:800;letter-spacing:1.2px}
+.map-label .label-main{fill:#f0d09f;font-size:15px;letter-spacing:.4px}
 .map-shipping circle{fill:rgba(11,17,25,.85);stroke:rgba(207,170,108,.34);stroke-width:2;stroke-dasharray:4 5}
 .map-shipping path{fill:#cba66f}
-.map-shipping text{fill:#8e99a8;font-size:11px;font-weight:800;letter-spacing:1.2px}
+.map-shipping text{fill:#8e99a8;font-size:15px;font-weight:800;letter-spacing:1.2px}
+
+.route-city-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    padding:2px 4px 15px;
+}
+
+.route-city-list span{
+    padding:7px 10px;
+    border:1px solid #283345;
+    border-radius:999px;
+    color:#8995a6;
+    background:#0a0f16;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.45px;
+}
+
+.route-city-list .route-city-hq{
+    color:#e4c08a;
+    border-color:rgba(218,178,116,.42);
+    background:rgba(218,178,116,.07);
+}
 
 .map-legend{justify-content:flex-end;padding:14px 4px 1px;border-top:1px solid rgba(255,255,255,.07)}
 .map-legend > span{display:flex;align-items:center;gap:7px;color:#778293;font-size:10px;font-weight:700;letter-spacing:.5px}
@@ -408,11 +434,12 @@ h2{
     .service-map-card{padding:12px 9px;border-radius:18px}
     .map-topline small{display:none}
     .turkey-network-map{margin-block:8px}
-    .city-label{font-size:14px}
+    .city-label{font-size:22px}
     .map-label rect{width:190px}
-    .map-label text{font-size:10px}
-    .map-label .label-main{font-size:14px}
-    .map-shipping text{font-size:13px}
+    .map-label text{font-size:14px}
+    .map-label .label-main{font-size:18px}
+    .map-shipping text{font-size:18px}
+    .route-city-list{justify-content:center;padding-bottom:12px}
     .map-legend{justify-content:center;flex-wrap:wrap;gap:10px 16px}
 }
 

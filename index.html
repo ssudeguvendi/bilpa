@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://ssudeguvendi.github.io/bilpa/">
 <meta property="og:image" content="https://ssudeguvendi.github.io/bilpa/bilpa-deger.jpeg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=20260810-4">
+<link rel="stylesheet" href="style.css?v=20260810-6">
 <script defer src="script.js?v=20260810-5"></script>
 <script type="application/ld+json">
 {
@@ -487,35 +487,45 @@
                         <stop offset="1" stop-color="#090d13"/>
                     </linearGradient>
                     <filter id="routeGlow" x="-40%" y="-40%" width="180%" height="180%">
-                        <feGaussianBlur stdDeviation="5" result="blur"/>
+                        <feGaussianBlur stdDeviation="2.5" result="blur"/>
                         <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
                     </filter>
                 </defs>
 
-                <path class="turkey-shape" d="M48 151 86 124 126 131 157 106 199 116 234 101 272 116 311 91 351 101 391 81 432 96 472 76 516 86 556 66 602 81 650 61 701 76 750 56 801 71 850 51 901 71 942 96 921 121 956 146 926 166 901 161 871 186 821 176 791 206 736 196 701 226 651 211 611 241 561 226 516 256 471 236 431 261 386 241 346 266 301 246 251 271 206 246 166 261 126 236 96 216 61 206 76 181Z"/>
-                <path class="map-contour" d="M302 246 334 210 380 195 430 202 472 176 520 184 561 159 615 172 666 141 718 151 760 126 814 137 868 109 921 121"/>
+                <path class="turkey-shape" d="M849.306 299.327 831.424 307.251 818.382 295.358 774.82 289.237 758.82 296.549 716.333 303.845 696.3 303.053 653.275 320.602 622.486 320.76 602.721 311.918 561.579 324.937 549.344 315.868 547.327 341.752 537.243 351.929 527.294 362 513.58 341.047 527.697 323.598 504.975 327.614 473.647 316.894 447.967 343.633 391.363 348.801 361.111 323.913 320.776 322.337 312.171 341.596 286.356 347.079 250.323 322.416 209.584 323.282 187.4 276.645 160.106 250.358 178.257 213.233 154.593 190.14 196.004 143.556 253.55 141.645 269.281 104.129 340.406 110.677 385.313 78.395 428.875 64.217 490.588 63.111 555.798 98.409 609.444 117.547 652.872 109.922 685.006 114.365 729.106 88.375 768.904 86.01 804.937 110.425 811.256 127.825 807.626 151.766 835.457 163.919 850.113 178.083 824.567 191.859 836.264 246.897 828.869 261.602ZM152.576 73.818 190.626 58 222.76 64.728 227.197 84.066 259.869 100.092 253.012 112.27 208.643 115.035 192.778 130.244 161.585 156.731 149.887 133.827 150.291 123.734 159.165 118.133 170.727 87.108Z"/>
 
-                <g class="service-routes" filter="url(#routeGlow)">
-                    <path d="M226 157 Q159 111 79 151"/>
-                    <path d="M226 157 Q167 79 125 126"/>
-                    <path d="M226 157 Q177 151 137 193"/>
-                    <path d="M226 157 Q224 231 190 272"/>
+                <g class="map-grid-points" aria-hidden="true">
+                    <circle cx="370" cy="151" r="2"/><circle cx="459" cy="128" r="2"/><circle cx="548" cy="157" r="2"/>
+                    <circle cx="632" cy="168" r="2"/><circle cx="722" cy="143" r="2"/><circle cx="794" cy="193" r="2"/>
+                    <path d="M370 151 459 128 548 157 632 168 722 143 794 193"/>
                 </g>
 
-                <g class="map-location map-hq" transform="translate(226 157)">
+                <g class="service-route-bases" aria-hidden="true">
+                    <path d="M267 120 Q218 66 169 81"/><path d="M267 120 Q233 67 194 78"/>
+                    <path d="M267 120 Q236 104 205 116"/><path d="M267 120 Q157 164 191 240"/>
+                </g>
+
+                <g class="service-routes" filter="url(#routeGlow)">
+                    <path d="M267 120 Q218 66 169 81"/>
+                    <path d="M267 120 Q233 67 194 78"/>
+                    <path d="M267 120 Q236 104 205 116"/>
+                    <path d="M267 120 Q157 164 191 240"/>
+                </g>
+
+                <g class="map-location map-hq" transform="translate(267 120)">
                     <circle class="location-pulse" r="20"/>
                     <circle class="location-dot" r="7"/>
-                    <g class="map-label map-label-right" transform="translate(17 -34)">
+                    <g class="map-label map-label-right" transform="translate(17 -51)">
                         <rect width="170" height="45" rx="12"/>
                         <text x="14" y="19">MERKEZ</text>
                         <text class="label-main" x="14" y="35">İstanbul / Kartal</text>
                     </g>
                 </g>
 
-                <g class="map-location" transform="translate(79 151)"><circle class="location-pulse" r="14"/><circle class="location-dot" r="5"/><text class="city-label" x="-3" y="34">EDİRNE</text></g>
-                <g class="map-location" transform="translate(125 126)"><circle class="location-pulse" r="14"/><circle class="location-dot" r="5"/><text class="city-label" x="-7" y="-19">KIRKLARELİ</text></g>
-                <g class="map-location" transform="translate(137 193)"><circle class="location-pulse" r="14"/><circle class="location-dot" r="5"/><text class="city-label" x="-9" y="31">TEKİRDAĞ</text></g>
-                <g class="map-location map-region" transform="translate(190 272)"><circle class="location-pulse" r="18"/><circle class="location-dot" r="6"/><text class="city-label" x="-34" y="34">EGE BÖLGESİ</text></g>
+                <g class="map-location" transform="translate(169 81)"><circle class="location-pulse" r="14"/><circle class="location-dot" r="5"/><text class="city-label" x="-70" y="5">EDİRNE</text></g>
+                <g class="map-location" transform="translate(194 78)"><circle class="location-pulse" r="14"/><circle class="location-dot" r="5"/><text class="city-label" x="-6" y="-20">KIRKLARELİ</text></g>
+                <g class="map-location" transform="translate(205 116)"><circle class="location-pulse" r="14"/><circle class="location-dot" r="5"/><text class="city-label" x="-34" y="35">TEKİRDAĞ</text></g>
+                <g class="map-location map-region" transform="translate(191 240)"><circle class="location-pulse" r="18"/><circle class="location-dot" r="6"/><text class="city-label" x="-34" y="35">EGE BÖLGESİ</text></g>
 
                 <g class="map-shipping" transform="translate(700 170)">
                     <circle r="46"/>
@@ -523,6 +533,14 @@
                     <text x="0" y="68" text-anchor="middle">81 İLE KARGO</text>
                 </g>
             </svg>
+
+            <div class="route-city-list" aria-label="Düzenli ziyaret konumları">
+                <span class="route-city-hq">İstanbul / Kartal</span>
+                <span>Kırklareli</span>
+                <span>Tekirdağ</span>
+                <span>Edirne</span>
+                <span>Ege Bölgesi</span>
+            </div>
 
             <div class="map-legend">
                 <span><i class="legend-hq"></i><span data-i18n="about.legendHq">Merkez</span></span>
