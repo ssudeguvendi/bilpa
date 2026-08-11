@@ -15,8 +15,8 @@
 <meta property="og:url" content="https://ssudeguvendi.github.io/bilpa/">
 <meta property="og:image" content="https://ssudeguvendi.github.io/bilpa/bilpa-deger.jpeg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=20260811-19">
-<script defer src="script.js?v=20260811-33"></script>
+<link rel="stylesheet" href="style.css?v=20260811-20">
+<script defer src="script.js?v=20260811-34"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -202,6 +202,33 @@
                     <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
                 </div>
             </div>
+
+            <div class="kategori-kart cutting-category-card" data-cutting-choice="granit-sulu-karot" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('granit-sulu-karot')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('granit-sulu-karot')}">
+                <img src="granit-sulu-karotlar-kapak.jpeg" alt="Bil-Pa granit sulu karotlar kataloğu">
+                <div class="kategori-yazi">
+                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
+                    <strong data-i18n="products.wetCoreBits">GRANİT SULU KAROTLAR</strong>
+                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
+                </div>
+            </div>
+
+            <div class="kategori-kart cutting-category-card" data-cutting-choice="katrak-lamalari" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('katrak-lamalari')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('katrak-lamalari')}">
+                <img src="katrak-lamalari-kapak.jpeg" alt="Bil-Pa katrak lamaları kataloğu">
+                <div class="kategori-yazi">
+                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
+                    <strong data-i18n="products.gangSawBlades">KATRAK LAMALARI</strong>
+                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
+                </div>
+            </div>
+
+            <div class="kategori-kart cutting-category-card" data-cutting-choice="silim-tablalari" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('silim-tablalari')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('silim-tablalari')}">
+                <img src="silim-tablalari-kapak.jpeg" alt="Bil-Pa silim tablaları kataloğu">
+                <div class="kategori-yazi">
+                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
+                    <strong data-i18n="products.grindingPlates">SİLİM TABLALARI</strong>
+                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
+                </div>
+            </div>
         </div>
 
         <div class="kategori-kartlar" aria-label="Ürün katalogları">
@@ -284,6 +311,45 @@
                         <img src="granit-kuru-karotlar-kapak.jpeg" alt="Granit kuru karotlar ürün kataloğu">
                         <div class="pro-urun-icerik">
                             <h3 data-i18n="products.dryCoreBitsCatalog">Granit Kuru Karotlar Kataloğu</h3>
+                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="granit-sulu-karot-serisi" class="pro-urunler">
+                <h2 data-i18n="products.wetCoreBits">Granit Sulu Karotlar</h2>
+                <div class="pro-urun-grid cutting-preview-grid">
+                    <div class="pro-urun-kart cutting-preview-card">
+                        <img src="granit-sulu-karotlar-kapak.jpeg" alt="Granit sulu karotlar ürün kataloğu">
+                        <div class="pro-urun-icerik">
+                            <h3 data-i18n="products.wetCoreBitsCatalog">Granit Sulu Karotlar Kataloğu</h3>
+                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="katrak-lamalari-serisi" class="pro-urunler">
+                <h2 data-i18n="products.gangSawBlades">Katrak Lamaları</h2>
+                <div class="pro-urun-grid cutting-preview-grid">
+                    <div class="pro-urun-kart cutting-preview-card">
+                        <img src="katrak-lamalari-kapak.jpeg" alt="Katrak lamaları ürün kataloğu">
+                        <div class="pro-urun-icerik">
+                            <h3 data-i18n="products.gangSawBladesCatalog">Katrak Lamaları Kataloğu</h3>
+                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="silim-tablalari-serisi" class="pro-urunler">
+                <h2 data-i18n="products.grindingPlates">Silim Tablaları</h2>
+                <div class="pro-urun-grid cutting-preview-grid">
+                    <div class="pro-urun-kart cutting-preview-card">
+                        <img src="silim-tablalari-kapak.jpeg" alt="Silim tablaları ürün kataloğu">
+                        <div class="pro-urun-icerik">
+                            <h3 data-i18n="products.grindingPlatesCatalog">Silim Tablaları Kataloğu</h3>
                             <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
                         </div>
                     </div>
