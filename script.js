@@ -25,6 +25,7 @@ const translations = {
             nemrut97Title: "P019 NEMRUT 97 | Bil-Pa Ticaret",
             troya86Title: "P004 TROYA 86 | Bil-Pa Ticaret",
             troya100Title: "P005 TROYA 100 | Bil-Pa Ticaret",
+            tuncaTitle: "TUNCA Armatür | Bil-Pa Ticaret",
             cappadociaTitle: "P016 CAPPADOCIA | Bil-Pa Ticaret",
             didyma60Title: "K002 DIDYMA 60 | Bil-Pa Ticaret",
             didyma77Title: "K003 DIDYMA 77 | Bil-Pa Ticaret",
@@ -81,6 +82,7 @@ const translations = {
             pro: "Pro - Serisi",
             k: "K - Serisi",
             faucets: "Armatürler",
+            tunca: "Tunca",
             smartSink: "Akıllı Evye",
             accessories: "Aksesuarlar"
         },
@@ -421,6 +423,16 @@ const translations = {
             troya100CreamCode: "Krem / Ürün Kodu: P0566010521",
             troya100CappuccinoCode: "Kapuçino / Ürün Kodu: P0566010519",
             troya100TechnicalAlt: "P005 Troya 100 teknik ölçü çizimi",
+            tuncaSubtitle: "Premium Mutfak Armatürü",
+            tuncaIntro: "Tunca, yüksek kavisli gövdesi, zarif kumanda kolu ve modern mutfaklara uyum sağlayan üç seçkin yüzey alternatifiyle güçlü bir kullanım deneyimi sunar.",
+            tuncaFeature1Title: "Yüksek Kavisli Tasarım",
+            tuncaFeature1Text: "Geniş çalışma alanı sağlayan yüksek gövde, günlük mutfak kullanımını rahatlatır.",
+            tuncaFeature2Title: "Fonksiyonel Uç Bölümü",
+            tuncaFeature2Text: "Ergonomik uç tasarımı su kullanımını daha kontrollü ve pratik hale getirir.",
+            tuncaFeature3Title: "Zarif Kumanda Kolu",
+            tuncaFeature3Text: "İnce yan kol, su akışını ve sıcaklığını kolayca ayarlamaya yardımcı olur.",
+            tuncaFeature4Title: "Üç Premium Renk",
+            tuncaFeature4Text: "Siyah, antrasit ve krom yüzey seçenekleri farklı mutfak stillerine uyum sağlar.",
             cappadociaSubtitle: "Pro Serisi Granit Evye",
             cappadociaIntro: "P016 Cappadocia, geniş ana haznesi ve yardımcı haznesiyle yıkama ve hazırlık işlerini düzenli biçimde ayırır. Kompakt gövdesi, dayanıklı granit yüzeyi ve altı seçkin rengiyle modern mutfaklara uyum sağlar.",
             cappadociaFeature1Title: "Ana ve Yardımcı Hazne",
@@ -634,6 +646,7 @@ const translations = {
             creamGray: "Krem Gri",
             cream: "Krem",
             cappuccino: "Cappuccino",
+            chrome: "Krom",
             black: "Siyah",
             darkGreen: "Koyu Yeşil",
             mintGreen: "Mint Yeşil",
@@ -675,6 +688,7 @@ const translations = {
             nemrut97Title: "P019 NEMRUT 97 | Bil-Pa Trade",
             troya86Title: "P004 TROYA 86 | Bil-Pa Trade",
             troya100Title: "P005 TROYA 100 | Bil-Pa Trade",
+            tuncaTitle: "TUNCA Faucet | Bil-Pa Trade",
             cappadociaTitle: "P016 CAPPADOCIA | Bil-Pa Trade",
             didyma60Title: "K002 DIDYMA 60 | Bil-Pa Trade",
             didyma77Title: "K003 DIDYMA 77 | Bil-Pa Trade",
@@ -731,6 +745,7 @@ const translations = {
             pro: "Pro Series",
             k: "K Series",
             faucets: "Faucets",
+            tunca: "Tunca",
             smartSink: "Smart Sink",
             accessories: "Accessories"
         },
@@ -1071,6 +1086,16 @@ const translations = {
             troya100CreamCode: "Cream / Product Code: P0566010521",
             troya100CappuccinoCode: "Cappuccino / Product Code: P0566010519",
             troya100TechnicalAlt: "P005 Troya 100 technical dimension drawing",
+            tuncaSubtitle: "Premium Kitchen Faucet",
+            tuncaIntro: "Tunca delivers a refined experience with its high-arc body, elegant control lever and three selected finishes designed for modern kitchens.",
+            tuncaFeature1Title: "High-Arc Design",
+            tuncaFeature1Text: "The high body provides a spacious working area for comfortable everyday kitchen use.",
+            tuncaFeature2Title: "Functional Spout",
+            tuncaFeature2Text: "Its ergonomic spout design makes water use more controlled and practical.",
+            tuncaFeature3Title: "Elegant Control Lever",
+            tuncaFeature3Text: "The slim side lever helps adjust water flow and temperature with ease.",
+            tuncaFeature4Title: "Three Premium Finishes",
+            tuncaFeature4Text: "Black, anthracite and chrome finishes complement a wide range of kitchen styles.",
             cappadociaSubtitle: "Pro Series Granite Sink",
             cappadociaIntro: "P016 Cappadocia keeps washing and preparation organized with its spacious main bowl and auxiliary bowl. Its compact body, durable granite surface and six selected colors complement modern kitchens.",
             cappadociaFeature1Title: "Main and Auxiliary Bowls",
@@ -1284,6 +1309,7 @@ const translations = {
             creamGray: "Cream Gray",
             cream: "Cream",
             cappuccino: "Cappuccino",
+            chrome: "Chrome",
             black: "Black",
             darkGreen: "Dark Green",
             mintGreen: "Mint Green",
@@ -1649,6 +1675,7 @@ function showProSeries() {
     const kitchen = document.getElementById("mutfak");
     const proSeries = document.getElementById("pro-serisi");
     const kSeries = document.getElementById("k-serisi");
+    const tuncaSeries = document.getElementById("tunca-serisi");
 
     if (kitchen) {
         kitchen.classList.add("active");
@@ -1656,6 +1683,10 @@ function showProSeries() {
 
     if (kSeries) {
         kSeries.classList.remove("active");
+    }
+
+    if (tuncaSeries) {
+        tuncaSeries.classList.remove("active");
     }
 
     if (proSeries) {
@@ -1668,6 +1699,31 @@ function showKSeries() {
     const kitchen = document.getElementById("mutfak");
     const kSeries = document.getElementById("k-serisi");
     const proSeries = document.getElementById("pro-serisi");
+    const tuncaSeries = document.getElementById("tunca-serisi");
+
+    if (kitchen) {
+        kitchen.classList.add("active");
+    }
+
+    if (proSeries) {
+        proSeries.classList.remove("active");
+    }
+
+    if (tuncaSeries) {
+        tuncaSeries.classList.remove("active");
+    }
+
+    if (kSeries) {
+        kSeries.classList.add("active");
+        requestAnimationFrame(() => scrollToVisibleSection(kSeries));
+    }
+}
+
+function showTuncaSeries() {
+    const kitchen = document.getElementById("mutfak");
+    const tuncaSeries = document.getElementById("tunca-serisi");
+    const proSeries = document.getElementById("pro-serisi");
+    const kSeries = document.getElementById("k-serisi");
 
     if (kitchen) {
         kitchen.classList.add("active");
@@ -1678,8 +1734,12 @@ function showKSeries() {
     }
 
     if (kSeries) {
-        kSeries.classList.add("active");
-        requestAnimationFrame(() => scrollToVisibleSection(kSeries));
+        kSeries.classList.remove("active");
+    }
+
+    if (tuncaSeries) {
+        tuncaSeries.classList.add("active");
+        requestAnimationFrame(() => scrollToVisibleSection(tuncaSeries));
     }
 }
 

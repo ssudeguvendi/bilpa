@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.tuncaTitle">TUNCA Armatür | Bil-Pa Ticaret</title>
+<meta name="description" content="Tunca premium mutfak armatürünün siyah, antrasit ve krom renk seçeneklerini inceleyin.">
+<link rel="stylesheet" href="style.css?v=20260810-14">
+<script defer src="script.js?v=20260811-26"></script>
+</head>
+<body>
+<nav class="navbar product-navbar">
+    <a class="brand" href="index.html">BIL-PA TICARET</a>
+    <div class="nav-links">
+        <a href="index.html#urunler" data-i18n="nav.products">Ürünler</a>
+        <a href="index.html#hakkimizda" data-i18n="nav.about">Hakkımızda</a>
+        <a href="index.html#iletisim" data-i18n="nav.contact">İletişim</a>
+    </div>
+    <div class="language-switcher" aria-label="Dil seçimi">
+        <button type="button" data-lang-button="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang-button="en" aria-pressed="false">EN</button>
+    </div>
+</nav>
+
+<section class="urun-sayfa">
+    <div class="urun-grid">
+        <div class="urun-resim"><img id="anaResim" src="tunca-siyah.jpeg" alt="Tunca siyah mutfak armatürü"></div>
+        <div class="urun-bilgi">
+            <h1>TUNCA</h1>
+            <h3 data-i18n="productPage.tuncaSubtitle">Premium Mutfak Armatürü</h3>
+            <p data-i18n="productPage.tuncaIntro">Tunca, yüksek kavisli gövdesi, zarif kumanda kolu ve modern mutfaklara uyum sağlayan üç seçkin yüzey alternatifiyle güçlü bir kullanım deneyimi sunar.</p>
+
+            <h3 data-i18n="productPage.colorsTitle">Renk Seçenekleri</h3>
+            <div class="renk-paleti">
+                <div class="renk" onclick="degistir('tunca-siyah.jpeg')"><span style="background:#111"></span><span data-i18n="productPage.black">Siyah</span></div>
+                <div class="renk" onclick="degistir('tunca-antrasit.jpeg')"><span style="background:#343536"></span><span data-i18n="productPage.anthracite">Antrasit</span></div>
+                <div class="renk" onclick="degistir('tunca-krom.jpeg')"><span style="background:linear-gradient(135deg,#777,#f8f8f8 48%,#7f7f7f)"></span><span data-i18n="productPage.chrome">Krom</span></div>
+            </div>
+
+            <div class="ozellikler">
+                <h3 data-i18n="productPage.highlightsTitle">Öne Çıkan Özellikler</h3>
+                <ul>
+                    <li><strong data-i18n="productPage.tuncaFeature1Title">Yüksek Kavisli Tasarım</strong><span data-i18n="productPage.tuncaFeature1Text">Geniş çalışma alanı sağlayan yüksek gövde, günlük mutfak kullanımını rahatlatır.</span></li>
+                    <li><strong data-i18n="productPage.tuncaFeature2Title">Fonksiyonel Uç Bölümü</strong><span data-i18n="productPage.tuncaFeature2Text">Ergonomik uç tasarımı su kullanımını daha kontrollü ve pratik hale getirir.</span></li>
+                    <li><strong data-i18n="productPage.tuncaFeature3Title">Zarif Kumanda Kolu</strong><span data-i18n="productPage.tuncaFeature3Text">İnce yan kol, su akışını ve sıcaklığını kolayca ayarlamaya yardımcı olur.</span></li>
+                    <li><strong data-i18n="productPage.tuncaFeature4Title">Üç Premium Renk</strong><span data-i18n="productPage.tuncaFeature4Text">Siyah, antrasit ve krom yüzey seçenekleri farklı mutfak stillerine uyum sağlar.</span></li>
+                </ul>
+            </div>
+
+            <a href="https://wa.me/905334026564" target="_blank" rel="noopener" onclick="var n=this.closest('.urun-bilgi').querySelector('h1').textContent.trim();var e=document.documentElement.lang==='en';var m=e?'Hello, I would like to receive a quote for the '+n+' product.':'Merhaba, '+n+' ürünü için teklif almak istiyorum.';this.href='https://wa.me/905334026564?text='+encodeURIComponent(m+'\n'+(e?'Product link: ':'Ürün bağlantısı: ')+window.location.href.split('#')[0]);"><button type="button" class="whatsapp-btn" data-i18n="productPage.quoteButton">Teklif Al</button></a>
+        </div>
+    </div>
+</section>
+</body>
+</html>
