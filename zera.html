@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.zeraTitle">ZERA Armatür | Bil-Pa Ticaret</title>
+<meta name="description" content="Zera premium mutfak armatürünün siyah ve gold yüzey tasarımını inceleyin.">
+<link rel="stylesheet" href="style.css?v=20260811-15">
+<script defer src="script.js?v=20260811-28"></script>
+</head>
+<body>
+<nav class="navbar product-navbar">
+    <a class="brand" href="index.html">BIL-PA TICARET</a>
+    <div class="nav-links">
+        <a href="index.html#urunler" data-i18n="nav.products">Ürünler</a>
+        <a href="index.html#hakkimizda" data-i18n="nav.about">Hakkımızda</a>
+        <a href="index.html#iletisim" data-i18n="nav.contact">İletişim</a>
+    </div>
+    <div class="language-switcher" aria-label="Dil seçimi">
+        <button type="button" data-lang-button="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang-button="en" aria-pressed="false">EN</button>
+    </div>
+</nav>
+
+<section class="urun-sayfa">
+    <div class="urun-grid">
+        <div class="urun-resim"><img id="anaResim" src="zera-siyah-gold.jpeg" alt="Zera siyah gold mutfak armatürü"></div>
+        <div class="urun-bilgi">
+            <h1>ZERA</h1>
+            <h3 data-i18n="productPage.zeraSubtitle">Premium Mutfak Armatürü</h3>
+            <p data-i18n="productPage.zeraIntro">Zera, yüksek kavisli gövdesi, hareketli uç yapısı ve siyah–gold yüzey birlikteliğiyle modern mutfaklara güçlü ve seçkin bir görünüm kazandırır.</p>
+
+            <h3 data-i18n="productPage.colorsTitle">Renk Seçeneği</h3>
+            <div class="renk-paleti">
+                <div class="renk" onclick="degistir('zera-siyah-gold.jpeg')"><span style="background:linear-gradient(135deg,#111 0 52%,#c69a42 52% 100%)"></span><span data-i18n="productPage.blackGold">Siyah / Gold</span></div>
+            </div>
+
+            <div class="ozellikler">
+                <h3 data-i18n="productPage.highlightsTitle">Öne Çıkan Özellikler</h3>
+                <ul>
+                    <li><strong data-i18n="productPage.zeraFeature1Title">Yüksek Kavisli Gövde</strong><span data-i18n="productPage.zeraFeature1Text">Geniş çalışma alanı sağlayan yüksek form, günlük mutfak kullanımını daha rahat hale getirir.</span></li>
+                    <li><strong data-i18n="productPage.zeraFeature2Title">Hareketli Uç Tasarımı</strong><span data-i18n="productPage.zeraFeature2Text">Yönlendirilebilir uç bölümü, suyu ihtiyaç duyulan alana taşımayı kolaylaştırır.</span></li>
+                    <li><strong data-i18n="productPage.zeraFeature3Title">Zarif Kumanda Kolu</strong><span data-i18n="productPage.zeraFeature3Text">İnce yan kol, su akışı ve sıcaklığın kontrollü biçimde ayarlanmasına yardımcı olur.</span></li>
+                    <li><strong data-i18n="productPage.zeraFeature4Title">Siyah–Gold Yüzey</strong><span data-i18n="productPage.zeraFeature4Text">Mat siyah gövde ve gold detayların dengeli birleşimi premium bir kontrast oluşturur.</span></li>
+                </ul>
+            </div>
+
+            <a href="https://wa.me/905334026564" target="_blank" rel="noopener" onclick="var n=this.closest('.urun-bilgi').querySelector('h1').textContent.trim();var e=document.documentElement.lang==='en';var m=e?'Hello, I would like to receive a quote for the '+n+' product.':'Merhaba, '+n+' ürünü için teklif almak istiyorum.';this.href='https://wa.me/905334026564?text='+encodeURIComponent(m+'\n'+(e?'Product link: ':'Ürün bağlantısı: ')+window.location.href.split('#')[0]);"><button type="button" class="whatsapp-btn" data-i18n="productPage.quoteButton">Teklif Al</button></a>
+        </div>
+    </div>
+</section>
+</body>
+</html>
