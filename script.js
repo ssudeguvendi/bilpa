@@ -91,6 +91,9 @@ const translations = {
             wetCoreBits: "GRANİT SULU KAROTLAR",
             gangSawBlades: "KATRAK LAMALARI",
             grindingPlates: "SİLİM TABLALARI",
+            vacuumSpecialProducts: "VAKUMLU ÖZEL ÜRÜNLER",
+            vacuumProfiles: "VAKUM STANDART VE ÖZEL PROFİLLER",
+            quarryMaterials: "OCAK MALZEMELERİ",
             marbleCatalogReady: "Mermer Kesiciler Kataloğu",
             graniteCatalogReady: "Granit Kesici Kataloğu",
             marbleDrillCatalog: "Mermer Delici (Vakumlu) Kataloğu",
@@ -99,6 +102,9 @@ const translations = {
             wetCoreBitsCatalog: "Granit Sulu Karotlar Kataloğu",
             gangSawBladesCatalog: "Katrak Lamaları Kataloğu",
             grindingPlatesCatalog: "Silim Tablaları Kataloğu",
+            vacuumSpecialProductsCatalog: "Vakumlu Özel Ürünler Kataloğu",
+            vacuumProfilesCatalog: "Vakum Standart ve Özel Profiller Kataloğu",
+            quarryMaterialsCatalog: "Ocak Malzemeleri Kataloğu",
             catalogReadyText: "Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.",
             discoverSeries: "SERİYİ KEŞFET →",
             viewProducts: "ÜRÜNLERİ İNCELE →",
@@ -818,6 +824,9 @@ const translations = {
             wetCoreBits: "WET GRANITE CORE BITS",
             gangSawBlades: "GANG SAW BLADES",
             grindingPlates: "GRINDING PLATES",
+            vacuumSpecialProducts: "SPECIAL VACUUM PRODUCTS",
+            vacuumProfiles: "STANDARD & CUSTOM VACUUM PROFILES",
+            quarryMaterials: "QUARRY MATERIALS",
             marbleCatalogReady: "Marble Cutters Catalog",
             graniteCatalogReady: "Granite Cutter Catalog",
             marbleDrillCatalog: "Vacuum Marble Drills Catalog",
@@ -826,6 +835,9 @@ const translations = {
             wetCoreBitsCatalog: "Wet Granite Core Bits Catalog",
             gangSawBladesCatalog: "Gang Saw Blades Catalog",
             grindingPlatesCatalog: "Grinding Plates Catalog",
+            vacuumSpecialProductsCatalog: "Special Vacuum Products Catalog",
+            vacuumProfilesCatalog: "Standard & Custom Vacuum Profiles Catalog",
+            quarryMaterialsCatalog: "Quarry Materials Catalog",
             catalogReadyText: "New products will be added to this catalog in the same layout as the Pro Series.",
             discoverSeries: "DISCOVER SERIES →",
             viewProducts: "VIEW PRODUCTS →",
@@ -1893,7 +1905,10 @@ function showCuttingSeries(type) {
         "granit-kuru-karot": "granit-kuru-karot-serisi",
         "granit-sulu-karot": "granit-sulu-karot-serisi",
         "katrak-lamalari": "katrak-lamalari-serisi",
-        "silim-tablalari": "silim-tablalari-serisi"
+        "silim-tablalari": "silim-tablalari-serisi",
+        "vakumlu-ozel-urunler": "vakumlu-ozel-urunler-serisi",
+        "vakum-profiller": "vakum-profiller-serisi",
+        "ocak-malzemeleri": "ocak-malzemeleri-serisi"
     };
     const target = document.getElementById(seriesTargets[type] || "");
     if (target) {

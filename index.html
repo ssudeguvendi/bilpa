@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://ssudeguvendi.github.io/bilpa/bilpa-deger.jpeg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="style.css?v=20260811-20">
-<script defer src="script.js?v=20260811-34"></script>
+<script defer src="script.js?v=20260811-35"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -229,6 +229,33 @@
                     <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
                 </div>
             </div>
+
+            <div class="kategori-kart cutting-category-card" data-cutting-choice="vakumlu-ozel-urunler" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('vakumlu-ozel-urunler')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('vakumlu-ozel-urunler')}">
+                <img src="vakumlu-ozel-urunler-kapak.jpeg" alt="Bil-Pa vakumlu özel ürünler kataloğu">
+                <div class="kategori-yazi">
+                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
+                    <strong data-i18n="products.vacuumSpecialProducts">VAKUMLU ÖZEL ÜRÜNLER</strong>
+                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
+                </div>
+            </div>
+
+            <div class="kategori-kart cutting-category-card" data-cutting-choice="vakum-profiller" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('vakum-profiller')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('vakum-profiller')}">
+                <img src="vakum-standart-ozel-profiller-kapak.jpeg" alt="Bil-Pa vakum standart ve özel profiller kataloğu">
+                <div class="kategori-yazi">
+                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
+                    <strong data-i18n="products.vacuumProfiles">VAKUM STANDART VE ÖZEL PROFİLLER</strong>
+                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
+                </div>
+            </div>
+
+            <div class="kategori-kart cutting-category-card" data-cutting-choice="ocak-malzemeleri" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('ocak-malzemeleri')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('ocak-malzemeleri')}">
+                <img src="ocak-malzemeleri-kapak.jpeg" alt="Bil-Pa ocak malzemeleri kataloğu">
+                <div class="kategori-yazi">
+                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
+                    <strong data-i18n="products.quarryMaterials">OCAK MALZEMELERİ</strong>
+                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
+                </div>
+            </div>
         </div>
 
         <div class="kategori-kartlar" aria-label="Ürün katalogları">
@@ -350,6 +377,45 @@
                         <img src="silim-tablalari-kapak.jpeg" alt="Silim tablaları ürün kataloğu">
                         <div class="pro-urun-icerik">
                             <h3 data-i18n="products.grindingPlatesCatalog">Silim Tablaları Kataloğu</h3>
+                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vakumlu-ozel-urunler-serisi" class="pro-urunler">
+                <h2 data-i18n="products.vacuumSpecialProducts">Vakumlu Özel Ürünler</h2>
+                <div class="pro-urun-grid cutting-preview-grid">
+                    <div class="pro-urun-kart cutting-preview-card">
+                        <img src="vakumlu-ozel-urunler-kapak.jpeg" alt="Vakumlu özel ürünler kataloğu">
+                        <div class="pro-urun-icerik">
+                            <h3 data-i18n="products.vacuumSpecialProductsCatalog">Vakumlu Özel Ürünler Kataloğu</h3>
+                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vakum-profiller-serisi" class="pro-urunler">
+                <h2 data-i18n="products.vacuumProfiles">Vakum Standart ve Özel Profiller</h2>
+                <div class="pro-urun-grid cutting-preview-grid">
+                    <div class="pro-urun-kart cutting-preview-card">
+                        <img src="vakum-standart-ozel-profiller-kapak.jpeg" alt="Vakum standart ve özel profiller kataloğu">
+                        <div class="pro-urun-icerik">
+                            <h3 data-i18n="products.vacuumProfilesCatalog">Vakum Standart ve Özel Profiller Kataloğu</h3>
+                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ocak-malzemeleri-serisi" class="pro-urunler">
+                <h2 data-i18n="products.quarryMaterials">Ocak Malzemeleri</h2>
+                <div class="pro-urun-grid cutting-preview-grid">
+                    <div class="pro-urun-kart cutting-preview-card">
+                        <img src="ocak-malzemeleri-kapak.jpeg" alt="Ocak malzemeleri kataloğu">
+                        <div class="pro-urun-icerik">
+                            <h3 data-i18n="products.quarryMaterialsCatalog">Ocak Malzemeleri Kataloğu</h3>
                             <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
                         </div>
                     </div>
