@@ -15,8 +15,8 @@
 <meta property="og:url" content="https://ssudeguvendi.github.io/bilpa/">
 <meta property="og:image" content="https://ssudeguvendi.github.io/bilpa/bilpa-deger.jpeg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=20260811-17">
-<script defer src="script.js?v=20260811-32"></script>
+<link rel="stylesheet" href="style.css?v=20260811-18">
+<script defer src="script.js?v=20260811-33"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -175,6 +175,33 @@
                     <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
                 </div>
             </div>
+
+            <div class="kategori-kart cutting-category-card" data-cutting-choice="mermer-delici" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('mermer-delici')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('mermer-delici')}">
+                <img src="mermer-delici-vakumlu-kapak.jpeg" alt="Bil-Pa mermer delici vakumlu kataloğu">
+                <div class="kategori-yazi">
+                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
+                    <strong data-i18n="products.marbleDrill">MERMER DELİCİ (VAKUMLU)</strong>
+                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
+                </div>
+            </div>
+
+            <div class="kategori-kart cutting-category-card" data-cutting-choice="este-testere" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('este-testere')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('este-testere')}">
+                <img src="este-testereler-kapak.jpeg" alt="Bil-Pa Este testereler kataloğu">
+                <div class="kategori-yazi">
+                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
+                    <strong data-i18n="products.esteSaws">ESTE TESTERELER</strong>
+                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
+                </div>
+            </div>
+
+            <div class="kategori-kart cutting-category-card" data-cutting-choice="granit-kuru-karot" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('granit-kuru-karot')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('granit-kuru-karot')}">
+                <img src="granit-kuru-karotlar-kapak.jpeg" alt="Bil-Pa granit kuru karotlar kataloğu">
+                <div class="kategori-yazi">
+                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
+                    <strong data-i18n="products.dryCoreBits">GRANİT KURU KAROTLAR</strong>
+                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
+                </div>
+            </div>
         </div>
 
         <div class="kategori-kartlar" aria-label="Ürün katalogları">
@@ -218,6 +245,45 @@
                         <img src="granit-kesiciler-kapak.jpeg" alt="Granit kesiciler ürün kataloğu">
                         <div class="pro-urun-icerik">
                             <h3 data-i18n="products.graniteCatalogReady">Granit Kesici Kataloğu</h3>
+                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mermer-delici-serisi" class="pro-urunler">
+                <h2 data-i18n="products.marbleDrill">Mermer Delici (Vakumlu)</h2>
+                <div class="pro-urun-grid cutting-preview-grid">
+                    <div class="pro-urun-kart cutting-preview-card">
+                        <img src="mermer-delici-vakumlu-kapak.jpeg" alt="Mermer delici vakumlu ürün kataloğu">
+                        <div class="pro-urun-icerik">
+                            <h3 data-i18n="products.marbleDrillCatalog">Mermer Delici (Vakumlu) Kataloğu</h3>
+                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="este-testere-serisi" class="pro-urunler">
+                <h2 data-i18n="products.esteSaws">Este Testereler</h2>
+                <div class="pro-urun-grid cutting-preview-grid">
+                    <div class="pro-urun-kart cutting-preview-card">
+                        <img src="este-testereler-kapak.jpeg" alt="Este testereler ürün kataloğu">
+                        <div class="pro-urun-icerik">
+                            <h3 data-i18n="products.esteSawsCatalog">Este Testereler Kataloğu</h3>
+                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="granit-kuru-karot-serisi" class="pro-urunler">
+                <h2 data-i18n="products.dryCoreBits">Granit Kuru Karotlar</h2>
+                <div class="pro-urun-grid cutting-preview-grid">
+                    <div class="pro-urun-kart cutting-preview-card">
+                        <img src="granit-kuru-karotlar-kapak.jpeg" alt="Granit kuru karotlar ürün kataloğu">
+                        <div class="pro-urun-icerik">
+                            <h3 data-i18n="products.dryCoreBitsCatalog">Granit Kuru Karotlar Kataloğu</h3>
                             <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
                         </div>
                     </div>

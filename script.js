@@ -85,8 +85,14 @@ const translations = {
             professionalSeries: "PROFESYONEL SERİ",
             marbleCutters: "MERMER KESİCİLER",
             graniteCutters: "GRANİT KESİCİ",
+            marbleDrill: "MERMER DELİCİ (VAKUMLU)",
+            esteSaws: "ESTE TESTERELER",
+            dryCoreBits: "GRANİT KURU KAROTLAR",
             marbleCatalogReady: "Mermer Kesiciler Kataloğu",
             graniteCatalogReady: "Granit Kesici Kataloğu",
+            marbleDrillCatalog: "Mermer Delici (Vakumlu) Kataloğu",
+            esteSawsCatalog: "Este Testereler Kataloğu",
+            dryCoreBitsCatalog: "Granit Kuru Karotlar Kataloğu",
             catalogReadyText: "Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.",
             discoverSeries: "SERİYİ KEŞFET →",
             viewProducts: "ÜRÜNLERİ İNCELE →",
@@ -800,8 +806,14 @@ const translations = {
             professionalSeries: "PROFESSIONAL SERIES",
             marbleCutters: "MARBLE CUTTERS",
             graniteCutters: "GRANITE CUTTER",
+            marbleDrill: "VACUUM MARBLE DRILLS",
+            esteSaws: "ESTE SAWS",
+            dryCoreBits: "DRY GRANITE CORE BITS",
             marbleCatalogReady: "Marble Cutters Catalog",
             graniteCatalogReady: "Granite Cutter Catalog",
+            marbleDrillCatalog: "Vacuum Marble Drills Catalog",
+            esteSawsCatalog: "Este Saws Catalog",
+            dryCoreBitsCatalog: "Dry Granite Core Bits Catalog",
             catalogReadyText: "New products will be added to this catalog in the same layout as the Pro Series.",
             discoverSeries: "DISCOVER SERIES →",
             viewProducts: "VIEW PRODUCTS →",
@@ -1861,7 +1873,14 @@ function showCuttingSeries(type) {
         section.classList.remove("active");
     });
 
-    const target = document.getElementById(`${type}-kesiciler-serisi`);
+    const seriesTargets = {
+        mermer: "mermer-kesiciler-serisi",
+        granit: "granit-kesiciler-serisi",
+        "mermer-delici": "mermer-delici-serisi",
+        "este-testere": "este-testere-serisi",
+        "granit-kuru-karot": "granit-kuru-karot-serisi"
+    };
+    const target = document.getElementById(seriesTargets[type] || "");
     if (target) {
         target.classList.add("active");
         requestAnimationFrame(() => scrollToVisibleSection(target));

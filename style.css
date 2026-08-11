@@ -2518,7 +2518,7 @@ footer{
 
 .cutting-category-grid{
     display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:repeat(3,minmax(0,1fr));
     gap:clamp(20px,2.8vw,36px);
     margin-top:clamp(26px,4vw,42px);
 }
@@ -2641,6 +2641,12 @@ footer{
 
     .cutting-preview-card .pro-urun-icerik{
         padding:25px;
+    }
+}
+
+@media(min-width:761px) and (max-width:1050px){
+    .cutting-category-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
     }
 }
 
