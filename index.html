@@ -15,8 +15,8 @@
 <meta property="og:url" content="https://ssudeguvendi.github.io/bilpa/">
 <meta property="og:image" content="https://ssudeguvendi.github.io/bilpa/bilpa-deger.jpeg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=20260811-15">
-<script defer src="script.js?v=20260811-29"></script>
+<link rel="stylesheet" href="style.css?v=20260811-17">
+<script defer src="script.js?v=20260811-31"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -132,6 +132,7 @@
 
             <div class="catalog-filters" aria-label="Katalog kategorileri">
                 <button type="button" class="catalog-filter" data-catalog-filter="all" data-i18n="products.filterAll">Tümü</button>
+                <button type="button" class="catalog-filter" data-catalog-filter="kesim" data-i18n="products.cuttingFilter">Kesim Ürünleri</button>
                 <button type="button" class="catalog-filter active" data-catalog-filter="mutfak" data-i18n="products.kitchen">Mutfak</button>
                 <button type="button" class="catalog-filter" data-catalog-filter="banyo" data-i18n="products.bathroom">Banyo</button>
             </div>
@@ -140,6 +141,41 @@
         <p id="catalogNoResults" class="catalog-no-results" data-i18n="products.noResults" hidden>
             Aradığınız ürün bulunamadı.
         </p>
+
+        <div class="stone-processing-showcase">
+            <button
+                type="button"
+                id="stoneProcessingCover"
+                class="stone-processing-cover"
+                aria-controls="stoneProcessingCatalogs"
+                aria-expanded="false"
+                onclick="openStoneProcessingCatalog(event)"
+            >
+                <img class="stone-cover-base" src="profesyonel-tas-isleme-ana-kapak.jpeg" alt="Bil-Pa Profesyonel Taş İşleme Ürünleri kataloğu">
+                <img class="stone-cover-blade" src="profesyonel-tas-isleme-ana-kapak.jpeg" alt="" aria-hidden="true">
+                <span class="stone-cover-hint" data-i18n="products.openProfessionalCatalog">Kataloğu keşfet</span>
+            </button>
+        </div>
+
+        <div id="stoneProcessingCatalogs" class="cutting-category-grid stone-processing-catalogs" aria-label="Kesim ve işleme katalogları" hidden>
+            <div class="kategori-kart cutting-category-card" data-cutting-choice="mermer" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('mermer')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('mermer')}">
+                <img src="mermer-kesiciler-kapak.jpeg" alt="Bil-Pa mermer kesiciler kataloğu">
+                <div class="kategori-yazi">
+                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
+                    <strong data-i18n="products.marbleCutters">MERMER KESİCİLER</strong>
+                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
+                </div>
+            </div>
+
+            <div class="kategori-kart cutting-category-card" data-cutting-choice="granit" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('granit')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('granit')}">
+                <img src="granit-kesiciler-kapak.jpeg" alt="Bil-Pa granit kesiciler kataloğu">
+                <div class="kategori-yazi">
+                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
+                    <strong data-i18n="products.graniteCutters">GRANİT KESİCİLER</strong>
+                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
+                </div>
+            </div>
+        </div>
 
         <div class="catalog-choice-intro">
             <h3 data-i18n="products.catalogChoiceTitle">Yaşam alanınıza göre keşfedin</h3>
@@ -162,6 +198,34 @@
                     <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 24h34v5a10 10 0 0 1-10 10H17A10 10 0 0 1 7 29v-5ZM12 24V13a6 6 0 0 1 12 0M17 39v3M35 39v3"/></svg>
                     <strong data-i18n="products.bathroomCatalog">BANYO KATALOĞU</strong>
                     <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="kesim" class="kategori cutting-catalog-section">
+            <div id="mermer-kesiciler-serisi" class="pro-urunler">
+                <h2 data-i18n="products.marbleCutters">Mermer Kesiciler</h2>
+                <div class="pro-urun-grid cutting-preview-grid">
+                    <div class="pro-urun-kart cutting-preview-card">
+                        <img src="mermer-kesiciler-kapak.jpeg" alt="Mermer kesiciler ürün kataloğu">
+                        <div class="pro-urun-icerik">
+                            <h3 data-i18n="products.marbleCatalogReady">Mermer Kesiciler Kataloğu</h3>
+                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="granit-kesiciler-serisi" class="pro-urunler">
+                <h2 data-i18n="products.graniteCutters">Granit Kesiciler</h2>
+                <div class="pro-urun-grid cutting-preview-grid">
+                    <div class="pro-urun-kart cutting-preview-card">
+                        <img src="granit-kesiciler-kapak.jpeg" alt="Granit kesiciler ürün kataloğu">
+                        <div class="pro-urun-icerik">
+                            <h3 data-i18n="products.graniteCatalogReady">Granit Kesiciler Kataloğu</h3>
+                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

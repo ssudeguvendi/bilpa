@@ -2355,6 +2355,301 @@ footer{
     }
 }
 
+/* Profesyonel kesim ve işleme katalogları */
+.stone-processing-showcase{
+    margin-top:clamp(34px,5vw,58px);
+}
+
+.stone-processing-cover{
+    position:relative;
+    display:block;
+    width:100%;
+    aspect-ratio:3 / 2;
+    max-height:680px;
+    padding:0;
+    overflow:hidden;
+    border:1px solid rgba(201,169,108,.38);
+    border-radius:clamp(20px,2.6vw,32px);
+    background:#090b0e;
+    box-shadow:0 30px 85px rgba(0,0,0,.48),0 0 0 1px rgba(201,169,108,.06);
+    cursor:pointer;
+    isolation:isolate;
+}
+
+.stone-cover-base,
+.stone-cover-blade{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    pointer-events:none;
+    user-select:none;
+}
+
+.stone-cover-base{
+    z-index:1;
+    transition:filter .45s ease,transform .65s cubic-bezier(.2,.75,.25,1);
+}
+
+.stone-cover-blade{
+    z-index:2;
+    clip-path:circle(38% at 15.3% 84.5%);
+    transform-origin:15.3% 84.5%;
+    will-change:transform;
+}
+
+.stone-processing-cover::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:3;
+    border-radius:inherit;
+    background:linear-gradient(110deg,transparent 42%,rgba(201,169,108,.07),transparent 67%);
+    opacity:0;
+    transition:opacity .35s ease;
+    pointer-events:none;
+}
+
+.stone-cover-hint{
+    position:absolute;
+    right:clamp(20px,4vw,54px);
+    bottom:clamp(18px,3.5vw,44px);
+    z-index:4;
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 18px;
+    border:1px solid rgba(201,169,108,.55);
+    border-radius:999px;
+    background:rgba(7,9,12,.68);
+    color:#ead6ac;
+    font-size:clamp(11px,1.2vw,14px);
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    backdrop-filter:blur(12px);
+}
+
+.stone-cover-hint::after{
+    content:"→";
+    font-size:1.25em;
+}
+
+.stone-processing-cover:hover .stone-cover-base,
+.stone-processing-cover:focus-visible .stone-cover-base{
+    filter:brightness(1.06) contrast(1.02);
+    transform:scale(1.012);
+}
+
+.stone-processing-cover:hover::after,
+.stone-processing-cover:focus-visible::after{
+    opacity:1;
+}
+
+.stone-processing-cover:focus-visible{
+    outline:2px solid #d3b276;
+    outline-offset:4px;
+}
+
+.stone-processing-cover.blade-spinning .stone-cover-blade{
+    animation:stone-blade-turn .68s cubic-bezier(.2,.72,.3,1) both;
+}
+
+@keyframes stone-blade-turn{
+    0%{transform:rotate(0deg)}
+    72%{transform:rotate(382deg)}
+    100%{transform:rotate(360deg)}
+}
+
+.stone-processing-catalogs{
+    animation:stone-catalog-reveal .55s ease both;
+}
+
+@keyframes stone-catalog-reveal{
+    from{opacity:0;transform:translateY(22px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.cutting-catalog-intro{
+    width:min(760px,100%);
+    margin:clamp(38px,6vw,68px) auto 0;
+    text-align:center;
+}
+
+.cutting-catalog-intro > span{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:#c9a96c;
+    font-size:10px;
+    font-weight:850;
+    letter-spacing:.24em;
+}
+
+.cutting-catalog-intro > span::before,
+.cutting-catalog-intro > span::after{
+    content:"";
+    width:34px;
+    height:1px;
+    background:linear-gradient(90deg,transparent,#c9a96c);
+}
+
+.cutting-catalog-intro > span::after{
+    background:linear-gradient(90deg,#c9a96c,transparent);
+}
+
+.cutting-catalog-intro h3{
+    margin:14px 0 10px;
+    color:#f3f5f7;
+    font-size:clamp(27px,3.4vw,42px);
+    line-height:1.1;
+    letter-spacing:-.025em;
+}
+
+.cutting-catalog-intro p{
+    margin:0 auto;
+    max-width:650px;
+    color:#9ca6b5;
+    font-size:clamp(14px,1.5vw,16px);
+    line-height:1.7;
+}
+
+.cutting-category-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:clamp(20px,2.8vw,36px);
+    margin-top:clamp(26px,4vw,42px);
+}
+
+.cutting-category-grid[hidden]{
+    display:none !important;
+}
+
+.cutting-category-card{
+    min-height:clamp(330px,34vw,430px);
+    border-color:rgba(201,169,108,.26);
+}
+
+.cutting-category-card img{
+    object-position:center 17%;
+    filter:saturate(.82) brightness(.61) contrast(1.04);
+}
+
+.cutting-category-card::before{
+    background:
+        linear-gradient(180deg,rgba(5,7,10,.04),rgba(5,7,10,.18) 38%,rgba(5,7,10,.94)),
+        linear-gradient(115deg,rgba(201,169,108,.12),transparent 44%);
+}
+
+.cutting-category-card.active-cutting-choice{
+    border-color:rgba(201,169,108,.82);
+    box-shadow:0 24px 66px rgba(0,0,0,.46),0 0 0 1px rgba(201,169,108,.13),inset 0 0 40px rgba(201,169,108,.055);
+}
+
+.cutting-category-card .kategori-yazi strong{
+    max-width:460px;
+}
+
+.cutting-catalog-section{
+    margin-top:clamp(34px,5vw,58px);
+}
+
+.cutting-preview-grid{
+    grid-template-columns:minmax(0,860px);
+    justify-content:center;
+}
+
+.cutting-preview-card{
+    display:grid;
+    grid-template-columns:minmax(0,1.45fr) minmax(260px,.7fr);
+    align-items:stretch;
+    min-height:360px;
+    border-color:rgba(201,169,108,.25);
+    background:
+        radial-gradient(circle at 100% 0%,rgba(201,169,108,.1),transparent 34%),
+        #0b1018;
+}
+
+.cutting-preview-card img{
+    width:100%;
+    height:100%;
+    min-height:360px;
+    object-fit:cover;
+    object-position:center 16%;
+    filter:saturate(.82) brightness(.78);
+}
+
+.cutting-preview-card .pro-urun-icerik{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:clamp(26px,4vw,46px);
+    text-align:left;
+}
+
+.cutting-preview-card .pro-urun-icerik h3{
+    min-height:0;
+    justify-content:flex-start;
+    margin:0 0 16px;
+    color:#eef1f5;
+    font-size:clamp(22px,2.4vw,31px);
+    text-align:left;
+}
+
+.cutting-preview-card .pro-urun-icerik p{
+    margin:0;
+    color:#a8b0bc;
+    font-size:15px;
+    line-height:1.72;
+}
+
+@media(max-width:760px){
+    .stone-processing-cover{
+        min-height:0;
+        aspect-ratio:3 / 2;
+        border-radius:18px;
+    }
+
+    .stone-cover-hint{
+        right:14px;
+        bottom:14px;
+        padding:9px 12px;
+        font-size:9px;
+        letter-spacing:.06em;
+    }
+
+    .cutting-category-grid{
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .cutting-category-card{
+        min-height:270px;
+    }
+
+    .cutting-preview-card{
+        grid-template-columns:1fr;
+        min-height:0;
+    }
+
+    .cutting-preview-card img{
+        height:250px;
+        min-height:250px;
+    }
+
+    .cutting-preview-card .pro-urun-icerik{
+        padding:25px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    .stone-processing-cover.blade-spinning .stone-cover-blade{
+        animation:none;
+    }
+}
+
 /* PREMIUM CATALOG SELECTOR */
 .catalog-choice-intro{
     max-width:760px;

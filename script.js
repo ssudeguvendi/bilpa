@@ -69,6 +69,7 @@ const translations = {
             kitchen: "MUTFAK",
             bathroom: "BANYO",
             filterAll: "TÜMÜ",
+            cuttingFilter: "KESİM ÜRÜNLERİ",
             searchPlaceholder: "Ürün veya seri ara...",
             noResults: "Aradığınız ürün bulunamadı.",
             catalogEyebrow: "KATALOG KOLEKSİYONLARI",
@@ -77,6 +78,16 @@ const translations = {
             kitchenCatalog: "MUTFAK KATALOĞU",
             bathroomCatalog: "BANYO KATALOĞU",
             openCatalog: "Kataloğu Aç",
+            openProfessionalCatalog: "Kataloğu keşfet",
+            cuttingEyebrow: "PROFESYONEL ÜRÜNLER",
+            cuttingTitle: "Kesim & İşleme Katalogları",
+            cuttingText: "Mermer ve granit uygulamalarına özel profesyonel ürün gruplarımızı keşfedin.",
+            professionalSeries: "PROFESYONEL SERİ",
+            marbleCutters: "MERMER KESİCİLER",
+            graniteCutters: "GRANİT KESİCİLER",
+            marbleCatalogReady: "Mermer Kesiciler Kataloğu",
+            graniteCatalogReady: "Granit Kesiciler Kataloğu",
+            catalogReadyText: "Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.",
             discoverSeries: "SERİYİ KEŞFET →",
             viewProducts: "ÜRÜNLERİ İNCELE →",
             viewProduct: "ÜRÜNÜ İNCELE →"
@@ -773,6 +784,7 @@ const translations = {
             kitchen: "KITCHEN",
             bathroom: "BATHROOM",
             filterAll: "ALL",
+            cuttingFilter: "CUTTING PRODUCTS",
             searchPlaceholder: "Search products or series...",
             noResults: "No matching product was found.",
             catalogEyebrow: "CATALOG COLLECTIONS",
@@ -781,6 +793,16 @@ const translations = {
             kitchenCatalog: "KITCHEN CATALOG",
             bathroomCatalog: "BATHROOM CATALOG",
             openCatalog: "Open Catalog",
+            openProfessionalCatalog: "Explore the catalog",
+            cuttingEyebrow: "PROFESSIONAL PRODUCTS",
+            cuttingTitle: "Cutting & Processing Catalogs",
+            cuttingText: "Explore our professional product groups for marble and granite applications.",
+            professionalSeries: "PROFESSIONAL SERIES",
+            marbleCutters: "MARBLE CUTTERS",
+            graniteCutters: "GRANITE CUTTERS",
+            marbleCatalogReady: "Marble Cutters Catalog",
+            graniteCatalogReady: "Granite Cutters Catalog",
+            catalogReadyText: "New products will be added to this catalog in the same layout as the Pro Series.",
             discoverSeries: "DISCOVER SERIES →",
             viewProducts: "VIEW PRODUCTS →",
             viewProduct: "VIEW PRODUCT →"
@@ -1515,7 +1537,7 @@ function normalizeCatalogText(value) {
 function initCatalogSearch() {
     const search = document.getElementById("catalogSearch");
     const filters = Array.from(document.querySelectorAll("[data-catalog-filter]"));
-    const categoryCards = document.querySelector(".kategori-kartlar");
+    const categoryCards = Array.from(document.querySelectorAll(".kategori-kartlar, .cutting-category-grid"));
     const noResults = document.getElementById("catalogNoResults");
 
     if (!search || !filters.length) {
@@ -1576,9 +1598,13 @@ function initCatalogSearch() {
             }
         });
 
-        if (categoryCards) {
-            categoryCards.hidden = isSearching;
-        }
+        categoryCards.forEach((cards) => {
+            if (cards.id === "stoneProcessingCatalogs") {
+                cards.hidden = isSearching || cards.dataset.catalogOpen !== "true";
+            } else {
+                cards.hidden = isSearching;
+            }
+        });
 
         if (noResults) {
             noResults.hidden = !isSearching || totalMatches > 0;
@@ -1599,6 +1625,16 @@ function initCatalogSearch() {
                 card.setAttribute("aria-pressed", String(active));
             });
             applyCatalogFilter();
+
+            if (selectedFilter === "kesim") {
+                revealStoneProcessingCatalogs();
+            } else {
+                collapseStoneProcessingCatalogs();
+                document.querySelectorAll("[data-cutting-choice]").forEach((card) => {
+                    card.classList.remove("active-cutting-choice");
+                    card.setAttribute("aria-pressed", "false");
+                });
+            }
         });
     });
 
@@ -1746,11 +1782,90 @@ function showCategory(id) {
 }
 
 function selectCatalogCategory(id) {
+    document.querySelectorAll("[data-cutting-choice]").forEach((card) => {
+        card.classList.remove("active-cutting-choice");
+        card.setAttribute("aria-pressed", "false");
+    });
     const filter = document.querySelector(`[data-catalog-filter="${id}"]`);
     if (filter) {
         filter.click();
     }
     showCategory(id);
+}
+
+function revealStoneProcessingCatalogs() {
+    const catalogs = document.getElementById("stoneProcessingCatalogs");
+    const cover = document.getElementById("stoneProcessingCover");
+
+    if (catalogs) {
+        catalogs.dataset.catalogOpen = "true";
+        catalogs.hidden = false;
+    }
+    if (cover) {
+        cover.setAttribute("aria-expanded", "true");
+    }
+}
+
+function collapseStoneProcessingCatalogs() {
+    const catalogs = document.getElementById("stoneProcessingCatalogs");
+    const cover = document.getElementById("stoneProcessingCover");
+
+    if (catalogs) {
+        catalogs.dataset.catalogOpen = "false";
+        catalogs.hidden = true;
+    }
+    if (cover) {
+        cover.setAttribute("aria-expanded", "false");
+    }
+}
+
+function openStoneProcessingCatalog() {
+    const cover = document.getElementById("stoneProcessingCover");
+    const filter = document.querySelector('[data-catalog-filter="kesim"]');
+    const catalogs = document.getElementById("stoneProcessingCatalogs");
+
+    if (!cover || !catalogs) {
+        return;
+    }
+
+    cover.classList.remove("blade-spinning");
+    void cover.offsetWidth;
+    cover.classList.add("blade-spinning");
+
+    window.setTimeout(() => {
+        if (filter) {
+            filter.click();
+        } else {
+            revealStoneProcessingCatalogs();
+        }
+        cover.classList.remove("blade-spinning");
+        requestAnimationFrame(() => scrollToVisibleSection(catalogs));
+    }, 680);
+}
+
+function showCuttingSeries(type) {
+    const filter = document.querySelector('[data-catalog-filter="kesim"]');
+    if (filter) {
+        filter.click();
+    }
+
+    showCategory("kesim");
+
+    document.querySelectorAll("[data-cutting-choice]").forEach((card) => {
+        const active = card.dataset.cuttingChoice === type;
+        card.classList.toggle("active-cutting-choice", active);
+        card.setAttribute("aria-pressed", String(active));
+    });
+
+    document.querySelectorAll("#kesim .pro-urunler").forEach((section) => {
+        section.classList.remove("active");
+    });
+
+    const target = document.getElementById(`${type}-kesiciler-serisi`);
+    if (target) {
+        target.classList.add("active");
+        requestAnimationFrame(() => scrollToVisibleSection(target));
+    }
 }
 
 function showProSeries() {
