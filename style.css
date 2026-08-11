@@ -2532,15 +2532,15 @@ footer{
     border-color:rgba(201,169,108,.26);
 }
 
-.cutting-category-card img{
+.kategori-kart.cutting-category-card img{
     object-position:center 17%;
-    filter:saturate(.82) brightness(.61) contrast(1.04);
+    filter:saturate(.96) brightness(.88) contrast(1.05);
 }
 
-.cutting-category-card::before{
+.kategori-kart.cutting-category-card::before{
     background:
-        linear-gradient(180deg,rgba(5,7,10,.04),rgba(5,7,10,.18) 38%,rgba(5,7,10,.94)),
-        linear-gradient(115deg,rgba(201,169,108,.12),transparent 44%);
+        linear-gradient(180deg,rgba(5,7,10,.01),rgba(5,7,10,.07) 45%,rgba(5,7,10,.82)),
+        linear-gradient(115deg,rgba(201,169,108,.07),transparent 44%);
 }
 
 .cutting-category-card.active-cutting-choice{
@@ -2578,7 +2578,7 @@ footer{
     min-height:360px;
     object-fit:cover;
     object-position:center 16%;
-    filter:saturate(.82) brightness(.78);
+    filter:saturate(.96) brightness(.94) contrast(1.03);
 }
 
 .cutting-preview-card .pro-urun-icerik{
