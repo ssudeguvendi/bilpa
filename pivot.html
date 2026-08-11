@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.pivotTitle">PIVOT Armatür | Bil-Pa Ticaret</title>
+<meta name="description" content="Pivot premium mutfak armatürünün antrasit, bakır, gold ve inox renk seçeneklerini inceleyin.">
+<link rel="stylesheet" href="style.css?v=20260811-15">
+<script defer src="script.js?v=20260811-27"></script>
+</head>
+<body>
+<nav class="navbar product-navbar">
+    <a class="brand" href="index.html">BIL-PA TICARET</a>
+    <div class="nav-links">
+        <a href="index.html#urunler" data-i18n="nav.products">Ürünler</a>
+        <a href="index.html#hakkimizda" data-i18n="nav.about">Hakkımızda</a>
+        <a href="index.html#iletisim" data-i18n="nav.contact">İletişim</a>
+    </div>
+    <div class="language-switcher" aria-label="Dil seçimi">
+        <button type="button" data-lang-button="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang-button="en" aria-pressed="false">EN</button>
+    </div>
+</nav>
+
+<section class="urun-sayfa">
+    <div class="urun-grid">
+        <div class="urun-resim"><img id="anaResim" src="pivot-antrasit.jpeg" alt="Pivot antrasit mutfak armatürü"></div>
+        <div class="urun-bilgi">
+            <h1>PIVOT</h1>
+            <h3 data-i18n="productPage.pivotSubtitle">Premium Katlanabilir Mutfak Armatürü</h3>
+            <p data-i18n="productPage.pivotIntro">Pivot, iki kademeli hareketli gövdesi ve çağdaş geometrik formuyla suyu ihtiyaç duyulan noktaya yönlendirmeyi kolaylaştırır. Dört premium yüzey seçeneğiyle modern mutfaklara güçlü bir karakter kazandırır.</p>
+
+            <h3 data-i18n="productPage.colorsTitle">Renk Seçenekleri</h3>
+            <div class="renk-paleti">
+                <div class="renk" onclick="degistir('pivot-antrasit.jpeg')"><span style="background:#343536"></span><span data-i18n="productPage.anthracite">Antrasit</span></div>
+                <div class="renk" onclick="degistir('pivot-bakir.jpeg')"><span style="background:linear-gradient(135deg,#6f321f,#d58a61 52%,#713823)"></span><span data-i18n="productPage.copper">Bakır</span></div>
+                <div class="renk" onclick="degistir('pivot-gold.jpeg')"><span style="background:linear-gradient(135deg,#7c5412,#f0c763 52%,#8b6016)"></span><span data-i18n="productPage.gold">Gold</span></div>
+                <div class="renk" onclick="degistir('pivot-inox.jpeg')"><span style="background:linear-gradient(135deg,#666,#ece8df 48%,#777)"></span><span data-i18n="productPage.inox">İnox</span></div>
+            </div>
+
+            <div class="ozellikler">
+                <h3 data-i18n="productPage.highlightsTitle">Öne Çıkan Özellikler</h3>
+                <ul>
+                    <li><strong data-i18n="productPage.pivotFeature1Title">Çift Pivotlu Gövde</strong><span data-i18n="productPage.pivotFeature1Text">İki hareketli kol, armatürün kullanım alanına göre kolayca yönlendirilmesine ve katlanmasına imkân verir.</span></li>
+                    <li><strong data-i18n="productPage.pivotFeature2Title">Esnek Kullanım Alanı</strong><span data-i18n="productPage.pivotFeature2Text">Geniş erişim mesafesi, evyenin farklı bölümlerinde kontrollü ve rahat kullanım sağlar.</span></li>
+                    <li><strong data-i18n="productPage.pivotFeature3Title">Minimal Kumanda Kolu</strong><span data-i18n="productPage.pivotFeature3Text">İnce yan kol, su akışını ve sıcaklığını hassas biçimde ayarlamaya yardımcı olur.</span></li>
+                    <li><strong data-i18n="productPage.pivotFeature4Title">Dört Premium Renk</strong><span data-i18n="productPage.pivotFeature4Text">Antrasit, bakır, gold ve inox yüzey seçenekleri farklı mutfak atmosferlerine uyum sağlar.</span></li>
+                </ul>
+            </div>
+
+            <a href="https://wa.me/905334026564" target="_blank" rel="noopener" onclick="var n=this.closest('.urun-bilgi').querySelector('h1').textContent.trim();var e=document.documentElement.lang==='en';var m=e?'Hello, I would like to receive a quote for the '+n+' product.':'Merhaba, '+n+' ürünü için teklif almak istiyorum.';this.href='https://wa.me/905334026564?text='+encodeURIComponent(m+'\n'+(e?'Product link: ':'Ürün bağlantısı: ')+window.location.href.split('#')[0]);"><button type="button" class="whatsapp-btn" data-i18n="productPage.quoteButton">Teklif Al</button></a>
+        </div>
+    </div>
+</section>
+</body>
+</html>

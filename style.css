@@ -1729,6 +1729,17 @@ footer{
     display:block;
 }
 
+#armatur-serisi .pro-urun-grid{
+    grid-template-columns:repeat(auto-fit,minmax(280px,380px));
+    justify-content:center;
+}
+
+#armatur-serisi .pro-urun-kart img.armatur-kapak{
+    height:360px;
+    object-fit:cover;
+    object-position:center 8%;
+}
+
 .pro-urun-icerik{
     padding:20px;
     text-align:center;
@@ -2689,6 +2700,11 @@ footer{
 
     .pro-urun-kart img{
         height:185px;
+    }
+
+    #armatur-serisi .pro-urun-kart img.armatur-kapak{
+        height:340px;
+        object-position:center 6%;
     }
 
     .urun-resim img{

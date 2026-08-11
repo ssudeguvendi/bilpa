@@ -26,6 +26,7 @@ const translations = {
             troya86Title: "P004 TROYA 86 | Bil-Pa Ticaret",
             troya100Title: "P005 TROYA 100 | Bil-Pa Ticaret",
             tuncaTitle: "TUNCA Armatür | Bil-Pa Ticaret",
+            pivotTitle: "PIVOT Armatür | Bil-Pa Ticaret",
             cappadociaTitle: "P016 CAPPADOCIA | Bil-Pa Ticaret",
             didyma60Title: "K002 DIDYMA 60 | Bil-Pa Ticaret",
             didyma77Title: "K003 DIDYMA 77 | Bil-Pa Ticaret",
@@ -83,6 +84,7 @@ const translations = {
             k: "K - Serisi",
             faucets: "Armatürler",
             tunca: "Tunca",
+            pivot: "Pivot",
             smartSink: "Akıllı Evye",
             accessories: "Aksesuarlar"
         },
@@ -433,6 +435,16 @@ const translations = {
             tuncaFeature3Text: "İnce yan kol, su akışını ve sıcaklığını kolayca ayarlamaya yardımcı olur.",
             tuncaFeature4Title: "Üç Premium Renk",
             tuncaFeature4Text: "Siyah, antrasit ve krom yüzey seçenekleri farklı mutfak stillerine uyum sağlar.",
+            pivotSubtitle: "Premium Katlanabilir Mutfak Armatürü",
+            pivotIntro: "Pivot, iki kademeli hareketli gövdesi ve çağdaş geometrik formuyla suyu ihtiyaç duyulan noktaya yönlendirmeyi kolaylaştırır. Dört premium yüzey seçeneğiyle modern mutfaklara güçlü bir karakter kazandırır.",
+            pivotFeature1Title: "Çift Pivotlu Gövde",
+            pivotFeature1Text: "İki hareketli kol, armatürün kullanım alanına göre kolayca yönlendirilmesine ve katlanmasına imkân verir.",
+            pivotFeature2Title: "Esnek Kullanım Alanı",
+            pivotFeature2Text: "Geniş erişim mesafesi, evyenin farklı bölümlerinde kontrollü ve rahat kullanım sağlar.",
+            pivotFeature3Title: "Minimal Kumanda Kolu",
+            pivotFeature3Text: "İnce yan kol, su akışını ve sıcaklığını hassas biçimde ayarlamaya yardımcı olur.",
+            pivotFeature4Title: "Dört Premium Renk",
+            pivotFeature4Text: "Antrasit, bakır, gold ve inox yüzey seçenekleri farklı mutfak atmosferlerine uyum sağlar.",
             cappadociaSubtitle: "Pro Serisi Granit Evye",
             cappadociaIntro: "P016 Cappadocia, geniş ana haznesi ve yardımcı haznesiyle yıkama ve hazırlık işlerini düzenli biçimde ayırır. Kompakt gövdesi, dayanıklı granit yüzeyi ve altı seçkin rengiyle modern mutfaklara uyum sağlar.",
             cappadociaFeature1Title: "Ana ve Yardımcı Hazne",
@@ -647,6 +659,9 @@ const translations = {
             cream: "Krem",
             cappuccino: "Cappuccino",
             chrome: "Krom",
+            copper: "Bakır",
+            gold: "Gold",
+            inox: "İnox",
             black: "Siyah",
             darkGreen: "Koyu Yeşil",
             mintGreen: "Mint Yeşil",
@@ -689,6 +704,7 @@ const translations = {
             troya86Title: "P004 TROYA 86 | Bil-Pa Trade",
             troya100Title: "P005 TROYA 100 | Bil-Pa Trade",
             tuncaTitle: "TUNCA Faucet | Bil-Pa Trade",
+            pivotTitle: "PIVOT Faucet | Bil-Pa Trade",
             cappadociaTitle: "P016 CAPPADOCIA | Bil-Pa Trade",
             didyma60Title: "K002 DIDYMA 60 | Bil-Pa Trade",
             didyma77Title: "K003 DIDYMA 77 | Bil-Pa Trade",
@@ -746,6 +762,7 @@ const translations = {
             k: "K Series",
             faucets: "Faucets",
             tunca: "Tunca",
+            pivot: "Pivot",
             smartSink: "Smart Sink",
             accessories: "Accessories"
         },
@@ -1096,6 +1113,16 @@ const translations = {
             tuncaFeature3Text: "The slim side lever helps adjust water flow and temperature with ease.",
             tuncaFeature4Title: "Three Premium Finishes",
             tuncaFeature4Text: "Black, anthracite and chrome finishes complement a wide range of kitchen styles.",
+            pivotSubtitle: "Premium Articulating Kitchen Faucet",
+            pivotIntro: "Pivot makes it easy to direct water exactly where it is needed with its two-stage articulating body and contemporary geometric form. Four premium finishes add a strong character to modern kitchens.",
+            pivotFeature1Title: "Dual-Pivot Body",
+            pivotFeature1Text: "Two movable arms allow the faucet to be directed and folded easily according to the working area.",
+            pivotFeature2Title: "Flexible Working Range",
+            pivotFeature2Text: "Its extended reach provides controlled and comfortable use across different areas of the sink.",
+            pivotFeature3Title: "Minimal Control Lever",
+            pivotFeature3Text: "The slim side lever helps adjust water flow and temperature precisely.",
+            pivotFeature4Title: "Four Premium Finishes",
+            pivotFeature4Text: "Anthracite, copper, gold and inox finishes complement a wide range of kitchen atmospheres.",
             cappadociaSubtitle: "Pro Series Granite Sink",
             cappadociaIntro: "P016 Cappadocia keeps washing and preparation organized with its spacious main bowl and auxiliary bowl. Its compact body, durable granite surface and six selected colors complement modern kitchens.",
             cappadociaFeature1Title: "Main and Auxiliary Bowls",
@@ -1310,6 +1337,9 @@ const translations = {
             cream: "Cream",
             cappuccino: "Cappuccino",
             chrome: "Chrome",
+            copper: "Copper",
+            gold: "Gold",
+            inox: "Inox",
             black: "Black",
             darkGreen: "Dark Green",
             mintGreen: "Mint Green",
@@ -1675,7 +1705,7 @@ function showProSeries() {
     const kitchen = document.getElementById("mutfak");
     const proSeries = document.getElementById("pro-serisi");
     const kSeries = document.getElementById("k-serisi");
-    const tuncaSeries = document.getElementById("tunca-serisi");
+    const armaturSeries = document.getElementById("armatur-serisi");
 
     if (kitchen) {
         kitchen.classList.add("active");
@@ -1685,8 +1715,8 @@ function showProSeries() {
         kSeries.classList.remove("active");
     }
 
-    if (tuncaSeries) {
-        tuncaSeries.classList.remove("active");
+    if (armaturSeries) {
+        armaturSeries.classList.remove("active");
     }
 
     if (proSeries) {
@@ -1699,7 +1729,7 @@ function showKSeries() {
     const kitchen = document.getElementById("mutfak");
     const kSeries = document.getElementById("k-serisi");
     const proSeries = document.getElementById("pro-serisi");
-    const tuncaSeries = document.getElementById("tunca-serisi");
+    const armaturSeries = document.getElementById("armatur-serisi");
 
     if (kitchen) {
         kitchen.classList.add("active");
@@ -1709,8 +1739,8 @@ function showKSeries() {
         proSeries.classList.remove("active");
     }
 
-    if (tuncaSeries) {
-        tuncaSeries.classList.remove("active");
+    if (armaturSeries) {
+        armaturSeries.classList.remove("active");
     }
 
     if (kSeries) {
@@ -1719,9 +1749,9 @@ function showKSeries() {
     }
 }
 
-function showTuncaSeries() {
+function showArmaturSeries() {
     const kitchen = document.getElementById("mutfak");
-    const tuncaSeries = document.getElementById("tunca-serisi");
+    const armaturSeries = document.getElementById("armatur-serisi");
     const proSeries = document.getElementById("pro-serisi");
     const kSeries = document.getElementById("k-serisi");
 
@@ -1737,9 +1767,9 @@ function showTuncaSeries() {
         kSeries.classList.remove("active");
     }
 
-    if (tuncaSeries) {
-        tuncaSeries.classList.add("active");
-        requestAnimationFrame(() => scrollToVisibleSection(tuncaSeries));
+    if (armaturSeries) {
+        armaturSeries.classList.add("active");
+        requestAnimationFrame(() => scrollToVisibleSection(armaturSeries));
     }
 }
 
