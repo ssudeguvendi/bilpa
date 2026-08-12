@@ -94,6 +94,9 @@ const translations = {
             vacuumSpecialProducts: "VAKUMLU ÖZEL ÜRÜNLER",
             vacuumProfiles: "VAKUM STANDART VE ÖZEL PROFİLLER",
             quarryMaterials: "OCAK MALZEMELERİ",
+            wetMarbleMachineSaws: "MERMER SULU MAKİNE TESTERELERİ",
+            superGoldMarbleCutter: "SÜPER GOLD MERMER KESİCİ",
+            superGoldMarbleCutterText: "Mermer sulu kesim uygulamaları için profesyonel makine testeresi.",
             marbleCatalogReady: "Mermer Kesiciler Kataloğu",
             graniteCatalogReady: "Granit Kesici Kataloğu",
             marbleDrillCatalog: "Mermer Delici (Vakumlu) Kataloğu",
@@ -827,6 +830,9 @@ const translations = {
             vacuumSpecialProducts: "SPECIAL VACUUM PRODUCTS",
             vacuumProfiles: "STANDARD & CUSTOM VACUUM PROFILES",
             quarryMaterials: "QUARRY MATERIALS",
+            wetMarbleMachineSaws: "WET MARBLE MACHINE SAWS",
+            superGoldMarbleCutter: "SUPER GOLD MARBLE CUTTER",
+            superGoldMarbleCutterText: "Professional machine saw for wet marble cutting applications.",
             marbleCatalogReady: "Marble Cutters Catalog",
             graniteCatalogReady: "Granite Cutter Catalog",
             marbleDrillCatalog: "Vacuum Marble Drills Catalog",
@@ -1913,6 +1919,27 @@ function showCuttingSeries(type) {
     const target = document.getElementById(seriesTargets[type] || "");
     if (target) {
         target.classList.add("active");
+        requestAnimationFrame(() => scrollToVisibleSection(target));
+    }
+}
+
+function showMarbleSubcategory(type) {
+    document.querySelectorAll("[data-marble-subcategory]").forEach((card) => {
+        const active = card.dataset.marbleSubcategory === type;
+        card.classList.toggle("active", active);
+        card.setAttribute("aria-pressed", String(active));
+    });
+
+    document.querySelectorAll(".marble-subcategory-products").forEach((section) => {
+        section.hidden = true;
+    });
+
+    const targets = {
+        "mermer-sulu-makine-testereleri": "mermer-sulu-makine-testereleri-urunler"
+    };
+    const target = document.getElementById(targets[type] || "");
+    if (target) {
+        target.hidden = false;
         requestAnimationFrame(() => scrollToVisibleSection(target));
     }
 }

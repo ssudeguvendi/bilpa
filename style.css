@@ -2647,6 +2647,125 @@ footer{
     line-height:1.72;
 }
 
+/* Mermer Kesiciler: alt katalog ve ürün hiyerarşisi */
+.marble-subcategory-grid{
+    display:grid;
+    grid-template-columns:minmax(280px,520px);
+    justify-content:center;
+    margin-top:clamp(22px,3vw,34px);
+}
+
+.marble-subcategory-card{
+    position:relative;
+    min-height:360px;
+    overflow:hidden;
+    border:1px solid rgba(201,169,108,.3);
+    border-radius:22px;
+    background:#0a0d13;
+    box-shadow:0 22px 58px rgba(0,0,0,.36);
+    cursor:pointer;
+    isolation:isolate;
+    transition:transform .32s ease,border-color .32s ease,box-shadow .32s ease;
+}
+
+.marble-subcategory-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background:linear-gradient(180deg,transparent 48%,rgba(4,6,9,.94));
+    pointer-events:none;
+}
+
+.marble-subcategory-card img{
+    width:100%;
+    height:100%;
+    min-height:360px;
+    object-fit:cover;
+    object-position:center 18%;
+    filter:saturate(1.04) contrast(1.04) brightness(.96);
+    transition:transform .45s ease,filter .35s ease;
+}
+
+.marble-subcategory-label{
+    position:absolute;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    padding:22px 24px;
+    color:#f1f3f5;
+}
+
+.marble-subcategory-label strong{
+    font-size:clamp(17px,2vw,23px);
+    line-height:1.25;
+    letter-spacing:.045em;
+}
+
+.marble-subcategory-label span{
+    color:#d2b579;
+    font-size:32px;
+    font-weight:300;
+    line-height:1;
+}
+
+.marble-subcategory-card.active{
+    border-color:rgba(201,169,108,.82);
+    box-shadow:0 25px 68px rgba(0,0,0,.48),0 0 0 1px rgba(201,169,108,.12);
+}
+
+.marble-subcategory-products{
+    margin-top:clamp(34px,5vw,58px);
+}
+
+.marble-subcategory-products[hidden]{
+    display:none !important;
+}
+
+.marble-subcategory-products > h3{
+    margin:0 0 24px;
+    color:#eef1f5;
+    font-size:clamp(22px,3vw,34px);
+    text-align:center;
+}
+
+.marble-product-grid{
+    grid-template-columns:minmax(280px,520px);
+    justify-content:center;
+}
+
+.marble-product-card img{
+    width:100%;
+    aspect-ratio:4 / 3;
+    object-fit:cover;
+    object-position:center;
+    filter:saturate(1.03) contrast(1.04);
+}
+
+.marble-product-card .pro-urun-icerik p{
+    margin:10px 0 0;
+    color:#aab2bd;
+    line-height:1.65;
+}
+
+@media(hover:hover) and (pointer:fine){
+    .marble-subcategory-card:hover{
+        transform:translateY(-6px);
+        border-color:rgba(201,169,108,.68);
+        box-shadow:0 30px 72px rgba(0,0,0,.48);
+    }
+
+    .marble-subcategory-card:hover img{
+        transform:scale(1.035);
+        filter:saturate(1.08) contrast(1.06) brightness(1);
+    }
+}
+
 @media(max-width:760px){
     .stone-processing-cover{
         min-height:0;
@@ -2683,6 +2802,15 @@ footer{
 
     .cutting-preview-card .pro-urun-icerik{
         padding:25px;
+    }
+
+    .marble-subcategory-card,
+    .marble-subcategory-card img{
+        min-height:280px;
+    }
+
+    .marble-subcategory-label{
+        padding:18px;
     }
 }
 

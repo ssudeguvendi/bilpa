@@ -15,8 +15,8 @@
 <meta property="og:url" content="https://ssudeguvendi.github.io/bilpa/">
 <meta property="og:image" content="https://ssudeguvendi.github.io/bilpa/bilpa-deger.jpeg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=20260811-21">
-<script defer src="script.js?v=20260811-35"></script>
+<link rel="stylesheet" href="style.css?v=20260812-22">
+<script defer src="script.js?v=20260812-36"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -281,13 +281,26 @@
         <div id="kesim" class="kategori cutting-catalog-section">
             <div id="mermer-kesiciler-serisi" class="pro-urunler">
                 <h2 data-i18n="products.marbleCutters">Mermer Kesiciler</h2>
-                <div class="pro-urun-grid cutting-preview-grid">
-                    <div class="pro-urun-kart cutting-preview-card">
+                <div class="marble-subcategory-grid">
+                    <div class="marble-subcategory-card" data-marble-subcategory="mermer-sulu-makine-testereleri" role="button" tabindex="0" aria-pressed="false" onclick="showMarbleSubcategory('mermer-sulu-makine-testereleri')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showMarbleSubcategory('mermer-sulu-makine-testereleri')}">
                         <img src="mermer-kesiciler-kapak.jpeg" alt="Mermer kesiciler ürün kataloğu">
-                        <div class="pro-urun-icerik">
-                            <h3 data-i18n="products.marbleCatalogReady">Mermer Kesiciler Kataloğu</h3>
-                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
+                        <div class="marble-subcategory-label">
+                            <strong data-i18n="products.wetMarbleMachineSaws">Mermer Sulu Makine Testereleri</strong>
+                            <span aria-hidden="true">›</span>
                         </div>
+                    </div>
+                </div>
+
+                <div id="mermer-sulu-makine-testereleri-urunler" class="marble-subcategory-products" hidden>
+                    <h3 data-i18n="products.wetMarbleMachineSaws">Mermer Sulu Makine Testereleri</h3>
+                    <div class="pro-urun-grid marble-product-grid">
+                        <article class="pro-urun-kart marble-product-card">
+                            <img src="super-gold-mermer-kesici.jpeg" alt="Süper Gold Mermer Kesici">
+                            <div class="pro-urun-icerik">
+                                <h3 data-i18n="products.superGoldMarbleCutter">Süper Gold Mermer Kesici</h3>
+                                <p data-i18n="products.superGoldMarbleCutterText">Mermer sulu kesim uygulamaları için profesyonel makine testeresi.</p>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
