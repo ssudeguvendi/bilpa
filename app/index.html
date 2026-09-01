@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111315">
+<meta name="description" content="BİLPA Stok & Depo - şirket içi ürün, araba ve sayım yönetimi.">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<title>BİLPA | STOK & DEPO</title>
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar">
+  <div><span class="eyebrow">BİL-PA TİCARET</span><h1>STOK & DEPO</h1></div>
+  <button id="installBtn" class="ghost" hidden>Uygulamayı Yükle</button>
+</header>
+<main>
+  <section class="dashboard-grid" aria-label="Stok özeti">
+    <article class="stat"><span>Ürün</span><strong id="productCount">0</strong></article>
+    <article class="stat"><span>Toplam Stok</span><strong id="stockTotal">0</strong></article>
+    <article class="stat"><span>Arabalar</span><strong id="cartCount">0</strong></article>
+    <article class="stat"><span>Sayım Farkı</span><strong id="differenceTotal">0</strong></article>
+  </section>
+
+  <section class="panel">
+    <div class="section-head"><div><span class="eyebrow">YÖNETİM</span><h2>Ürünler</h2></div><button id="addProductBtn" class="primary">+ Ürün Ekle</button></div>
+    <div class="toolbar"><input id="productSearch" type="search" placeholder="Ürün adı, kod veya barkod ara..."><select id="seriesFilter"><option value="">Tüm seriler</option></select></div>
+    <div id="products" class="product-list"></div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head"><div><span class="eyebrow">DEPO</span><h2>Arabalar</h2></div><button id="addCartBtn" class="secondary">+ Araba Ekle</button></div>
+    <div id="carts" class="cart-list"></div>
+  </section>
+
+  <section class="panel count-panel">
+    <div class="section-head"><div><span class="eyebrow">SAYIM</span><h2>Hızlı Sayım</h2></div></div>
+    <p class="muted">Barkod sistemi henüz yok. İlk aşamada BİLPA kodlarını kullanacağız: <b>BLP-000001</b>, <b>BLP-000002</b>...</p>
+    <div class="scan-box"><input id="scanInput" inputmode="text" autocomplete="off" placeholder="BLP-000001 barkodunu okut veya yaz"><button id="scanBtn" class="primary">Ekle</button></div>
+    <div id="countSession" class="count-session" hidden></div>
+  </section>
+</main>
+</div>
+<div id="modal" class="modal" hidden><div class="modal-card"><button class="close" id="closeModal">×</button><div id="modalContent"></div></div></div>
+<script src="app.js"></script>
+</body>
+</html>
