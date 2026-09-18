@@ -85,6 +85,8 @@ const translations = {
             professionalSeries: "PROFESYONEL SERİ",
             marbleCutters: "MERMER KESİCİLER",
             graniteCutters: "GRANİT KESİCİ",
+            inspectProduct: "ÜRÜNÜ İNCELE",
+            close: "Kapat",
             marbleDrill: "MERMER DELİCİ (VAKUMLU)",
             esteSaws: "ESTE TESTERELER",
             dryCoreBits: "GRANİT KURU KAROTLAR",
@@ -825,6 +827,8 @@ const translations = {
             professionalSeries: "PROFESSIONAL SERIES",
             marbleCutters: "MARBLE CUTTERS",
             graniteCutters: "GRANITE CUTTER",
+            inspectProduct: "VIEW PRODUCT",
+            close: "Close",
             marbleDrill: "VACUUM MARBLE DRILLS",
             esteSaws: "ESTE SAWS",
             dryCoreBits: "DRY GRANITE CORE BITS",
@@ -1952,7 +1956,66 @@ function showMarbleSubcategory(type) {
     }
 }
 
+const graniteProducts = [
+    ["granit-kesici-01.jpeg", "granit-kesici-02.jpeg", "granit-kesici-03.jpeg", "granit-kesici-04.jpeg"],
+    ["granit-kesici-urun-02.jpeg"],
+    ["granit-kesici-urun-03.jpeg"],
+    ["granit-kesici-urun-04.jpeg"],
+    ["granit-kesici-urun-05.jpeg"],
+    ["granit-kesici-urun-06.jpeg"],
+    ["granit-kesici-urun-07.jpeg"],
+    ["granit-kesici-urun-08.jpeg"]
+];
+
 let graniteSlideIndex = 0;
+let activeGraniteProductIndex = 0;
+
+function updateGraniteQuoteLink() {
+    const link = document.getElementById("graniteQuoteButton");
+    if (!link) return;
+
+    const productNumber = activeGraniteProductIndex + 1;
+    const isEnglish = document.documentElement.lang === "en";
+    const pageUrl = new URL(window.location.href);
+    pageUrl.hash = "";
+    const message = isEnglish
+        ? `Hello, I would like to receive a quote for Granite Cutter product ${productNumber}.\nProduct link: ${pageUrl.href}`
+        : `Merhaba, Granit Kesiciler kataloğundaki ${productNumber}. ürün için teklif almak istiyorum.\nÜrün bağlantısı: ${pageUrl.href}`;
+    link.href = `https://wa.me/905334026564?text=${encodeURIComponent(message)}`;
+}
+
+function openGraniteProduct(productIndex) {
+    const detail = document.getElementById("graniteProductDetail");
+    const slider = document.getElementById("graniteProductSlider");
+    const dots = document.getElementById("graniteSliderDots");
+    const images = graniteProducts[productIndex] || [];
+    if (!detail || !slider || !dots || !images.length) return;
+
+    activeGraniteProductIndex = productIndex;
+    slider.innerHTML = images.map((src, index) => `
+        <figure class="granite-slide">
+            <img src="${src}" alt="Granit kesici ürün görseli ${index + 1}">
+        </figure>
+    `).join("");
+    dots.innerHTML = images.map((_, index) => `
+        <button class="granite-slider-dot${index === 0 ? " active" : ""}" type="button" aria-label="${index + 1}. görsel" onclick="goToGraniteSlide(${index})"></button>
+    `).join("");
+
+    const singleImage = images.length === 1;
+    document.getElementById("granitePrevButton").hidden = singleImage;
+    document.getElementById("graniteNextButton").hidden = singleImage;
+    dots.hidden = singleImage;
+    graniteSlideIndex = 0;
+    slider.scrollLeft = 0;
+    updateGraniteQuoteLink();
+    detail.hidden = false;
+    requestAnimationFrame(() => scrollToVisibleSection(detail));
+}
+
+function closeGraniteProduct() {
+    const detail = document.getElementById("graniteProductDetail");
+    if (detail) detail.hidden = true;
+}
 
 function updateGraniteSlider(index) {
     const slider = document.getElementById("graniteProductSlider");

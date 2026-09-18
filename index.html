@@ -30,7 +30,23 @@
 .granite-slider-dots{display:flex;justify-content:center;gap:9px;margin-top:16px}
 .granite-slider-dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:#555;cursor:pointer;transition:.2s ease}
 .granite-slider-dot.active{width:26px;border-radius:10px;background:#d4af37}
+.granite-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:24px}
+.granite-product-card{position:relative;overflow:hidden;padding:0;border:1px solid rgba(212,175,55,.25);border-radius:20px;background:#080808;cursor:pointer;box-shadow:0 16px 38px rgba(0,0,0,.28);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.granite-product-card:hover,.granite-product-card:focus-visible{transform:translateY(-5px);border-color:#d4af37;box-shadow:0 22px 48px rgba(0,0,0,.42)}
+.granite-product-card img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform .35s ease}
+.granite-product-card:hover img{transform:scale(1.025)}
+.granite-product-open{position:absolute;left:14px;right:14px;bottom:14px;padding:10px 14px;border:1px solid rgba(212,175,55,.48);border-radius:999px;background:rgba(0,0,0,.78);color:#f2d47d;font-size:.78rem;letter-spacing:.1em;text-align:center;text-transform:uppercase;backdrop-filter:blur(8px)}
+.granite-product-detail{margin-top:32px;padding:24px;border:1px solid rgba(212,175,55,.24);border-radius:24px;background:linear-gradient(145deg,#0b0b0b,#050505)}
+.granite-product-detail[hidden]{display:none}
+.granite-detail-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:10px}
+.granite-detail-head h3{margin:0;color:#e0bd5b;font-size:clamp(1.2rem,3vw,1.8rem)}
+.granite-detail-close{padding:9px 15px;border:1px solid rgba(212,175,55,.45);border-radius:999px;background:transparent;color:#f4df9d;cursor:pointer}
+.granite-quote-wrap{display:flex;justify-content:center;margin-top:22px}
+.granite-quote-btn{display:inline-flex;align-items:center;justify-content:center;min-width:190px;padding:13px 24px;border:1px solid #d4af37;border-radius:999px;background:#d4af37;color:#090909;font-weight:700;letter-spacing:.06em;text-decoration:none;transition:.2s ease}
+.granite-quote-btn:hover{background:#f0d275;transform:translateY(-2px)}
+@media(max-width:900px){.granite-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.granite-slider-shell{padding:0 8px 58px}.granite-slider-arrow{top:auto;bottom:2px;transform:none}.granite-slider-arrow.prev{left:calc(50% - 54px)}.granite-slider-arrow.next{right:calc(50% - 54px)}.granite-slider-dots{position:absolute;left:0;right:0;bottom:20px}.granite-slide{border-radius:18px}}
+@media(max-width:560px){.granite-product-grid{grid-template-columns:1fr;gap:16px}.granite-product-detail{padding:14px}.granite-product-card{border-radius:17px}}
 </style>
 <script defer src="script.js?v=20260812-36"></script>
 <script type="application/ld+json">
@@ -337,32 +353,30 @@
 
             <div id="granit-kesiciler-serisi" class="pro-urunler">
                 <h2 data-i18n="products.graniteCutters">Granit Kesici</h2>
-                <div class="granite-slider-shell" aria-label="Granit Kesiciler ürün galerisi">
-                    <button class="granite-slider-arrow prev" type="button" aria-label="Önceki görsel" onclick="moveGraniteSlide(-1)">‹</button>
-                    <div id="graniteProductSlider" class="granite-slider" tabindex="0">
-                        <figure class="granite-slide">
-                            <img src="granit-kesici-01.jpeg" alt="Mavi granit kesici önden görünüm">
-                            <figcaption class="granite-slide-label" data-i18n="products.graniteCutters">Granit Kesici</figcaption>
-                        </figure>
-                        <figure class="granite-slide">
-                            <img src="granit-kesici-02.jpeg" alt="Mavi granit kesici yandan görünüm">
-                            <figcaption class="granite-slide-label" data-i18n="products.graniteCutters">Granit Kesici</figcaption>
-                        </figure>
-                        <figure class="granite-slide">
-                            <img src="granit-kesici-03.jpeg" alt="Mavi granit kesici çapraz görünüm">
-                            <figcaption class="granite-slide-label" data-i18n="products.graniteCutters">Granit Kesici</figcaption>
-                        </figure>
-                        <figure class="granite-slide">
-                            <img src="granit-kesici-04.jpeg" alt="Mavi granit kesici üstten görünüm">
-                            <figcaption class="granite-slide-label" data-i18n="products.graniteCutters">Granit Kesici</figcaption>
-                        </figure>
+                <div class="granite-product-grid" aria-label="Granit Kesiciler ürünleri">
+                    <button class="granite-product-card" type="button" onclick="openGraniteProduct(0)"><img src="granit-kesici-01.jpeg" alt="Granit kesici ürün 1"><span class="granite-product-open" data-i18n="products.inspectProduct">Ürünü İncele</span></button>
+                    <button class="granite-product-card" type="button" onclick="openGraniteProduct(1)"><img src="granit-kesici-urun-02.jpeg" alt="Granit kesici ürün 2"><span class="granite-product-open" data-i18n="products.inspectProduct">Ürünü İncele</span></button>
+                    <button class="granite-product-card" type="button" onclick="openGraniteProduct(2)"><img src="granit-kesici-urun-03.jpeg" alt="Granit kesici ürün 3"><span class="granite-product-open" data-i18n="products.inspectProduct">Ürünü İncele</span></button>
+                    <button class="granite-product-card" type="button" onclick="openGraniteProduct(3)"><img src="granit-kesici-urun-04.jpeg" alt="Granit kesici ürün 4"><span class="granite-product-open" data-i18n="products.inspectProduct">Ürünü İncele</span></button>
+                    <button class="granite-product-card" type="button" onclick="openGraniteProduct(4)"><img src="granit-kesici-urun-05.jpeg" alt="Granit kesici ürün 5"><span class="granite-product-open" data-i18n="products.inspectProduct">Ürünü İncele</span></button>
+                    <button class="granite-product-card" type="button" onclick="openGraniteProduct(5)"><img src="granit-kesici-urun-06.jpeg" alt="Granit kesici ürün 6"><span class="granite-product-open" data-i18n="products.inspectProduct">Ürünü İncele</span></button>
+                    <button class="granite-product-card" type="button" onclick="openGraniteProduct(6)"><img src="granit-kesici-urun-07.jpeg" alt="Granit kesici ürün 7"><span class="granite-product-open" data-i18n="products.inspectProduct">Ürünü İncele</span></button>
+                    <button class="granite-product-card" type="button" onclick="openGraniteProduct(7)"><img src="granit-kesici-urun-08.jpeg" alt="Granit kesici ürün 8"><span class="granite-product-open" data-i18n="products.inspectProduct">Ürünü İncele</span></button>
+                </div>
+
+                <div id="graniteProductDetail" class="granite-product-detail" hidden>
+                    <div class="granite-detail-head">
+                        <h3 data-i18n="products.graniteCutters">Granit Kesici</h3>
+                        <button class="granite-detail-close" type="button" onclick="closeGraniteProduct()"><span data-i18n="products.close">Kapat</span> ×</button>
                     </div>
-                    <button class="granite-slider-arrow next" type="button" aria-label="Sonraki görsel" onclick="moveGraniteSlide(1)">›</button>
-                    <div class="granite-slider-dots" aria-label="Galeri sayfaları">
-                        <button class="granite-slider-dot active" type="button" aria-label="1. görsel" onclick="goToGraniteSlide(0)"></button>
-                        <button class="granite-slider-dot" type="button" aria-label="2. görsel" onclick="goToGraniteSlide(1)"></button>
-                        <button class="granite-slider-dot" type="button" aria-label="3. görsel" onclick="goToGraniteSlide(2)"></button>
-                        <button class="granite-slider-dot" type="button" aria-label="4. görsel" onclick="goToGraniteSlide(3)"></button>
+                    <div class="granite-slider-shell" aria-label="Seçili ürün galerisi">
+                        <button id="granitePrevButton" class="granite-slider-arrow prev" type="button" aria-label="Önceki görsel" onclick="moveGraniteSlide(-1)">‹</button>
+                        <div id="graniteProductSlider" class="granite-slider" tabindex="0"></div>
+                        <button id="graniteNextButton" class="granite-slider-arrow next" type="button" aria-label="Sonraki görsel" onclick="moveGraniteSlide(1)">›</button>
+                        <div id="graniteSliderDots" class="granite-slider-dots" aria-label="Galeri sayfaları"></div>
+                    </div>
+                    <div class="granite-quote-wrap">
+                        <a id="graniteQuoteButton" class="granite-quote-btn" href="https://wa.me/905334026564" target="_blank" rel="noopener" data-i18n="hero.quoteButton" onclick="updateGraniteQuoteLink()">Teklif Al</a>
                     </div>
                 </div>
             </div>
