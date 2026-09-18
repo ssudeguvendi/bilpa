@@ -16,6 +16,22 @@
 <meta property="og:image" content="https://ssudeguvendi.github.io/bilpa/bilpa-deger.jpeg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="style.css?v=20260812-22">
+<style>
+/* Granit Kesiciler kaydırılabilir ürün kataloğu */
+.granite-slider-shell{position:relative;max-width:980px;margin:24px auto 0;padding:0 54px}
+.granite-slider{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;border-radius:24px}
+.granite-slider::-webkit-scrollbar{display:none}
+.granite-slide{flex:0 0 100%;scroll-snap-align:center;position:relative;overflow:hidden;border:1px solid rgba(212,175,55,.32);border-radius:24px;background:#070707;box-shadow:0 22px 55px rgba(0,0,0,.34)}
+.granite-slide img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+.granite-slide-label{position:absolute;left:0;right:0;bottom:0;padding:46px 22px 20px;background:linear-gradient(transparent,rgba(0,0,0,.9));color:#fff;text-align:center;font-size:clamp(1rem,2vw,1.35rem);letter-spacing:.05em}
+.granite-slider-arrow{position:absolute;top:50%;z-index:2;width:44px;height:44px;transform:translateY(-50%);border:1px solid rgba(212,175,55,.6);border-radius:50%;background:rgba(5,5,5,.84);color:#d4af37;font-size:28px;line-height:1;cursor:pointer;transition:.2s ease}
+.granite-slider-arrow:hover{background:#d4af37;color:#080808}
+.granite-slider-arrow.prev{left:0}.granite-slider-arrow.next{right:0}
+.granite-slider-dots{display:flex;justify-content:center;gap:9px;margin-top:16px}
+.granite-slider-dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:#555;cursor:pointer;transition:.2s ease}
+.granite-slider-dot.active{width:26px;border-radius:10px;background:#d4af37}
+@media(max-width:700px){.granite-slider-shell{padding:0 8px 58px}.granite-slider-arrow{top:auto;bottom:2px;transform:none}.granite-slider-arrow.prev{left:calc(50% - 54px)}.granite-slider-arrow.next{right:calc(50% - 54px)}.granite-slider-dots{position:absolute;left:0;right:0;bottom:20px}.granite-slide{border-radius:18px}}
+</style>
 <script defer src="script.js?v=20260812-36"></script>
 <script type="application/ld+json">
 {
@@ -301,19 +317,52 @@
                                 <p data-i18n="products.superGoldMarbleCutterText">Mermer sulu kesim uygulamaları için profesyonel makine testeresi.</p>
                             </div>
                         </article>
+                        <article class="pro-urun-kart marble-product-card">
+                            <img src="super-gold-neolit-dekton.jpeg" alt="Süper Gold Neolit ve Dekton">
+                            <div class="pro-urun-icerik">
+                                <h3 data-i18n="products.superGoldNeolithDekton">Süper Gold Neolit ve Dekton</h3>
+                                <p data-i18n="products.superGoldNeolithDektonText">Neolit ve Dekton yüzeylerin sulu kesimi için profesyonel makine testeresi.</p>
+                            </div>
+                        </article>
+                        <article class="pro-urun-kart marble-product-card">
+                            <img src="elektrolize-mermer-kesici.jpeg" alt="Elektrolize Mermer Kesici">
+                            <div class="pro-urun-icerik">
+                                <h3 data-i18n="products.electroplatedMarbleCutter">Elektrolize Mermer Kesici</h3>
+                                <p data-i18n="products.electroplatedMarbleCutterText">Mermer sulu kesim uygulamaları için profesyonel elektrolize testere.</p>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
 
             <div id="granit-kesiciler-serisi" class="pro-urunler">
                 <h2 data-i18n="products.graniteCutters">Granit Kesici</h2>
-                <div class="pro-urun-grid cutting-preview-grid">
-                    <div class="pro-urun-kart cutting-preview-card">
-                        <img src="granit-kesiciler-kapak.jpeg" alt="Granit kesiciler ürün kataloğu">
-                        <div class="pro-urun-icerik">
-                            <h3 data-i18n="products.graniteCatalogReady">Granit Kesici Kataloğu</h3>
-                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
-                        </div>
+                <div class="granite-slider-shell" aria-label="Granit Kesiciler ürün galerisi">
+                    <button class="granite-slider-arrow prev" type="button" aria-label="Önceki görsel" onclick="moveGraniteSlide(-1)">‹</button>
+                    <div id="graniteProductSlider" class="granite-slider" tabindex="0">
+                        <figure class="granite-slide">
+                            <img src="granit-kesici-01.jpeg" alt="Mavi granit kesici önden görünüm">
+                            <figcaption class="granite-slide-label" data-i18n="products.graniteCutters">Granit Kesici</figcaption>
+                        </figure>
+                        <figure class="granite-slide">
+                            <img src="granit-kesici-02.jpeg" alt="Mavi granit kesici yandan görünüm">
+                            <figcaption class="granite-slide-label" data-i18n="products.graniteCutters">Granit Kesici</figcaption>
+                        </figure>
+                        <figure class="granite-slide">
+                            <img src="granit-kesici-03.jpeg" alt="Mavi granit kesici çapraz görünüm">
+                            <figcaption class="granite-slide-label" data-i18n="products.graniteCutters">Granit Kesici</figcaption>
+                        </figure>
+                        <figure class="granite-slide">
+                            <img src="granit-kesici-04.jpeg" alt="Mavi granit kesici üstten görünüm">
+                            <figcaption class="granite-slide-label" data-i18n="products.graniteCutters">Granit Kesici</figcaption>
+                        </figure>
+                    </div>
+                    <button class="granite-slider-arrow next" type="button" aria-label="Sonraki görsel" onclick="moveGraniteSlide(1)">›</button>
+                    <div class="granite-slider-dots" aria-label="Galeri sayfaları">
+                        <button class="granite-slider-dot active" type="button" aria-label="1. görsel" onclick="goToGraniteSlide(0)"></button>
+                        <button class="granite-slider-dot" type="button" aria-label="2. görsel" onclick="goToGraniteSlide(1)"></button>
+                        <button class="granite-slider-dot" type="button" aria-label="3. görsel" onclick="goToGraniteSlide(2)"></button>
+                        <button class="granite-slider-dot" type="button" aria-label="4. görsel" onclick="goToGraniteSlide(3)"></button>
                     </div>
                 </div>
             </div>

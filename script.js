@@ -97,6 +97,10 @@ const translations = {
             wetMarbleMachineSaws: "MERMER SULU MAKİNE TESTERELERİ",
             superGoldMarbleCutter: "SÜPER GOLD MERMER KESİCİ",
             superGoldMarbleCutterText: "Mermer sulu kesim uygulamaları için profesyonel makine testeresi.",
+            superGoldNeolithDekton: "SÜPER GOLD NEOLİT VE DEKTON",
+            superGoldNeolithDektonText: "Neolit ve Dekton yüzeylerin sulu kesimi için profesyonel makine testeresi.",
+            electroplatedMarbleCutter: "ELEKTROLİZE MERMER KESİCİ",
+            electroplatedMarbleCutterText: "Mermer sulu kesim uygulamaları için profesyonel elektrolize testere.",
             marbleCatalogReady: "Mermer Kesiciler Kataloğu",
             graniteCatalogReady: "Granit Kesici Kataloğu",
             marbleDrillCatalog: "Mermer Delici (Vakumlu) Kataloğu",
@@ -833,6 +837,10 @@ const translations = {
             wetMarbleMachineSaws: "WET MARBLE MACHINE SAWS",
             superGoldMarbleCutter: "SUPER GOLD MARBLE CUTTER",
             superGoldMarbleCutterText: "Professional machine saw for wet marble cutting applications.",
+            superGoldNeolithDekton: "SUPER GOLD NEOLITH AND DEKTON",
+            superGoldNeolithDektonText: "Professional wet-cutting machine saw for Neolith and Dekton surfaces.",
+            electroplatedMarbleCutter: "ELECTROPLATED MARBLE CUTTER",
+            electroplatedMarbleCutterText: "Professional electroplated saw for wet marble cutting applications.",
             marbleCatalogReady: "Marble Cutters Catalog",
             graniteCatalogReady: "Granite Cutter Catalog",
             marbleDrillCatalog: "Vacuum Marble Drills Catalog",
@@ -1943,6 +1951,58 @@ function showMarbleSubcategory(type) {
         requestAnimationFrame(() => scrollToVisibleSection(target));
     }
 }
+
+let graniteSlideIndex = 0;
+
+function updateGraniteSlider(index) {
+    const slider = document.getElementById("graniteProductSlider");
+    if (!slider) return;
+
+    const slides = slider.querySelectorAll(".granite-slide");
+    if (!slides.length) return;
+
+    graniteSlideIndex = (index + slides.length) % slides.length;
+    slider.scrollTo({ left: slides[graniteSlideIndex].offsetLeft, behavior: "smooth" });
+
+    document.querySelectorAll(".granite-slider-dot").forEach((dot, dotIndex) => {
+        dot.classList.toggle("active", dotIndex === graniteSlideIndex);
+    });
+}
+
+function moveGraniteSlide(direction) {
+    updateGraniteSlider(graniteSlideIndex + direction);
+}
+
+function goToGraniteSlide(index) {
+    updateGraniteSlider(index);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const slider = document.getElementById("graniteProductSlider");
+    if (!slider) return;
+
+    let scrollTimer;
+    slider.addEventListener("scroll", () => {
+        window.clearTimeout(scrollTimer);
+        scrollTimer = window.setTimeout(() => {
+            const slides = Array.from(slider.querySelectorAll(".granite-slide"));
+            if (!slides.length) return;
+            const nearest = slides.reduce((best, slide, index) => {
+                const distance = Math.abs(slide.offsetLeft - slider.scrollLeft);
+                return distance < best.distance ? { index, distance } : best;
+            }, { index: 0, distance: Infinity });
+            graniteSlideIndex = nearest.index;
+            document.querySelectorAll(".granite-slider-dot").forEach((dot, index) => {
+                dot.classList.toggle("active", index === graniteSlideIndex);
+            });
+        }, 80);
+    }, { passive: true });
+
+    slider.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") moveGraniteSlide(-1);
+        if (event.key === "ArrowRight") moveGraniteSlide(1);
+    });
+});
 
 function showProSeries() {
     const kitchen = document.getElementById("mutfak");
