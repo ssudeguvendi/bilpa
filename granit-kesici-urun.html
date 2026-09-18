@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Granit Kesici | Bil-Pa Ticaret</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#282015 0,#0a0a0a 34%,#030303 100%);color:#fff;font-family:Arial,sans-serif;min-height:100vh}
+    .page{width:min(1050px,94vw);margin:auto;padding:24px 0 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}.brand{color:#d8b35a;letter-spacing:.18em;font-weight:700}.back{padding:10px 16px;border:1px solid #8f7335;border-radius:999px;color:#f1d486;text-decoration:none;background:#0b0b0b}
+    h1{text-align:center;color:#e2bd61;font-size:clamp(1.6rem,4vw,2.5rem);margin:8px 0 24px}.viewer{position:relative;max-width:850px;margin:auto;padding:0 58px}.slider{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;border:1px solid rgba(216,179,90,.35);border-radius:26px;background:#050505;box-shadow:0 28px 70px rgba(0,0,0,.58)}.slider::-webkit-scrollbar{display:none}.slide{flex:0 0 100%;margin:0;scroll-snap-align:center}.slide img{display:block;width:100%;aspect-ratio:1/1;object-fit:contain;background:#050505}
+    .arrow{position:absolute;top:50%;z-index:3;width:46px;height:46px;transform:translateY(-50%);border:1px solid #b99643;border-radius:50%;background:#090909;color:#ddb95e;font-size:30px;cursor:pointer}.arrow:hover{background:#d7b153;color:#050505}.prev{left:0}.next{right:0}.dots{display:flex;justify-content:center;gap:9px;margin:18px 0}.dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:#555;cursor:pointer}.dot.active{width:28px;border-radius:9px;background:#d7b153}
+    .actions{display:flex;justify-content:center;margin-top:22px}.quote{min-width:210px;padding:14px 25px;border-radius:999px;background:#d7b153;color:#070707;text-align:center;text-decoration:none;font-weight:800;letter-spacing:.06em}.quote:hover{background:#f0d681}.single .arrow,.single .dots{display:none}
+    @media(max-width:650px){.page{padding-top:16px}.viewer{padding:0 4px 62px}.slider{border-radius:18px}.arrow{top:auto;bottom:0;transform:none}.prev{left:calc(50% - 56px)}.next{right:calc(50% - 56px)}.dots{position:absolute;left:0;right:0;bottom:10px;margin:0}.top{font-size:.8rem}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="top"><div class="brand">BİL-PA TİCARET</div><a class="back" href="index.html#urunler">← Kataloğa Dön</a></div>
+    <h1>Granit Kesici</h1>
+    <section id="viewer" class="viewer" aria-label="Granit kesici ürün galerisi">
+      <button class="arrow prev" type="button" aria-label="Önceki görsel" onclick="move(-1)">‹</button>
+      <div id="slider" class="slider" tabindex="0"></div>
+      <button class="arrow next" type="button" aria-label="Sonraki görsel" onclick="move(1)">›</button>
+      <div id="dots" class="dots"></div>
+    </section>
+    <div class="actions"><a id="quote" class="quote" target="_blank" rel="noopener">Teklif Al</a></div>
+  </main>
+  <script>
+    const products={
+      1:["granit-kesici-01.jpeg","granit-kesici-02.jpeg","granit-kesici-03.jpeg","granit-kesici-04.jpeg"],
+      2:["granit-kesici-urun-02.jpeg"],3:["granit-kesici-urun-03.jpeg"],4:["granit-kesici-urun-04.jpeg"],
+      5:["granit-kesici-urun-05.jpeg"],6:["granit-kesici-urun-06.jpeg"],7:["granit-kesici-urun-07.jpeg"],8:["granit-kesici-urun-08.jpeg"]
+    };
+    const product=Math.min(8,Math.max(1,Number(new URLSearchParams(location.search).get("product"))||1));
+    const images=products[product];let current=0;const slider=document.getElementById("slider"),dots=document.getElementById("dots"),viewer=document.getElementById("viewer");
+    slider.innerHTML=images.map((src,i)=>`<figure class="slide"><img src="${src}" alt="Granit kesici görsel ${i+1}"></figure>`).join("");
+    dots.innerHTML=images.map((_,i)=>`<button class="dot${i===0?" active":""}" aria-label="${i+1}. görsel" onclick="go(${i})"></button>`).join("");
+    if(images.length===1)viewer.classList.add("single");
+    function go(i){current=(i+images.length)%images.length;const slide=slider.children[current];slider.scrollTo({left:slide.offsetLeft,behavior:"smooth"});[...dots.children].forEach((d,n)=>d.classList.toggle("active",n===current))}
+    function move(direction){go(current+direction)}
+    slider.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")move(-1);if(e.key==="ArrowRight")move(1)});
+    let timer;slider.addEventListener("scroll",()=>{clearTimeout(timer);timer=setTimeout(()=>{const slides=[...slider.children];current=slides.reduce((best,s,i)=>Math.abs(s.offsetLeft-slider.scrollLeft)<Math.abs(slides[best].offsetLeft-slider.scrollLeft)?i:best,0);[...dots.children].forEach((d,n)=>d.classList.toggle("active",n===current))},80)},{passive:true});
+    const text=`Merhaba, Granit Kesiciler kataloğundaki ${product}. ürün için teklif almak istiyorum.\nÜrün bağlantısı: ${location.href}`;
+    document.getElementById("quote").href=`https://wa.me/905334026564?text=${encodeURIComponent(text)}`;
+  </script>
+</body>
+</html>
