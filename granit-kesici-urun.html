@@ -29,9 +29,16 @@
     const products={
       1:["granit-kesici-01.jpeg","granit-kesici-02.jpeg","granit-kesici-03.jpeg","granit-kesici-04.jpeg"],
       2:["granit-kesici-urun-02.jpeg"],3:["granit-kesici-urun-03.jpeg"],4:["granit-kesici-urun-04.jpeg"],
-      5:["granit-kesici-urun-05.jpeg"],6:["granit-kesici-urun-06.jpeg"],7:["granit-kesici-urun-07.jpeg"],8:["granit-kesici-urun-08.jpeg"]
+      5:["granit-kesici-urun-05.jpeg"],6:["granit-kesici-urun-06.jpeg"],7:["granit-kesici-urun-07.jpeg"],8:["granit-kesici-urun-08.jpeg"],
+      9:["granit-kesici-09-01.jpeg","granit-kesici-09-02.jpeg","granit-kesici-09-03.jpeg"],
+      10:["granit-kesici-10-01.jpeg","granit-kesici-10-02.jpeg"],
+      11:["granit-kesici-11-01.jpeg","granit-kesici-11-02.jpeg"],
+      12:["granit-kesici-12-01.jpeg","granit-kesici-12-02.jpeg"],
+      13:["granit-kesici-13.jpeg"],14:["granit-kesici-14.jpeg"],15:["granit-kesici-15.jpeg"],
+      16:["granit-kesici-16.jpeg"],17:["granit-kesici-17.jpeg"],18:["granit-kesici-18.jpeg"],
+      19:["granit-kesici-19.jpeg"],20:["granit-kesici-20.jpeg"],21:["granit-kesici-21.jpeg"],22:["granit-kesici-22.jpeg"]
     };
-    const product=Math.min(8,Math.max(1,Number(new URLSearchParams(location.search).get("product"))||1));
+    const product=Math.min(22,Math.max(1,Number(new URLSearchParams(location.search).get("product"))||1));
     const images=products[product];let current=0;const slider=document.getElementById("slider"),dots=document.getElementById("dots"),viewer=document.getElementById("viewer");
     slider.innerHTML=images.map((src,i)=>`<figure class="slide"><img src="${src}" alt="Granit kesici görsel ${i+1}"></figure>`).join("");
     dots.innerHTML=images.map((_,i)=>`<button class="dot${i===0?" active":""}" aria-label="${i+1}. görsel" onclick="go(${i})"></button>`).join("");
