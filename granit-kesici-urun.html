@@ -36,9 +36,10 @@
       12:["granit-kesici-12-01.jpeg","granit-kesici-12-02.jpeg"],
       13:["granit-kesici-13.jpeg"],14:["granit-kesici-14.jpeg"],15:["granit-kesici-15.jpeg"],
       16:["granit-kesici-16.jpeg"],17:["granit-kesici-17.jpeg"],18:["granit-kesici-18.jpeg"],
-      19:["granit-kesici-19.jpeg"],20:["granit-kesici-20.jpeg"],21:["granit-kesici-21.jpeg"],22:["granit-kesici-22.jpeg"]
+      19:["granit-kesici-19.jpeg"],20:["granit-kesici-20.jpeg"],21:["granit-kesici-21.jpeg"],22:["granit-kesici-22.jpeg"],
+      23:["granit-kesici-23-01.jpeg","granit-kesici-23-02.jpeg","granit-kesici-23-03.jpeg","granit-kesici-23-04.jpeg"]
     };
-    const product=Math.min(22,Math.max(1,Number(new URLSearchParams(location.search).get("product"))||1));
+    const product=Math.min(23,Math.max(1,Number(new URLSearchParams(location.search).get("product"))||1));
     const images=products[product];let current=0;const slider=document.getElementById("slider"),dots=document.getElementById("dots"),viewer=document.getElementById("viewer");
     slider.innerHTML=images.map((src,i)=>`<figure class="slide"><img src="${src}" alt="Granit kesici görsel ${i+1}"></figure>`).join("");
     dots.innerHTML=images.map((_,i)=>`<button class="dot${i===0?" active":""}" aria-label="${i+1}. görsel" onclick="go(${i})"></button>`).join("");
