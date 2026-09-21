@@ -46,9 +46,10 @@
       29:["granit-kesici-29-01.jpeg","granit-kesici-29-02.jpeg","granit-kesici-29-03.jpeg"],
       30:["granit-kesici-30.jpeg"],
       31:["granit-kesici-31.jpeg"],
-      32:["granit-kesici-32.jpeg"]
+      32:["granit-kesici-32.jpeg"],
+      33:["granit-kesici-33.jpeg"]
     };
-    const product=Math.min(32,Math.max(1,Number(new URLSearchParams(location.search).get("product"))||1));
+    const product=Math.min(33,Math.max(1,Number(new URLSearchParams(location.search).get("product"))||1));
     const images=products[product];let current=0;const slider=document.getElementById("slider"),dots=document.getElementById("dots"),viewer=document.getElementById("viewer");
     slider.innerHTML=images.map((src,i)=>`<figure class="slide"><img src="${src}" alt="Granit kesici görsel ${i+1}"></figure>`).join("");
     dots.innerHTML=images.map((_,i)=>`<button class="dot${i===0?" active":""}" aria-label="${i+1}. görsel" onclick="go(${i})"></button>`).join("");
