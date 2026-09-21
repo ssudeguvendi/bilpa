@@ -1532,6 +1532,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const savedLanguage = localStorage.getItem("siteLanguage") || "tr";
     setLanguage(savedLanguage);
+    initBilpaAssistant();
 
     document.querySelectorAll("[data-lang-button]").forEach((button) => {
         button.addEventListener("click", () => setLanguage(button.dataset.langButton));
@@ -1543,6 +1544,162 @@ document.addEventListener("DOMContentLoaded", () => {
     initProProductPage();
     initProductQuoteButtons();
 });
+
+function initBilpaAssistant() {
+    if (document.getElementById("bilpaAssistant")) return;
+
+    const style = document.createElement("style");
+    style.id = "bilpa-assistant-style";
+    style.textContent = `
+        .bilpa-assistant{position:fixed;right:22px;bottom:22px;z-index:9999;font-family:Arial,sans-serif;color:#f8f2df}
+        .bilpa-assistant *{box-sizing:border-box}
+        .bilpa-assistant-toggle{position:relative;display:flex;align-items:center;justify-content:center;width:62px;height:62px;padding:0;border:1px solid rgba(222,184,91,.72);border-radius:50%;background:linear-gradient(145deg,#211b10,#080808);color:#e3bd61;box-shadow:0 16px 42px rgba(0,0,0,.55),0 0 0 5px rgba(216,179,90,.08);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+        .bilpa-assistant-toggle:hover{transform:translateY(-3px);box-shadow:0 20px 46px rgba(0,0,0,.65),0 0 0 6px rgba(216,179,90,.12)}
+        .bilpa-assistant-toggle svg{width:29px;height:29px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+        .bilpa-assistant-pulse{position:absolute;right:1px;top:1px;width:13px;height:13px;border:2px solid #090909;border-radius:50%;background:#50c878}
+        .bilpa-assistant-label{position:absolute;right:74px;white-space:nowrap;padding:9px 13px;border:1px solid rgba(216,179,90,.3);border-radius:999px;background:rgba(7,7,7,.92);color:#efd78e;font-size:12px;letter-spacing:.04em;box-shadow:0 10px 28px rgba(0,0,0,.35);pointer-events:none}
+        .bilpa-assistant-panel{position:absolute;right:0;bottom:78px;width:min(370px,calc(100vw - 28px));height:min(520px,calc(100vh - 118px));display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(216,179,90,.42);border-radius:24px;background:linear-gradient(155deg,#121212,#050505 72%);box-shadow:0 28px 75px rgba(0,0,0,.72);transform:translateY(14px) scale(.96);transform-origin:bottom right;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s ease}
+        .bilpa-assistant.open .bilpa-assistant-panel{transform:none;opacity:1;visibility:visible}
+        .bilpa-assistant.open .bilpa-assistant-label{display:none}
+        .bilpa-assistant-head{display:flex;align-items:center;gap:11px;padding:16px 17px;border-bottom:1px solid rgba(216,179,90,.18);background:linear-gradient(110deg,rgba(216,179,90,.15),transparent)}
+        .bilpa-assistant-avatar{display:grid;place-items:center;width:40px;height:40px;border:1px solid #d8b35a;border-radius:50%;color:#e3bd61;font-family:Georgia,serif;font-size:18px;font-weight:700}
+        .bilpa-assistant-title{min-width:0;flex:1}.bilpa-assistant-title strong{display:block;color:#f0d47f;font-size:15px;letter-spacing:.05em}.bilpa-assistant-title small{display:flex;align-items:center;gap:6px;margin-top:3px;color:#aeb5aa;font-size:11px}.bilpa-assistant-title small::before{content:"";width:7px;height:7px;border-radius:50%;background:#50c878}
+        .bilpa-assistant-close{width:34px;height:34px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.06);color:#ddd;font-size:23px;cursor:pointer}
+        .bilpa-assistant-messages{flex:1;overflow-y:auto;padding:17px;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#725e2e transparent}
+        .bilpa-message{max-width:88%;margin:0 0 11px;padding:11px 13px;border-radius:15px;font-size:13px;line-height:1.48;animation:bilpaMessageIn .2s ease}
+        .bilpa-message.bot{border:1px solid rgba(216,179,90,.2);border-bottom-left-radius:4px;background:#181818;color:#eee}
+        .bilpa-message.user{margin-left:auto;border-bottom-right-radius:4px;background:#d2ae54;color:#080808;font-weight:600}
+        .bilpa-chat-actions{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 14px}
+        .bilpa-chat-action{padding:8px 11px;border:1px solid rgba(216,179,90,.4);border-radius:999px;background:rgba(216,179,90,.08);color:#efd27d;font-size:11px;cursor:pointer;transition:.18s ease}
+        .bilpa-chat-action:hover{background:#d8b35a;color:#070707}
+        .bilpa-chat-link{display:inline-flex;margin-top:8px;padding:8px 12px;border-radius:999px;background:#d8b35a;color:#080808!important;font-size:11px;font-weight:800;text-decoration:none}
+        .bilpa-assistant-form{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(216,179,90,.16);background:#090909}
+        .bilpa-assistant-input{min-width:0;flex:1;padding:11px 13px;border:1px solid rgba(216,179,90,.25);border-radius:999px;outline:none;background:#151515;color:#fff;font-size:13px}
+        .bilpa-assistant-input:focus{border-color:#d8b35a}.bilpa-assistant-send{display:grid;place-items:center;width:42px;height:42px;padding:0;border:0;border-radius:50%;background:#d8b35a;color:#080808;font-size:18px;cursor:pointer}
+        .floating-call-button{right:27px!important;bottom:98px!important}
+        @keyframes bilpaMessageIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+        @media(max-width:600px){.bilpa-assistant{right:14px;bottom:14px}.bilpa-assistant-toggle{width:58px;height:58px}.bilpa-assistant-label{display:none}.bilpa-assistant-panel{position:fixed;left:12px;right:12px;bottom:84px;width:auto;height:min(510px,calc(100vh - 105px));border-radius:20px}.floating-call-button{right:18px!important;bottom:86px!important}}
+        @media(prefers-reduced-motion:reduce){.bilpa-assistant-panel,.bilpa-assistant-toggle,.bilpa-message{transition:none;animation:none}}
+    `;
+    document.head.appendChild(style);
+
+    const assistant = document.createElement("aside");
+    assistant.id = "bilpaAssistant";
+    assistant.className = "bilpa-assistant";
+    assistant.innerHTML = `
+        <section class="bilpa-assistant-panel" role="dialog" aria-modal="false" aria-label="Bil-Pa Asistanı">
+            <header class="bilpa-assistant-head">
+                <span class="bilpa-assistant-avatar" aria-hidden="true">B</span>
+                <span class="bilpa-assistant-title"><strong>Bil-Pa Asistanı</strong><small>Çevrimiçi</small></span>
+                <button class="bilpa-assistant-close" type="button" aria-label="Sohbeti kapat">×</button>
+            </header>
+            <div class="bilpa-assistant-messages" aria-live="polite"></div>
+            <form class="bilpa-assistant-form">
+                <input class="bilpa-assistant-input" type="text" maxlength="180" autocomplete="off" placeholder="Mesajınızı yazın..." aria-label="Mesajınızı yazın">
+                <button class="bilpa-assistant-send" type="submit" aria-label="Gönder">➜</button>
+            </form>
+        </section>
+        <button class="bilpa-assistant-toggle" type="button" aria-expanded="false" aria-label="Bil-Pa Asistanını aç">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15a4 4 0 0 1-4 4H8l-4 3v-7a4 4 0 0 1-1-2.7V8a4 4 0 0 1 4-4h9a4 4 0 0 1 4 4Z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg>
+            <span class="bilpa-assistant-pulse" aria-hidden="true"></span>
+            <span class="bilpa-assistant-label">Size nasıl yardımcı olabiliriz?</span>
+        </button>
+    `;
+    document.body.appendChild(assistant);
+
+    const toggle = assistant.querySelector(".bilpa-assistant-toggle");
+    const close = assistant.querySelector(".bilpa-assistant-close");
+    const form = assistant.querySelector(".bilpa-assistant-form");
+    const input = assistant.querySelector(".bilpa-assistant-input");
+    const messages = assistant.querySelector(".bilpa-assistant-messages");
+
+    const addMessage = (text, type = "bot", html = "") => {
+        const message = document.createElement("div");
+        message.className = `bilpa-message ${type}`;
+        if (html) message.innerHTML = html;
+        else message.textContent = text;
+        messages.appendChild(message);
+        messages.scrollTop = messages.scrollHeight;
+    };
+
+    const addActions = () => {
+        const actions = document.createElement("div");
+        actions.className = "bilpa-chat-actions";
+        [
+            ["products", "Ürünleri incele"],
+            ["selection", "Ürün seçimi"],
+            ["measure", "Ölçü danış"],
+            ["quote", "Teklif al"]
+        ].forEach(([action, label]) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "bilpa-chat-action";
+            button.dataset.assistantAction = action;
+            button.textContent = label;
+            actions.appendChild(button);
+        });
+        messages.appendChild(actions);
+        messages.scrollTop = messages.scrollHeight;
+    };
+
+    const whatsappLink = (message) => `https://wa.me/905334026564?text=${encodeURIComponent(message)}`;
+    const showReply = (action) => {
+        const pageUrl = window.location.href;
+        if (action === "products") {
+            addMessage("Ürün gruplarımızı katalog bölümünden inceleyebilirsiniz.", "bot", `Ürün gruplarımızı katalog bölümünden inceleyebilirsiniz.<br><a class="bilpa-chat-link" href="${location.pathname.endsWith("index.html") || location.pathname.endsWith("/") ? "#urunler" : "index.html#urunler"}">Kataloğa git →</a>`);
+        } else if (action === "selection") {
+            addMessage("Kullanım alanınızı ve aradığınız yaklaşık ölçüyü yazın. Size uygun ürün grubunu belirleyelim.");
+        } else if (action === "measure") {
+            addMessage("İhtiyacınız olan çap veya ölçüyü mesaj alanına yazabilirsiniz. Kesin ürün seçimi için ölçüyü WhatsApp üzerinden de gönderebilirsiniz.", "bot", `İhtiyacınız olan çap veya ölçüyü mesaj alanına yazabilirsiniz.<br><a class="bilpa-chat-link" target="_blank" rel="noopener" href="${whatsappLink(`Merhaba, ürün ölçüsü hakkında bilgi almak istiyorum.\nSayfa: ${pageUrl}`)}">Ölçüyü WhatsApp'tan gönder →</a>`);
+        } else if (action === "quote") {
+            addMessage("Teklif talebinizi WhatsApp üzerinden hızlıca iletebilirsiniz.", "bot", `Teklif talebinizi WhatsApp üzerinden hızlıca iletebilirsiniz.<br><a class="bilpa-chat-link" target="_blank" rel="noopener" href="${whatsappLink(`Merhaba, Bil-Pa ürünleri için teklif almak istiyorum.\nSayfa: ${pageUrl}`)}">WhatsApp'tan teklif al →</a>`);
+        }
+    };
+
+    const answerText = (value) => {
+        const query = value.toLocaleLowerCase("tr-TR");
+        if (/fiyat|teklif|ücret|ucret|kaç para|kac para/.test(query)) return showReply("quote");
+        if (/ölç|olcu|mm|cm|çap|cap|ebat/.test(query)) return showReply("measure");
+        if (/ürün|urun|katalog|kesici|karot|evye|lavabo|banyo|mutfak/.test(query)) return showReply("products");
+        if (/telefon|ara|iletişim|iletisim|whatsapp/.test(query)) {
+            addMessage("Bize telefon veya WhatsApp üzerinden ulaşabilirsiniz.", "bot", `Bize telefon veya WhatsApp üzerinden ulaşabilirsiniz.<br><a class="bilpa-chat-link" href="tel:+905334026564">Hemen ara</a> <a class="bilpa-chat-link" target="_blank" rel="noopener" href="${whatsappLink("Merhaba, bilgi almak istiyorum.")}">WhatsApp</a>`);
+            return;
+        }
+        addMessage("Sorunuzu aldım. Ürün adı, kullanım alanı veya ölçü bilgisi yazarsanız sizi doğru bölüme yönlendirebilirim.");
+        addActions();
+    };
+
+    toggle.addEventListener("click", () => {
+        const isOpen = assistant.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", String(isOpen));
+        if (isOpen) setTimeout(() => input.focus(), 180);
+    });
+    close.addEventListener("click", () => {
+        assistant.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.focus();
+    });
+    messages.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-assistant-action]");
+        if (!button) return;
+        addMessage(button.textContent, "user");
+        showReply(button.dataset.assistantAction);
+    });
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const value = input.value.trim();
+        if (!value) return;
+        addMessage(value, "user");
+        input.value = "";
+        window.setTimeout(() => answerText(value), 220);
+    });
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && assistant.classList.contains("open")) close.click();
+    });
+
+    addMessage("Merhaba! Ben Bil-Pa Asistanı. Ürünler, ölçüler ve teklif talepleriniz için size yardımcı olabilirim.");
+    addActions();
+}
 
 function initProductQuoteButtons() {
     const quoteButtons = document.querySelectorAll(".whatsapp-btn");
