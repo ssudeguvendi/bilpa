@@ -1556,14 +1556,14 @@ function initBilpaAssistant() {
         .bilpa-assistant-toggle{position:relative;display:flex;align-items:center;justify-content:center;width:62px;height:62px;padding:0;border:1px solid rgba(222,184,91,.72);border-radius:50%;background:linear-gradient(145deg,#211b10,#080808);color:#e3bd61;box-shadow:0 16px 42px rgba(0,0,0,.55),0 0 0 5px rgba(216,179,90,.08);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
         .bilpa-assistant-toggle:hover{transform:translateY(-3px);box-shadow:0 20px 46px rgba(0,0,0,.65),0 0 0 6px rgba(216,179,90,.12)}
         .bilpa-assistant-toggle svg{width:29px;height:29px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-        .bilpa-assistant-pulse{position:absolute;right:1px;top:1px;width:13px;height:13px;border:2px solid #090909;border-radius:50%;background:#50c878}
+        .bilpa-assistant-pulse{position:absolute;right:1px;top:1px;width:13px;height:13px;border:2px solid #090909;border-radius:50%;background:#d8b35a}
         .bilpa-assistant-label{position:absolute;right:74px;white-space:nowrap;padding:9px 13px;border:1px solid rgba(216,179,90,.3);border-radius:999px;background:rgba(7,7,7,.92);color:#efd78e;font-size:12px;letter-spacing:.04em;box-shadow:0 10px 28px rgba(0,0,0,.35);pointer-events:none}
         .bilpa-assistant-panel{position:absolute;right:0;bottom:78px;width:min(370px,calc(100vw - 28px));height:min(520px,calc(100vh - 118px));display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(216,179,90,.42);border-radius:24px;background:linear-gradient(155deg,#121212,#050505 72%);box-shadow:0 28px 75px rgba(0,0,0,.72);transform:translateY(14px) scale(.96);transform-origin:bottom right;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s ease}
         .bilpa-assistant.open .bilpa-assistant-panel{transform:none;opacity:1;visibility:visible}
         .bilpa-assistant.open .bilpa-assistant-label{display:none}
         .bilpa-assistant-head{display:flex;align-items:center;gap:11px;padding:16px 17px;border-bottom:1px solid rgba(216,179,90,.18);background:linear-gradient(110deg,rgba(216,179,90,.15),transparent)}
         .bilpa-assistant-avatar{display:grid;place-items:center;width:40px;height:40px;border:1px solid #d8b35a;border-radius:50%;color:#e3bd61;font-family:Georgia,serif;font-size:18px;font-weight:700}
-        .bilpa-assistant-title{min-width:0;flex:1}.bilpa-assistant-title strong{display:block;color:#f0d47f;font-size:15px;letter-spacing:.05em}.bilpa-assistant-title small{display:flex;align-items:center;gap:6px;margin-top:3px;color:#aeb5aa;font-size:11px}.bilpa-assistant-title small::before{content:"";width:7px;height:7px;border-radius:50%;background:#50c878}
+        .bilpa-assistant-title{min-width:0;flex:1}.bilpa-assistant-title strong{display:block;color:#f0d47f;font-size:15px;letter-spacing:.05em}.bilpa-assistant-title small{display:block;margin-top:3px;color:#aeb5aa;font-size:11px}
         .bilpa-assistant-close{width:34px;height:34px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.06);color:#ddd;font-size:23px;cursor:pointer}
         .bilpa-assistant-messages{flex:1;overflow-y:auto;padding:17px;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#725e2e transparent}
         .bilpa-message{max-width:88%;margin:0 0 11px;padding:11px 13px;border-radius:15px;font-size:13px;line-height:1.48;animation:bilpaMessageIn .2s ease}
@@ -1590,7 +1590,7 @@ function initBilpaAssistant() {
         <section class="bilpa-assistant-panel" role="dialog" aria-modal="false" aria-label="Bil-Pa Asistanı">
             <header class="bilpa-assistant-head">
                 <span class="bilpa-assistant-avatar" aria-hidden="true">B</span>
-                <span class="bilpa-assistant-title"><strong>Bil-Pa Asistanı</strong><small>Çevrimiçi</small></span>
+                <span class="bilpa-assistant-title"><strong>Bil-Pa Asistanı</strong><small>Ürün rehberi ve hızlı iletişim</small></span>
                 <button class="bilpa-assistant-close" type="button" aria-label="Sohbeti kapat">×</button>
             </header>
             <div class="bilpa-assistant-messages" aria-live="polite"></div>
@@ -1665,7 +1665,7 @@ function initBilpaAssistant() {
             addMessage("Bize telefon veya WhatsApp üzerinden ulaşabilirsiniz.", "bot", `Bize telefon veya WhatsApp üzerinden ulaşabilirsiniz.<br><a class="bilpa-chat-link" href="tel:+905334026564">Hemen ara</a> <a class="bilpa-chat-link" target="_blank" rel="noopener" href="${whatsappLink("Merhaba, bilgi almak istiyorum.")}">WhatsApp</a>`);
             return;
         }
-        addMessage("Sorunuzu aldım. Ürün adı, kullanım alanı veya ölçü bilgisi yazarsanız sizi doğru bölüme yönlendirebilirim.");
+        addMessage("Bu sohbet hazır yanıtlarla yardımcı olur. Ürün adı, ölçü veya teklif yazabilirsiniz. Ayrıntılı destek için WhatsApp bağlantısını kullanın.", "bot", `Bu sohbet hazır yanıtlarla yardımcı olur. Ürün adı, ölçü veya teklif yazabilirsiniz.<br><a class="bilpa-chat-link" target="_blank" rel="noopener" href="${whatsappLink(`Merhaba, Bil-Pa ürünleri hakkında bilgi almak istiyorum.\nSayfa: ${window.location.href}`)}">WhatsApp'tan sor →</a>`);
         addActions();
     };
 
@@ -1697,7 +1697,7 @@ function initBilpaAssistant() {
         if (event.key === "Escape" && assistant.classList.contains("open")) close.click();
     });
 
-    addMessage("Merhaba! Ben Bil-Pa Asistanı. Ürünler, ölçüler ve teklif talepleriniz için size yardımcı olabilirim.");
+    addMessage("Merhaba! Ürün kataloğuna ulaşabilir, ölçü konusunda yönlendirme alabilir veya teklif için bize yazabilirsiniz.");
     addActions();
 }
 
