@@ -144,7 +144,13 @@ const translations = {
         },
         contact: {
             title: "Teklif Al",
-            whatsapp: "WhatsApp'tan Ulaş"
+            whatsapp: "WhatsApp'tan Ulaş",
+            map: "Haritada Göster / Yol Tarifi"
+        },
+        social: {
+            eyebrow: "BİZİ TAKİP EDİN",
+            text: "Yeni ürünleri ve Bil-Pa'dan haberleri Instagram'da keşfedin.",
+            open: "Instagram'a Git ↗"
         },
         footer: {
             text: "BIL-PA TICARET — Mermer & Granit Çözümleri"
@@ -886,7 +892,13 @@ const translations = {
         },
         contact: {
             title: "Get a Quote",
-            whatsapp: "Contact on WhatsApp"
+            whatsapp: "Contact on WhatsApp",
+            map: "View Map / Directions"
+        },
+        social: {
+            eyebrow: "FOLLOW US",
+            text: "Discover new products and updates from Bil-Pa on Instagram.",
+            open: "Open Instagram ↗"
         },
         footer: {
             text: "BIL-PA TRADE — Marble & Granite Solutions"
