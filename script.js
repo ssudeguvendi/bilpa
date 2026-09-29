@@ -1795,7 +1795,7 @@ function initCatalogSearch() {
         return;
     }
 
-    let selectedFilter = "mutfak";
+    let selectedFilter = null;
 
     const resetCards = () => {
         document.querySelectorAll(".seri-kart, .pro-urun-kart").forEach((card) => {
@@ -1812,7 +1812,7 @@ function initCatalogSearch() {
         resetCards();
 
         categories.forEach((category) => {
-            const allowed = selectedFilter === "all" || category.id === selectedFilter;
+            const allowed = !selectedFilter || selectedFilter === "all" || category.id === selectedFilter;
             const seriesCards = Array.from(category.querySelectorAll(":scope > .seri-kart"));
             const productCards = Array.from(category.querySelectorAll(".pro-urun-kart"));
             let categoryMatches = 0;
