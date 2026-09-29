@@ -1550,6 +1550,10 @@ function openRequestedCatalog() {
     const catalog = new URLSearchParams(window.location.search).get("catalog");
     if (!catalog || !document.getElementById("urunler")) return;
     if (catalog === "granit") showCuttingSeries("granit");
+    else if (catalog === "mermer") {
+        showCuttingSeries("mermer");
+        showMarbleSubcategory("mermer-sulu-makine-testereleri");
+    }
     else if (catalog === "kesim") selectCatalogCategory("kesim");
     else if (catalog === "mutfak" || catalog === "banyo") selectCatalogCategory(catalog);
     window.history.replaceState(null, "", `${window.location.pathname}#urunler`);
