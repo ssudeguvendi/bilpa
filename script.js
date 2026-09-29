@@ -2042,6 +2042,9 @@ function selectCatalogCategory(id) {
         filter.click();
     }
     showCategory(id);
+    if (id === "mutfak" && typeof window.setKitchenSeriesFilter === "function") {
+        window.setKitchenSeriesFilter("all", false);
+    }
 }
 
 function revealStoneProcessingCatalogs() {
@@ -2284,6 +2287,7 @@ function showProSeries() {
 
     if (proSeries) {
         proSeries.classList.add("active");
+        if (typeof window.setKitchenSeriesFilter === "function") window.setKitchenSeriesFilter("pro", false);
         requestAnimationFrame(() => scrollToVisibleSection(proSeries));
     }
 }
@@ -2308,6 +2312,7 @@ function showKSeries() {
 
     if (kSeries) {
         kSeries.classList.add("active");
+        if (typeof window.setKitchenSeriesFilter === "function") window.setKitchenSeriesFilter("k", false);
         requestAnimationFrame(() => scrollToVisibleSection(kSeries));
     }
 }
@@ -2335,6 +2340,122 @@ function showArmaturSeries() {
         requestAnimationFrame(() => scrollToVisibleSection(armaturSeries));
     }
 }
+
+function initKitchenProductFilters() {
+    const panel = document.getElementById("kitchenFilterPanel");
+    const proSeries = document.getElementById("pro-serisi");
+    const kSeries = document.getElementById("k-serisi");
+    const resultCount = document.getElementById("kitchenResultCount");
+    const emptyState = document.getElementById("kitchenFilterEmpty");
+    const clearButton = document.getElementById("kitchenClearFilters");
+    const sortSelect = document.getElementById("kitchenSort");
+    if (!panel || !proSeries || !kSeries) return;
+
+    const colors = ["siyah", "antrasit", "gri", "beyaz", "krem", "kapucino"];
+    const productMeta = {
+        "P011 ASSOS 86 XL":{size:"86",bowl:"single",drainboard:true,mounts:["top","under"]},
+        "P012 EFES 100":{size:"100",bowl:"single",drainboard:true,mounts:["top","under"]},
+        "P013 SALDA 100":{size:"100",bowl:"double",drainboard:true,mounts:["top","under"]},
+        "P014 LOADIKYA 86 XL":{size:"86",bowl:"single",drainboard:true,mounts:["top","under"]},
+        "P015 LOADIKYA 100":{size:"100",bowl:"single",drainboard:true,mounts:["top","under"]},
+        "ALMİLA":{size:"77",bowl:"single",drainboard:false,mounts:["top","under","flush"]},
+        "LİKYA":{size:"77",bowl:"single",drainboard:false,mounts:["top","under"]},
+        "P017 PATARA":{size:"77",bowl:"double",drainboard:false,mounts:["top","under","flush"]},
+        "P022 ASPENDOS":{size:"100",bowl:"double",drainboard:true,mounts:["top","under"]},
+        "P023 KNIDOS":{size:"86",bowl:"double",drainboard:false,mounts:["top","under"]},
+        "P024 ARTEMIS":{size:"100",bowl:"double",drainboard:true,mounts:["top","under"]},
+        "P010 ASSOS 76 XL":{size:"77",bowl:"single",drainboard:true,mounts:["top","under"]},
+        "P021 ESİLA":{size:"100",bowl:"double",drainboard:true,mounts:["top","under"]},
+        "P018 BERGAMA":{size:"77",bowl:"double",drainboard:false,mounts:["top","under"]},
+        "P019 NEMRUT 97":{size:"100",bowl:"double",drainboard:false,mounts:["top","under"]},
+        "P004 TROYA 86":{size:"86",bowl:"single",drainboard:true,mounts:["top","under"]},
+        "P016 CAPPADOCIA":{size:"77",bowl:"double",drainboard:false,mounts:["top","under"]},
+        "P005 TROYA 100":{size:"100",bowl:"double",drainboard:true,mounts:["top","under"]},
+        "K002 DIDYMA 60":{size:"60",bowl:"single",drainboard:false,mounts:["top"]},
+        "K003 DIDYMA 77":{size:"77",bowl:"single",drainboard:false,mounts:["top"]},
+        "K004 OLYMPOS 56":{size:"56",bowl:"single",drainboard:false,mounts:["top"]},
+        "K005 GORDION 52":{size:"52",bowl:"single",drainboard:false,mounts:["top","under","flush"]},
+        "K012 GORDION 60":{size:"60",bowl:"single",drainboard:false,mounts:["top","under","flush"]},
+        "K013 GORDION 77":{size:"77",bowl:"single",drainboard:false,mounts:["top","under","flush"]}
+    };
+    const state = {series:"all",size:"all",color:"all",bowl:"all",mount:"all"};
+    const cards = [...proSeries.querySelectorAll(".pro-urun-kart"), ...kSeries.querySelectorAll(".pro-urun-kart")];
+
+    cards.forEach((card, index) => {
+        const name = card.querySelector("h3")?.textContent.trim().toLocaleUpperCase("tr-TR") || "";
+        const meta = productMeta[name] || {size:"other",bowl:"single",drainboard:false,mounts:["top"]};
+        card.dataset.kitchenIndex = String(index);
+        card.dataset.kitchenName = name;
+        card.dataset.kitchenSeries = card.closest("#k-serisi") ? "k" : "pro";
+        card.dataset.kitchenSize = meta.size;
+        card.dataset.kitchenBowl = meta.bowl;
+        card.dataset.kitchenDrainboard = String(meta.drainboard);
+        card.dataset.kitchenMounts = meta.mounts.join(" ");
+        card.dataset.kitchenColors = colors.join(" ");
+    });
+
+    const updateButtons = (group) => {
+        panel.querySelectorAll(`[data-kitchen-filter="${group}"]`).forEach((button) => {
+            const active = button.dataset.value === state[group];
+            button.classList.toggle("active", active);
+            button.setAttribute("aria-pressed", String(active));
+        });
+    };
+
+    const sortGrid = (section) => {
+        const grid = section.querySelector(".pro-urun-grid");
+        if (!grid || !sortSelect) return;
+        [...grid.querySelectorAll(".pro-urun-kart")]
+            .sort((a, b) => {
+                if (sortSelect.value === "name") return a.dataset.kitchenName.localeCompare(b.dataset.kitchenName, "tr");
+                if (sortSelect.value === "size") return Number(a.dataset.kitchenSize) - Number(b.dataset.kitchenSize);
+                return Number(a.dataset.kitchenIndex) - Number(b.dataset.kitchenIndex);
+            })
+            .forEach((card) => grid.appendChild(card));
+    };
+
+    const apply = () => {
+        let visibleCount = 0;
+        cards.forEach((card) => {
+            const matches =
+                (state.series === "all" || card.dataset.kitchenSeries === state.series) &&
+                (state.size === "all" || card.dataset.kitchenSize === state.size) &&
+                (state.color === "all" || card.dataset.kitchenColors.split(" ").includes(state.color)) &&
+                (state.bowl === "all" || card.dataset.kitchenBowl === state.bowl || (state.bowl === "drainboard" && card.dataset.kitchenDrainboard === "true")) &&
+                (state.mount === "all" || card.dataset.kitchenMounts.split(" ").includes(state.mount));
+            card.hidden = !matches;
+            if (matches) visibleCount += 1;
+        });
+        [proSeries, kSeries].forEach((section) => {
+            const hasVisible = [...section.querySelectorAll(".pro-urun-kart")].some((card) => !card.hidden);
+            section.classList.toggle("active", hasVisible);
+            sortGrid(section);
+        });
+        if (resultCount) resultCount.textContent = `${visibleCount} ürün listeleniyor`;
+        if (emptyState) emptyState.hidden = visibleCount !== 0;
+    };
+
+    const setFilter = (group, value, shouldScroll = false) => {
+        state[group] = value;
+        updateButtons(group);
+        apply();
+        if (shouldScroll) requestAnimationFrame(() => scrollToVisibleSection(panel));
+    };
+
+    panel.querySelectorAll("[data-kitchen-filter]").forEach((button) => {
+        button.addEventListener("click", () => setFilter(button.dataset.kitchenFilter, button.dataset.value));
+    });
+    clearButton?.addEventListener("click", () => {
+        Object.keys(state).forEach((group) => { state[group] = "all"; updateButtons(group); });
+        if (sortSelect) sortSelect.value = "recommended";
+        apply();
+    });
+    sortSelect?.addEventListener("change", apply);
+    window.setKitchenSeriesFilter = (value, shouldScroll = true) => setFilter("series", value, shouldScroll);
+    apply();
+}
+
+document.addEventListener("DOMContentLoaded", initKitchenProductFilters);
 
 function degistir(resim) {
     const image = document.getElementById("anaResim");
