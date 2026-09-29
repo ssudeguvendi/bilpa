@@ -56,8 +56,19 @@
     .stone-processing-catalogs .cutting-category-card .kategori-yazi strong{font-size:15px}
 }
 @media(min-width:1200px){.stone-processing-catalogs{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* Mutfak ürünleri gelişmiş filtreleri */
+.kitchen-filter-panel{grid-column:1/-1;margin:8px 0 26px;padding:22px;border:1px solid rgba(216,179,90,.28);border-radius:22px;background:linear-gradient(145deg,rgba(18,18,18,.98),rgba(7,7,7,.98));box-shadow:0 20px 48px rgba(0,0,0,.28)}
+.kitchen-filter-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:18px}.kitchen-filter-head h2{margin:0;color:#f1d486;font-size:clamp(1.25rem,2.5vw,1.8rem)}.kitchen-filter-head p{margin:5px 0 0;color:#a8a8a8;font-size:.88rem}.kitchen-result-count{white-space:nowrap;color:#e0c77e;font-size:.85rem;font-weight:700}
+.kitchen-filter-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}.kitchen-filter-group{grid-column:span 4;min-width:0}.kitchen-filter-group.wide{grid-column:span 6}.kitchen-filter-group>strong{display:block;margin-bottom:10px;color:#f3f3f3;font-size:.83rem;letter-spacing:.04em}.kitchen-filter-options{display:flex;flex-wrap:wrap;gap:8px}
+.kitchen-filter-btn{min-height:38px;padding:8px 13px;border:1px solid rgba(255,255,255,.16);border-radius:10px;background:#101010;color:#ddd;font:inherit;font-size:.78rem;cursor:pointer;transition:.18s ease}.kitchen-filter-btn:hover,.kitchen-filter-btn:focus-visible{border-color:#d8b35a;color:#f2d580;outline:none}.kitchen-filter-btn.active{border-color:#dfc075;background:linear-gradient(135deg,#efd696,#b88e39);color:#090909;font-weight:800}
+.kitchen-color-btn{display:grid;justify-items:center;gap:6px;min-width:48px;padding:5px 4px;border:0;background:transparent;color:#bbb;font-size:.67rem;cursor:pointer}.kitchen-color-dot{width:25px;height:25px;border:2px solid transparent;border-radius:50%;background:var(--swatch);box-shadow:0 0 0 1px rgba(255,255,255,.25)}.kitchen-color-btn.active .kitchen-color-dot{border-color:#e5bd59;box-shadow:0 0 0 3px rgba(216,179,90,.18)}.kitchen-color-btn.active{color:#f1d486}
+.kitchen-filter-footer{display:flex;align-items:center;justify-content:flex-end;gap:14px;margin-top:20px;padding-top:17px;border-top:1px solid rgba(255,255,255,.1)}.kitchen-clear-btn{padding:9px 13px;border:0;background:transparent;color:#e4c66f;font:inherit;font-size:.8rem;text-decoration:underline;text-underline-offset:4px;cursor:pointer}.kitchen-sort{min-height:40px;padding:8px 38px 8px 13px;border:1px solid rgba(255,255,255,.18);border-radius:10px;background:#101010;color:#eee;font:inherit;font-size:.78rem}
+.kitchen-filter-empty{grid-column:1/-1;margin:16px 0;padding:22px;border:1px dashed rgba(216,179,90,.38);border-radius:16px;color:#d7bf7c;text-align:center}.kitchen-filter-empty[hidden]{display:none}
+@media(max-width:900px){.kitchen-filter-group,.kitchen-filter-group.wide{grid-column:span 6}}
+@media(max-width:620px){.kitchen-filter-panel{padding:17px;border-radius:18px}.kitchen-filter-head{align-items:flex-start;flex-direction:column}.kitchen-filter-grid{display:block}.kitchen-filter-group,.kitchen-filter-group.wide{margin-bottom:18px}.kitchen-filter-options{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}.kitchen-filter-btn{flex:0 0 auto}.kitchen-filter-footer{align-items:stretch;flex-direction:column-reverse}.kitchen-sort{width:100%}.kitchen-clear-btn{align-self:flex-start}}
 </style>
-<script defer src="script.js?v=20260929-42"></script>
+<script defer src="script.js?v=20260929-43"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -536,6 +547,73 @@
         </div>
 
         <div id="mutfak" class="kategori">
+            <section id="kitchenFilterPanel" class="kitchen-filter-panel" aria-label="Mutfak evyesi filtreleri">
+                <div class="kitchen-filter-head">
+                    <div><h2>Mutfak Evyeleri</h2><p>İhtiyacınıza uygun modeli seri, ölçü, hazne ve montaj tipine göre bulun.</p></div>
+                    <span id="kitchenResultCount" class="kitchen-result-count" aria-live="polite">0 ürün listeleniyor</span>
+                </div>
+                <div class="kitchen-filter-grid">
+                    <div class="kitchen-filter-group">
+                        <strong>Seri</strong>
+                        <div class="kitchen-filter-options">
+                            <button class="kitchen-filter-btn active" type="button" data-kitchen-filter="series" data-value="all">Tümü</button>
+                            <button class="kitchen-filter-btn" type="button" data-kitchen-filter="series" data-value="pro">Pro Serisi</button>
+                            <button class="kitchen-filter-btn" type="button" data-kitchen-filter="series" data-value="k">K Serisi</button>
+                        </div>
+                    </div>
+                    <div class="kitchen-filter-group wide">
+                        <strong>Ölçü</strong>
+                        <div class="kitchen-filter-options">
+                            <button class="kitchen-filter-btn active" type="button" data-kitchen-filter="size" data-value="all">Tümü</button>
+                            <button class="kitchen-filter-btn" type="button" data-kitchen-filter="size" data-value="52">52 cm</button>
+                            <button class="kitchen-filter-btn" type="button" data-kitchen-filter="size" data-value="56">56 cm</button>
+                            <button class="kitchen-filter-btn" type="button" data-kitchen-filter="size" data-value="60">60 cm</button>
+                            <button class="kitchen-filter-btn" type="button" data-kitchen-filter="size" data-value="77">77 cm</button>
+                            <button class="kitchen-filter-btn" type="button" data-kitchen-filter="size" data-value="86">86 cm</button>
+                            <button class="kitchen-filter-btn" type="button" data-kitchen-filter="size" data-value="100">100 cm</button>
+                        </div>
+                    </div>
+                    <div class="kitchen-filter-group wide">
+                        <strong>Renk</strong>
+                        <div class="kitchen-filter-options">
+                            <button class="kitchen-filter-btn active" type="button" data-kitchen-filter="color" data-value="all">Tümü</button>
+                            <button class="kitchen-color-btn" type="button" data-kitchen-filter="color" data-value="siyah"><span class="kitchen-color-dot" style="--swatch:#070707"></span>Siyah</button>
+                            <button class="kitchen-color-btn" type="button" data-kitchen-filter="color" data-value="antrasit"><span class="kitchen-color-dot" style="--swatch:#3d4146"></span>Antrasit</button>
+                            <button class="kitchen-color-btn" type="button" data-kitchen-filter="color" data-value="gri"><span class="kitchen-color-dot" style="--swatch:#8c9092"></span>Gri</button>
+                            <button class="kitchen-color-btn" type="button" data-kitchen-filter="color" data-value="beyaz"><span class="kitchen-color-dot" style="--swatch:#f2f2ee"></span>Beyaz</button>
+                            <button class="kitchen-color-btn" type="button" data-kitchen-filter="color" data-value="krem"><span class="kitchen-color-dot" style="--swatch:#d8cfb8"></span>Krem</button>
+                            <button class="kitchen-color-btn" type="button" data-kitchen-filter="color" data-value="kapucino"><span class="kitchen-color-dot" style="--swatch:#b59b7d"></span>Kapuçino</button>
+                        </div>
+                    </div>
+                    <div class="kitchen-filter-group wide">
+                        <strong>Hazne Tipi</strong>
+                        <div class="kitchen-filter-options">
+                            <button class="kitchen-filter-btn active" type="button" data-kitchen-filter="bowl" data-value="all">Tümü</button>
+                            <button class="kitchen-filter-btn" type="button" data-kitchen-filter="bowl" data-value="single">Tek Hazne</button>
+                            <button class="kitchen-filter-btn" type="button" data-kitchen-filter="bowl" data-value="double">Çift Hazne</button>
+                            <button class="kitchen-filter-btn" type="button" data-kitchen-filter="bowl" data-value="drainboard">Damlalıklı</button>
+                        </div>
+                    </div>
+                    <div class="kitchen-filter-group wide">
+                        <strong>Montaj Tipi</strong>
+                        <div class="kitchen-filter-options">
+                            <button class="kitchen-filter-btn active" type="button" data-kitchen-filter="mount" data-value="all">Tümü</button>
+                            <button class="kitchen-filter-btn" type="button" data-kitchen-filter="mount" data-value="top">Üstten Montaj</button>
+                            <button class="kitchen-filter-btn" type="button" data-kitchen-filter="mount" data-value="under">Tezgâh Altı</button>
+                            <button class="kitchen-filter-btn" type="button" data-kitchen-filter="mount" data-value="flush">Tezgâha Sıfır</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="kitchen-filter-footer">
+                    <button id="kitchenClearFilters" class="kitchen-clear-btn" type="button">↻ Filtreleri Temizle</button>
+                    <select id="kitchenSort" class="kitchen-sort" aria-label="Ürün sıralaması">
+                        <option value="recommended">Önerilen Sıralama</option>
+                        <option value="name">Ada Göre</option>
+                        <option value="size">Ölçü: Küçükten Büyüğe</option>
+                    </select>
+                </div>
+            </section>
+            <p id="kitchenFilterEmpty" class="kitchen-filter-empty" hidden>Bu filtrelere uygun ürün bulunamadı.</p>
             <div class="seri-kart">
                 <img src="foto.jpg.jpeg" alt="Pro Serisi">
                 <div class="seri-icerik">
