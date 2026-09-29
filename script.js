@@ -1543,7 +1543,17 @@ document.addEventListener("DOMContentLoaded", () => {
     initHeroPlaybackRecovery();
     initProProductPage();
     initProductQuoteButtons();
+    openRequestedCatalog();
 });
+
+function openRequestedCatalog() {
+    const catalog = new URLSearchParams(window.location.search).get("catalog");
+    if (!catalog || !document.getElementById("urunler")) return;
+    if (catalog === "granit") showCuttingSeries("granit");
+    else if (catalog === "kesim") selectCatalogCategory("kesim");
+    else if (catalog === "mutfak" || catalog === "banyo") selectCatalogCategory(catalog);
+    window.history.replaceState(null, "", `${window.location.pathname}#urunler`);
+}
 
 function initBilpaAssistant() {
     if (document.getElementById("bilpaAssistant")) return;
@@ -1646,7 +1656,19 @@ function initBilpaAssistant() {
     const showReply = (action) => {
         const pageUrl = window.location.href;
         if (action === "products") {
-            addMessage("Ürün gruplarımızı katalog bölümünden inceleyebilirsiniz.", "bot", `Ürün gruplarımızı katalog bölümünden inceleyebilirsiniz.<br><a class="bilpa-chat-link" href="${location.pathname.endsWith("index.html") || location.pathname.endsWith("/") ? "#urunler" : "index.html#urunler"}">Kataloğa git →</a>`);
+            addMessage("Hangi kataloğu açmak istersiniz?");
+            const choices = document.createElement("div");
+            choices.className = "bilpa-chat-actions";
+            [["granit", "Granit kesiciler"], ["kesim", "Tüm kesim ürünleri"], ["mutfak", "Mutfak"], ["banyo", "Banyo"]].forEach(([catalog, label]) => {
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = "bilpa-chat-action";
+                button.dataset.assistantCatalog = catalog;
+                button.textContent = label;
+                choices.appendChild(button);
+            });
+            messages.appendChild(choices);
+            messages.scrollTop = messages.scrollHeight;
         } else if (action === "selection") {
             addMessage("Kullanım alanınızı ve aradığınız yaklaşık ölçüyü yazın. Size uygun ürün grubunu belirleyelim.");
         } else if (action === "measure") {
@@ -1680,6 +1702,20 @@ function initBilpaAssistant() {
         toggle.focus();
     });
     messages.addEventListener("click", (event) => {
+        const catalogButton = event.target.closest("[data-assistant-catalog]");
+        if (catalogButton) {
+            const catalog = catalogButton.dataset.assistantCatalog;
+            const section = document.getElementById("urunler");
+            if (!section) {
+                window.location.href = `index.html?catalog=${encodeURIComponent(catalog)}#urunler`;
+                return;
+            }
+            if (catalog === "granit") showCuttingSeries("granit");
+            else selectCatalogCategory(catalog);
+            assistant.classList.remove("open");
+            toggle.setAttribute("aria-expanded", "false");
+            return;
+        }
         const button = event.target.closest("[data-assistant-action]");
         if (!button) return;
         addMessage(button.textContent, "user");
