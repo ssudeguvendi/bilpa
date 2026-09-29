@@ -28,9 +28,21 @@
       1:{title:"180 × 22,23 mm Mermer Kesici",images:["mermer-kesici-180-22-23.jpeg"]},
       2:{title:"125 mm M14 Mermer Kesici",images:["mermer-kesici-125-m14.jpeg"]},
       3:{title:"180 mm M14 Mermer Kesici",images:["mermer-kesici-180-m14.jpeg"]},
-      4:{title:"35 mm M14 Mermer Delici",images:["mermer-kesici-04-01.jpeg","mermer-kesici-04-02.jpeg","mermer-kesici-04-03.jpeg"]}
+      4:{title:"35 mm M14 Mermer Delici",images:["mermer-kesici-04-01.jpeg","mermer-kesici-04-02.jpeg","mermer-kesici-04-03.jpeg"]},
+      5:{title:"115 mm M14 Mermer Kesici",images:["mermer-kesici-05-01.jpeg","mermer-kesici-05-02.jpeg"]},
+      6:{title:"200 × 25,4 mm Mermer Kesici",images:["mermer-kesici-06-01.jpeg","mermer-kesici-06-02.jpeg"]},
+      7:{title:"200 × 25,4 mm Kanallı Mermer Kesici",images:["mermer-kesici-07.jpeg"]},
+      8:{title:"8 mm M14 Mermer Frezesi",images:["mermer-kesici-08-01.png","mermer-kesici-08-02.jpeg"]},
+      9:{title:"20 mm Mermer Delici",images:["mermer-kesici-09-01.jpeg","mermer-kesici-09-02.jpeg","mermer-kesici-09-03.jpeg"]},
+      10:{title:"Desenli Mermer Kesici Disk",images:["mermer-kesici-10-01.jpeg","mermer-kesici-10-02.jpeg"]},
+      11:{title:"Dört Kanallı Mermer Kesici",images:["mermer-kesici-11.jpeg"]},
+      12:{title:"100 × 22,23 mm Mermer Kesici",images:["mermer-kesici-12.jpeg"]},
+      13:{title:"Segmentli Mermer Kesici Disk",images:["mermer-kesici-13.jpeg"]},
+      14:{title:"370 H60 Sessiz Mermer Kesici",images:["mermer-kesici-14.jpeg"]},
+      15:{title:"Elmas Kaplı Mermer Disk",images:["mermer-kesici-15.jpeg"]},
+      16:{title:"Altın Segmentli Mermer Kesici",images:["mermer-kesici-16.jpeg"]}
     };
-    const number=Math.min(4,Math.max(1,Number(new URLSearchParams(location.search).get("product"))||1));
+    const number=Math.min(16,Math.max(1,Number(new URLSearchParams(location.search).get("product"))||1));
     const product=products[number];let current=0;const slider=document.getElementById("slider"),dots=document.getElementById("dots"),viewer=document.getElementById("viewer");
     document.getElementById("title").textContent=product.title;document.title=`${product.title} | Bil-Pa Ticaret`;
     slider.innerHTML=product.images.map((src,i)=>`<figure class="slide"><img src="${src}" alt="${product.title} görsel ${i+1}"></figure>`).join("");
