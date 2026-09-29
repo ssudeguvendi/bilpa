@@ -66,10 +66,16 @@
 .kitchen-filter-footer{display:flex;align-items:center;justify-content:flex-end;gap:14px;margin-top:20px;padding-top:17px;border-top:1px solid rgba(255,255,255,.1)}.kitchen-clear-btn{padding:9px 13px;border:0;background:transparent;color:#e4c66f;font:inherit;font-size:.8rem;text-decoration:underline;text-underline-offset:4px;cursor:pointer}.kitchen-sort{min-height:40px;padding:8px 38px 8px 13px;border:1px solid rgba(255,255,255,.18);border-radius:10px;background:#101010;color:#eee;font:inherit;font-size:.78rem}
 .kitchen-filter-empty{grid-column:1/-1;margin:16px 0;padding:22px;border:1px dashed rgba(216,179,90,.38);border-radius:16px;color:#d7bf7c;text-align:center}.kitchen-filter-empty[hidden]{display:none}
 #mutfak.kitchen-results-mode > .seri-kart{display:none}
+.social-showcase{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1120px;margin:48px auto 72px;padding:25px 30px;border:1px solid rgba(216,179,90,.35);border-radius:22px;background:radial-gradient(circle at right,rgba(160,109,45,.17),transparent 45%),linear-gradient(125deg,#171719,#090909);box-shadow:0 20px 50px rgba(0,0,0,.28)}
+.social-showcase-copy{display:flex;align-items:center;gap:18px;min-width:0}.social-showcase-icon{display:grid;place-items:center;flex:0 0 54px;width:54px;height:54px;border:1px solid rgba(225,190,110,.5);border-radius:16px;color:#e6c77e}.social-showcase-icon svg{width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:1.8}
+.social-showcase-kicker{display:block;margin-bottom:5px;color:#d5b66c;font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}.social-showcase h2{margin:0 0 4px;color:#fff;font-size:clamp(1.3rem,2.6vw,2rem)}.social-showcase p{margin:0;color:#bfbfc2;font-size:.94rem;line-height:1.5}
+.social-showcase-link,.contact-action{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:11px 19px;border:1px solid #d7b36a;border-radius:12px;background:#d7b36a;color:#111;font-size:.88rem;font-weight:750;text-decoration:none;white-space:nowrap;transition:transform .2s ease,background .2s ease}.social-showcase-link:hover,.social-showcase-link:focus-visible,.contact-action:hover,.contact-action:focus-visible{background:#f0d393;transform:translateY(-2px);outline:none}
+.contact-options{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:22px auto 0}.contact-action{background:transparent;color:#edcf88}.contact-action:hover,.contact-action:focus-visible{color:#111}.contact-action.primary{background:#d7b36a;color:#111}.contact-action svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:700px){.social-showcase{align-items:stretch;flex-direction:column;margin:34px 16px 52px;padding:22px}.social-showcase-link{width:100%}.contact-options{flex-direction:column;align-items:stretch;padding:0 16px}.contact-action{white-space:normal;text-align:center}}
 @media(max-width:900px){.kitchen-filter-group,.kitchen-filter-group.wide{grid-column:span 6}}
 @media(max-width:620px){.kitchen-filter-panel{padding:17px;border-radius:18px}.kitchen-filter-head{align-items:flex-start;flex-direction:column}.kitchen-filter-grid{display:block}.kitchen-filter-group,.kitchen-filter-group.wide{margin-bottom:18px}.kitchen-filter-options{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}.kitchen-filter-btn{flex:0 0 auto}.kitchen-filter-footer{align-items:stretch;flex-direction:column-reverse}.kitchen-sort{width:100%}.kitchen-clear-btn{align-self:flex-start}}
 </style>
-<script defer src="script.js?v=20260929-47"></script>
+<script defer src="script.js?v=20260929-48"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -947,6 +953,18 @@
         </div>
     </section>
 
+    <aside class="social-showcase reveal" aria-label="Instagram hesabımız">
+        <div class="social-showcase-copy">
+            <span class="social-showcase-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+            <div>
+                <span class="social-showcase-kicker" data-i18n="social.eyebrow">BİZİ TAKİP EDİN</span>
+                <h2>@bilpatic</h2>
+                <p data-i18n="social.text">Yeni ürünleri ve Bil-Pa'dan haberleri Instagram'da keşfedin.</p>
+            </div>
+        </div>
+        <a class="social-showcase-link" href="https://www.instagram.com/bilpatic/" target="_blank" rel="noopener noreferrer" data-i18n="social.open">Instagram'a Git ↗</a>
+    </aside>
+
     <section id="hakkimizda" class="about service-network reveal">
         <div class="network-copy">
             <span class="network-eyebrow" data-i18n="about.eyebrow">BIL-PA HİZMET AĞI</span>
@@ -1090,9 +1108,14 @@
 
     <section id="iletisim" class="contact reveal">
         <h2 data-i18n="contact.title">Teklif Al</h2>
-        <a href="https://wa.me/905334026564" target="_blank" rel="noopener">
-            <button type="button" data-i18n="contact.whatsapp">WhatsApp'tan Ulaş</button>
-        </a>
+        <div class="contact-options">
+            <a class="contact-action primary" href="https://wa.me/905334026564" target="_blank" rel="noopener noreferrer" data-i18n="contact.whatsapp">WhatsApp'tan Ulaş</a>
+            <a class="contact-action" href="mailto:bilpatic@gmail.com">bilpatic@gmail.com</a>
+            <a class="contact-action" href="https://yandex.com.tr/profile/76070083071?lang=tr&amp;utm_source=copy_link&amp;utm_medium=social&amp;utm_campaign=share" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                <span data-i18n="contact.map">Haritada Göster / Yol Tarifi</span>
+            </a>
+        </div>
     </section>
 </main>
 
