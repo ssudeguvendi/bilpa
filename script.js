@@ -1876,6 +1876,9 @@ function initCatalogSearch() {
                 card.setAttribute("aria-pressed", String(active));
             });
             applyCatalogFilter();
+            if (selectedFilter === "mutfak" && typeof window.setKitchenSeriesFilter === "function") {
+                window.setKitchenSeriesFilter("all", false);
+            }
 
             if (selectedFilter === "kesim") {
                 revealStoneProcessingCatalogs();
