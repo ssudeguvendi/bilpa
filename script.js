@@ -2346,6 +2346,7 @@ function showArmaturSeries() {
 
 function initKitchenProductFilters() {
     const panel = document.getElementById("kitchenFilterPanel");
+    const kitchen = document.getElementById("mutfak");
     const proSeries = document.getElementById("pro-serisi");
     const kSeries = document.getElementById("k-serisi");
     const resultCount = document.getElementById("kitchenResultCount");
@@ -2418,6 +2419,7 @@ function initKitchenProductFilters() {
     };
 
     const apply = () => {
+        kitchen?.classList.toggle("kitchen-results-mode", Object.values(state).some((value) => value !== "all"));
         let visibleCount = 0;
         cards.forEach((card) => {
             const matches =
