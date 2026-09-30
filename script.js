@@ -2132,16 +2132,7 @@ function showCuttingSeries(type) {
 
     const seriesTargets = {
         mermer: "mermer-kesiciler-serisi",
-        granit: "granit-kesiciler-serisi",
-        "mermer-delici": "mermer-delici-serisi",
-        "este-testere": "este-testere-serisi",
-        "granit-kuru-karot": "granit-kuru-karot-serisi",
-        "granit-sulu-karot": "granit-sulu-karot-serisi",
-        "katrak-lamalari": "katrak-lamalari-serisi",
-        "silim-tablalari": "silim-tablalari-serisi",
-        "vakumlu-ozel-urunler": "vakumlu-ozel-urunler-serisi",
-        "vakum-profiller": "vakum-profiller-serisi",
-        "ocak-malzemeleri": "ocak-malzemeleri-serisi"
+        granit: "granit-kesiciler-serisi"
     };
     const target = document.getElementById(seriesTargets[type] || "");
     if (target) {
