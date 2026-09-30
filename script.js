@@ -100,7 +100,6 @@ const translations = {
             vacuumSpecialProducts: "VAKUMLU ÖZEL ÜRÜNLER",
             vacuumProfiles: "VAKUM STANDART VE ÖZEL PROFİLLER",
             quarryMaterials: "OCAK MALZEMELERİ",
-            wetMarbleMachineSaws: "MERMER SULU MAKİNE TESTERELERİ",
             superGoldMarbleCutter: "SÜPER GOLD MERMER KESİCİ",
             superGoldMarbleCutterText: "Mermer sulu kesim uygulamaları için profesyonel makine testeresi.",
             superGoldNeolithDekton: "SÜPER GOLD NEOLİT VE DEKTON",
@@ -852,7 +851,6 @@ const translations = {
             vacuumSpecialProducts: "SPECIAL VACUUM PRODUCTS",
             vacuumProfiles: "STANDARD & CUSTOM VACUUM PROFILES",
             quarryMaterials: "QUARRY MATERIALS",
-            wetMarbleMachineSaws: "WET MARBLE MACHINE SAWS",
             superGoldMarbleCutter: "SUPER GOLD MARBLE CUTTER",
             superGoldMarbleCutterText: "Professional machine saw for wet marble cutting applications.",
             superGoldNeolithDekton: "SUPER GOLD NEOLITH AND DEKTON",
@@ -2169,7 +2167,7 @@ function showStoneSubcategory(stone, group) {
 
     const content = section.querySelector(".stone-subcategory-content");
     const empty = section.querySelector(".stone-subcategory-empty");
-    const products = Array.from(content.querySelectorAll(".granite-product-card"));
+    const products = Array.from(content.querySelectorAll(".granite-product-card, .pro-urun-kart"));
     let count = 0;
     products.forEach((card) => {
         const visible = (card.dataset.stoneProductGroup || "makine") === group;
@@ -2179,36 +2177,7 @@ function showStoneSubcategory(stone, group) {
     content.hidden = count === 0 && group !== "makine";
     empty.hidden = count !== 0 || group === "makine";
 
-    if (stone === "mermer") {
-        section.querySelectorAll("[data-marble-subcategory]").forEach((card) => {
-            card.classList.remove("active");
-            card.setAttribute("aria-pressed", "false");
-        });
-        section.querySelectorAll(".marble-subcategory-products").forEach((panel) => { panel.hidden = true; });
-        section.querySelector(".marble-subcategory-grid").hidden = group !== "makine";
-    }
     requestAnimationFrame(() => scrollToVisibleSection(group === "makine" || count ? content : empty));
-}
-
-function showMarbleSubcategory(type) {
-    document.querySelectorAll("[data-marble-subcategory]").forEach((card) => {
-        const active = card.dataset.marbleSubcategory === type;
-        card.classList.toggle("active", active);
-        card.setAttribute("aria-pressed", String(active));
-    });
-
-    document.querySelectorAll(".marble-subcategory-products").forEach((section) => {
-        section.hidden = true;
-    });
-
-    const targets = {
-        "mermer-sulu-makine-testereleri": "mermer-sulu-makine-testereleri-urunler"
-    };
-    const target = document.getElementById(targets[type] || "");
-    if (target) {
-        target.hidden = false;
-        requestAnimationFrame(() => scrollToVisibleSection(target));
-    }
 }
 
 const graniteProducts = [
