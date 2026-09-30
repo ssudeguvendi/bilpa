@@ -60,9 +60,14 @@
 .stone-subcategory-card{min-height:110px;padding:20px;border:1px solid rgba(212,175,55,.35);border-radius:18px;background:linear-gradient(145deg,#1b1915,#080808);color:#f4e1aa;font:inherit;font-size:clamp(.9rem,1.8vw,1.1rem);font-weight:750;letter-spacing:.04em;text-align:left;cursor:pointer;transition:transform .2s,border-color .2s,background .2s}
 .stone-subcategory-card span{display:block;margin-top:12px;color:#d4af37;font-size:1.2em}
 .stone-subcategory-card:hover,.stone-subcategory-card:focus-visible,.stone-subcategory-card.active{transform:translateY(-2px);border-color:#d4af37;background:linear-gradient(145deg,#332819,#0c0c0c);outline:none}
+.stone-subcategory-card.has-cover{position:relative;min-height:250px;overflow:hidden;padding:0;background:#080808}
+.stone-subcategory-card.has-cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.stone-subcategory-card.has-cover:hover>img,.stone-subcategory-card.has-cover:focus-visible>img{transform:scale(1.035)}
+.stone-subcategory-card.has-cover .stone-subcategory-overlay{position:absolute;inset:auto 0 0;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0;padding:44px 18px 17px;background:linear-gradient(transparent,rgba(0,0,0,.94));color:#f5dda0;font-size:1rem;text-align:left}
+.stone-subcategory-card.has-cover .stone-subcategory-overlay b{color:#d4af37;font-size:1.35rem}
 .stone-subcategory-content[hidden],.stone-subcategory-empty[hidden],.granite-product-card[hidden],.pro-urun-kart[hidden]{display:none!important}
 .stone-subcategory-empty{max-width:900px;margin:20px auto;padding:24px;border:1px dashed rgba(212,175,55,.4);border-radius:16px;color:#dbc998;text-align:center}
-@media(max-width:600px){.stone-subcategory-grid{grid-template-columns:1fr;gap:10px}.stone-subcategory-card{min-height:70px;padding:15px 18px}.stone-subcategory-card span{display:inline;float:right;margin:0}}
+@media(max-width:600px){.stone-subcategory-grid{grid-template-columns:1fr;gap:10px}.stone-subcategory-card{min-height:70px;padding:15px 18px}.stone-subcategory-card span{display:inline;float:right;margin:0}.stone-subcategory-card.has-cover{min-height:210px}.stone-subcategory-card.has-cover .stone-subcategory-overlay{display:flex;float:none}}
 
 /* Mutfak ürünleri gelişmiş filtreleri */
 .kitchen-filter-panel{grid-column:1/-1;margin:8px 0 26px;padding:22px;border:1px solid rgba(216,179,90,.28);border-radius:22px;background:linear-gradient(145deg,rgba(18,18,18,.98),rgba(7,7,7,.98));box-shadow:0 20px 48px rgba(0,0,0,.28)}
@@ -321,9 +326,9 @@
             <div id="granit-kesiciler-serisi" class="pro-urunler">
                 <h2 data-i18n="products.graniteCutters">Granit</h2>
                 <div class="stone-subcategory-grid" aria-label="Granit alt kategorileri">
-                    <button type="button" class="stone-subcategory-card" data-stone-subcategory="granit:makine" aria-pressed="false" onclick="showStoneSubcategory('granit','makine')"><strong data-i18n="products.machineCutters">Makine Kesiciler</strong><span aria-hidden="true">→</span></button>
-                    <button type="button" class="stone-subcategory-card" data-stone-subcategory="granit:deliciler" aria-pressed="false" onclick="showStoneSubcategory('granit','deliciler')"><strong data-i18n="products.drillers">Deliciler</strong><span aria-hidden="true">→</span></button>
-                    <button type="button" class="stone-subcategory-card" data-stone-subcategory="granit:asindiricilar" aria-pressed="false" onclick="showStoneSubcategory('granit','asindiricilar')"><strong data-i18n="products.abrasives">Aşındırıcılar</strong><span aria-hidden="true">→</span></button>
+                    <button type="button" class="stone-subcategory-card has-cover" data-stone-subcategory="granit:makine" aria-pressed="false" onclick="showStoneSubcategory('granit','makine')"><img src="granit-kesiciler-alt-kapak.jpeg" alt="Granit kesiciler"><span class="stone-subcategory-overlay"><strong data-i18n="products.machineCutters">Makine Kesiciler</strong><b aria-hidden="true">→</b></span></button>
+                    <button type="button" class="stone-subcategory-card has-cover" data-stone-subcategory="granit:deliciler" aria-pressed="false" onclick="showStoneSubcategory('granit','deliciler')"><img src="granit-deliciler-alt-kapak.jpeg" alt="Granit deliciler"><span class="stone-subcategory-overlay"><strong data-i18n="products.drillers">Deliciler</strong><b aria-hidden="true">→</b></span></button>
+                    <button type="button" class="stone-subcategory-card has-cover" data-stone-subcategory="granit:asindiricilar" aria-pressed="false" onclick="showStoneSubcategory('granit','asindiricilar')"><img src="granit-asindiricilar-alt-kapak.jpeg" alt="Granit aşındırıcılar"><span class="stone-subcategory-overlay"><strong data-i18n="products.abrasives">Aşındırıcılar</strong><b aria-hidden="true">→</b></span></button>
                 </div>
                 <div id="granit-stone-products" class="stone-subcategory-content" hidden>
                 <div class="granite-product-grid" aria-label="Granit Kesiciler ürünleri">
