@@ -50,12 +50,12 @@
 @media(min-width:901px){
     .stone-processing-showcase{width:min(100%,720px);margin:34px auto 0}
     .stone-processing-cover{max-height:none;aspect-ratio:3 / 2;margin:0}
-    .stone-processing-catalogs{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1100px;margin:26px auto 0}
+    .stone-processing-catalogs{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:900px;margin:26px auto 0}
     .stone-processing-catalogs .cutting-category-card{min-height:260px}
     .stone-processing-catalogs .cutting-category-card .kategori-yazi{min-height:60px;padding:12px 16px}
     .stone-processing-catalogs .cutting-category-card .kategori-yazi strong{font-size:15px}
 }
-@media(min-width:1200px){.stone-processing-catalogs{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:1200px){.stone-processing-catalogs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* Mutfak ürünleri gelişmiş filtreleri */
 .kitchen-filter-panel{grid-column:1/-1;margin:8px 0 26px;padding:22px;border:1px solid rgba(216,179,90,.28);border-radius:22px;background:linear-gradient(145deg,rgba(18,18,18,.98),rgba(7,7,7,.98));box-shadow:0 20px 48px rgba(0,0,0,.28)}
@@ -75,7 +75,7 @@
 @media(max-width:900px){.kitchen-filter-group,.kitchen-filter-group.wide{grid-column:span 6}}
 @media(max-width:620px){.kitchen-filter-panel{padding:17px;border-radius:18px}.kitchen-filter-head{align-items:flex-start;flex-direction:column}.kitchen-filter-grid{display:block}.kitchen-filter-group,.kitchen-filter-group.wide{margin-bottom:18px}.kitchen-filter-options{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}.kitchen-filter-btn{flex:0 0 auto}.kitchen-filter-footer{align-items:stretch;flex-direction:column-reverse}.kitchen-sort{width:100%}.kitchen-clear-btn{align-self:flex-start}}
 </style>
-<script defer src="script.js?v=20260929-48"></script>
+<script defer src="script.js?v=20260930-49"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -216,7 +216,7 @@
             </button>
         </div>
 
-        <div id="stoneProcessingCatalogs" class="cutting-category-grid stone-processing-catalogs" aria-label="Kesim ve işleme katalogları" hidden>
+        <div id="stoneProcessingCatalogs" class="cutting-category-grid stone-processing-catalogs" aria-label="Mermer ve granit kesici katalogları" hidden>
             <div class="kategori-kart cutting-category-card" data-cutting-choice="mermer" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('mermer')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('mermer')}">
                 <img src="mermer-kesiciler-kapak.jpeg" alt="Bil-Pa mermer kesiciler kataloğu">
                 <div class="kategori-yazi">
@@ -235,86 +235,6 @@
                 </div>
             </div>
 
-            <div class="kategori-kart cutting-category-card" data-cutting-choice="mermer-delici" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('mermer-delici')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('mermer-delici')}">
-                <img src="mermer-delici-vakumlu-kapak.jpeg" alt="Bil-Pa mermer delici vakumlu kataloğu">
-                <div class="kategori-yazi">
-                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
-                    <strong data-i18n="products.marbleDrill">MERMER DELİCİ (VAKUMLU)</strong>
-                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
-                </div>
-            </div>
-
-            <div class="kategori-kart cutting-category-card" data-cutting-choice="este-testere" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('este-testere')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('este-testere')}">
-                <img src="este-testereler-kapak.jpeg" alt="Bil-Pa Este testereler kataloğu">
-                <div class="kategori-yazi">
-                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
-                    <strong data-i18n="products.esteSaws">ESTE TESTERELER</strong>
-                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
-                </div>
-            </div>
-
-            <div class="kategori-kart cutting-category-card" data-cutting-choice="granit-kuru-karot" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('granit-kuru-karot')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('granit-kuru-karot')}">
-                <img src="granit-kuru-karotlar-kapak.jpeg" alt="Bil-Pa granit kuru karotlar kataloğu">
-                <div class="kategori-yazi">
-                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
-                    <strong data-i18n="products.dryCoreBits">GRANİT KURU KAROTLAR</strong>
-                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
-                </div>
-            </div>
-
-            <div class="kategori-kart cutting-category-card" data-cutting-choice="granit-sulu-karot" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('granit-sulu-karot')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('granit-sulu-karot')}">
-                <img src="granit-sulu-karotlar-kapak.jpeg" alt="Bil-Pa granit sulu karotlar kataloğu">
-                <div class="kategori-yazi">
-                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
-                    <strong data-i18n="products.wetCoreBits">GRANİT SULU KAROTLAR</strong>
-                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
-                </div>
-            </div>
-
-            <div class="kategori-kart cutting-category-card" data-cutting-choice="katrak-lamalari" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('katrak-lamalari')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('katrak-lamalari')}">
-                <img src="katrak-lamalari-kapak.jpeg" alt="Bil-Pa katrak lamaları kataloğu">
-                <div class="kategori-yazi">
-                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
-                    <strong data-i18n="products.gangSawBlades">KATRAK LAMALARI</strong>
-                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
-                </div>
-            </div>
-
-            <div class="kategori-kart cutting-category-card" data-cutting-choice="silim-tablalari" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('silim-tablalari')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('silim-tablalari')}">
-                <img src="silim-tablalari-kapak.jpeg" alt="Bil-Pa silim tablaları kataloğu">
-                <div class="kategori-yazi">
-                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
-                    <strong data-i18n="products.grindingPlates">SİLİM TABLALARI</strong>
-                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
-                </div>
-            </div>
-
-            <div class="kategori-kart cutting-category-card" data-cutting-choice="vakumlu-ozel-urunler" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('vakumlu-ozel-urunler')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('vakumlu-ozel-urunler')}">
-                <img src="vakumlu-ozel-urunler-kapak.jpeg" alt="Bil-Pa vakumlu özel ürünler kataloğu">
-                <div class="kategori-yazi">
-                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
-                    <strong data-i18n="products.vacuumSpecialProducts">VAKUMLU ÖZEL ÜRÜNLER</strong>
-                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
-                </div>
-            </div>
-
-            <div class="kategori-kart cutting-category-card" data-cutting-choice="vakum-profiller" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('vakum-profiller')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('vakum-profiller')}">
-                <img src="vakum-standart-ozel-profiller-kapak.jpeg" alt="Bil-Pa vakum standart ve özel profiller kataloğu">
-                <div class="kategori-yazi">
-                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
-                    <strong data-i18n="products.vacuumProfiles">VAKUM STANDART VE ÖZEL PROFİLLER</strong>
-                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
-                </div>
-            </div>
-
-            <div class="kategori-kart cutting-category-card" data-cutting-choice="ocak-malzemeleri" role="button" tabindex="0" aria-pressed="false" onclick="showCuttingSeries('ocak-malzemeleri')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showCuttingSeries('ocak-malzemeleri')}">
-                <img src="ocak-malzemeleri-kapak.jpeg" alt="Bil-Pa ocak malzemeleri kataloğu">
-                <div class="kategori-yazi">
-                    <small data-i18n="products.professionalSeries">PROFESYONEL SERİ</small>
-                    <strong data-i18n="products.quarryMaterials">OCAK MALZEMELERİ</strong>
-                    <span><span data-i18n="products.openCatalog">Kataloğu Aç</span> <b aria-hidden="true">→</b></span>
-                </div>
-            </div>
         </div>
 
         <div class="kategori-kartlar" aria-label="Ürün katalogları">
@@ -435,122 +355,6 @@
                 </div>
             </div>
 
-            <div id="mermer-delici-serisi" class="pro-urunler">
-                <h2 data-i18n="products.marbleDrill">Mermer Delici (Vakumlu)</h2>
-                <div class="pro-urun-grid cutting-preview-grid">
-                    <div class="pro-urun-kart cutting-preview-card">
-                        <img src="mermer-delici-vakumlu-kapak.jpeg" alt="Mermer delici vakumlu ürün kataloğu">
-                        <div class="pro-urun-icerik">
-                            <h3 data-i18n="products.marbleDrillCatalog">Mermer Delici (Vakumlu) Kataloğu</h3>
-                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="este-testere-serisi" class="pro-urunler">
-                <h2 data-i18n="products.esteSaws">Este Testereler</h2>
-                <div class="pro-urun-grid cutting-preview-grid">
-                    <div class="pro-urun-kart cutting-preview-card">
-                        <img src="este-testereler-kapak.jpeg" alt="Este testereler ürün kataloğu">
-                        <div class="pro-urun-icerik">
-                            <h3 data-i18n="products.esteSawsCatalog">Este Testereler Kataloğu</h3>
-                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="granit-kuru-karot-serisi" class="pro-urunler">
-                <h2 data-i18n="products.dryCoreBits">Granit Kuru Karotlar</h2>
-                <div class="pro-urun-grid cutting-preview-grid">
-                    <div class="pro-urun-kart cutting-preview-card">
-                        <img src="granit-kuru-karotlar-kapak.jpeg" alt="Granit kuru karotlar ürün kataloğu">
-                        <div class="pro-urun-icerik">
-                            <h3 data-i18n="products.dryCoreBitsCatalog">Granit Kuru Karotlar Kataloğu</h3>
-                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="granit-sulu-karot-serisi" class="pro-urunler">
-                <h2 data-i18n="products.wetCoreBits">Granit Sulu Karotlar</h2>
-                <div class="pro-urun-grid cutting-preview-grid">
-                    <div class="pro-urun-kart cutting-preview-card">
-                        <img src="granit-sulu-karotlar-kapak.jpeg" alt="Granit sulu karotlar ürün kataloğu">
-                        <div class="pro-urun-icerik">
-                            <h3 data-i18n="products.wetCoreBitsCatalog">Granit Sulu Karotlar Kataloğu</h3>
-                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="katrak-lamalari-serisi" class="pro-urunler">
-                <h2 data-i18n="products.gangSawBlades">Katrak Lamaları</h2>
-                <div class="pro-urun-grid cutting-preview-grid">
-                    <div class="pro-urun-kart cutting-preview-card">
-                        <img src="katrak-lamalari-kapak.jpeg" alt="Katrak lamaları ürün kataloğu">
-                        <div class="pro-urun-icerik">
-                            <h3 data-i18n="products.gangSawBladesCatalog">Katrak Lamaları Kataloğu</h3>
-                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="silim-tablalari-serisi" class="pro-urunler">
-                <h2 data-i18n="products.grindingPlates">Silim Tablaları</h2>
-                <div class="pro-urun-grid cutting-preview-grid">
-                    <div class="pro-urun-kart cutting-preview-card">
-                        <img src="silim-tablalari-kapak.jpeg" alt="Silim tablaları ürün kataloğu">
-                        <div class="pro-urun-icerik">
-                            <h3 data-i18n="products.grindingPlatesCatalog">Silim Tablaları Kataloğu</h3>
-                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="vakumlu-ozel-urunler-serisi" class="pro-urunler">
-                <h2 data-i18n="products.vacuumSpecialProducts">Vakumlu Özel Ürünler</h2>
-                <div class="pro-urun-grid cutting-preview-grid">
-                    <div class="pro-urun-kart cutting-preview-card">
-                        <img src="vakumlu-ozel-urunler-kapak.jpeg" alt="Vakumlu özel ürünler kataloğu">
-                        <div class="pro-urun-icerik">
-                            <h3 data-i18n="products.vacuumSpecialProductsCatalog">Vakumlu Özel Ürünler Kataloğu</h3>
-                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="vakum-profiller-serisi" class="pro-urunler">
-                <h2 data-i18n="products.vacuumProfiles">Vakum Standart ve Özel Profiller</h2>
-                <div class="pro-urun-grid cutting-preview-grid">
-                    <div class="pro-urun-kart cutting-preview-card">
-                        <img src="vakum-standart-ozel-profiller-kapak.jpeg" alt="Vakum standart ve özel profiller kataloğu">
-                        <div class="pro-urun-icerik">
-                            <h3 data-i18n="products.vacuumProfilesCatalog">Vakum Standart ve Özel Profiller Kataloğu</h3>
-                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="ocak-malzemeleri-serisi" class="pro-urunler">
-                <h2 data-i18n="products.quarryMaterials">Ocak Malzemeleri</h2>
-                <div class="pro-urun-grid cutting-preview-grid">
-                    <div class="pro-urun-kart cutting-preview-card">
-                        <img src="ocak-malzemeleri-kapak.jpeg" alt="Ocak malzemeleri kataloğu">
-                        <div class="pro-urun-icerik">
-                            <h3 data-i18n="products.quarryMaterialsCatalog">Ocak Malzemeleri Kataloğu</h3>
-                            <p data-i18n="products.catalogReadyText">Ürünler geldikçe Pro Serisi düzeninde bu kataloğa eklenecek.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div id="mutfak" class="kategori">
