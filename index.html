@@ -60,7 +60,7 @@
 .stone-subcategory-card{min-height:110px;padding:20px;border:1px solid rgba(212,175,55,.35);border-radius:18px;background:linear-gradient(145deg,#1b1915,#080808);color:#f4e1aa;font:inherit;font-size:clamp(.9rem,1.8vw,1.1rem);font-weight:750;letter-spacing:.04em;text-align:left;cursor:pointer;transition:transform .2s,border-color .2s,background .2s}
 .stone-subcategory-card span{display:block;margin-top:12px;color:#d4af37;font-size:1.2em}
 .stone-subcategory-card:hover,.stone-subcategory-card:focus-visible,.stone-subcategory-card.active{transform:translateY(-2px);border-color:#d4af37;background:linear-gradient(145deg,#332819,#0c0c0c);outline:none}
-.stone-subcategory-content[hidden],.stone-subcategory-empty[hidden],.granite-product-card[hidden],.marble-subcategory-grid[hidden]{display:none!important}
+.stone-subcategory-content[hidden],.stone-subcategory-empty[hidden],.granite-product-card[hidden],.pro-urun-kart[hidden]{display:none!important}
 .stone-subcategory-empty{max-width:900px;margin:20px auto;padding:24px;border:1px dashed rgba(212,175,55,.4);border-radius:16px;color:#dbc998;text-align:center}
 @media(max-width:600px){.stone-subcategory-grid{grid-template-columns:1fr;gap:10px}.stone-subcategory-card{min-height:70px;padding:15px 18px}.stone-subcategory-card span{display:inline;float:right;margin:0}}
 
@@ -82,7 +82,7 @@
 @media(max-width:900px){.kitchen-filter-group,.kitchen-filter-group.wide{grid-column:span 6}}
 @media(max-width:620px){.kitchen-filter-panel{padding:17px;border-radius:18px}.kitchen-filter-head{align-items:flex-start;flex-direction:column}.kitchen-filter-grid{display:block}.kitchen-filter-group,.kitchen-filter-group.wide{margin-bottom:18px}.kitchen-filter-options{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}.kitchen-filter-btn{flex:0 0 auto}.kitchen-filter-footer{align-items:stretch;flex-direction:column-reverse}.kitchen-sort{width:100%}.kitchen-clear-btn{align-self:flex-start}}
 </style>
-<script defer src="script.js?v=20260930-50"></script>
+<script defer src="script.js?v=20260930-51"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -273,34 +273,22 @@
                     <button type="button" class="stone-subcategory-card" data-stone-subcategory="mermer:asindiricilar" aria-pressed="false" onclick="showStoneSubcategory('mermer','asindiricilar')"><strong data-i18n="products.abrasives">Aşındırıcılar</strong><span aria-hidden="true">→</span></button>
                 </div>
                 <div id="mermer-stone-products" class="stone-subcategory-content" hidden>
-                <div class="marble-subcategory-grid">
-                    <div class="marble-subcategory-card" data-marble-subcategory="mermer-sulu-makine-testereleri" role="button" tabindex="0" aria-pressed="false" onclick="showMarbleSubcategory('mermer-sulu-makine-testereleri')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showMarbleSubcategory('mermer-sulu-makine-testereleri')}">
-                        <img src="mermer-kesiciler-kapak.jpeg" alt="Mermer kesiciler ürün kataloğu">
-                        <div class="marble-subcategory-label">
-                            <strong data-i18n="products.wetMarbleMachineSaws">Mermer Sulu Makine Testereleri</strong>
-                            <span aria-hidden="true">›</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="mermer-sulu-makine-testereleri-urunler" class="marble-subcategory-products" hidden>
-                    <h3 data-i18n="products.wetMarbleMachineSaws">Mermer Sulu Makine Testereleri</h3>
                     <div class="pro-urun-grid marble-product-grid">
-                        <article class="pro-urun-kart marble-product-card">
+                        <article class="pro-urun-kart marble-product-card" data-stone-product-group="makine">
                             <img src="super-gold-mermer-kesici.jpeg" alt="Süper Gold Mermer Kesici">
                             <div class="pro-urun-icerik">
                                 <h3 data-i18n="products.superGoldMarbleCutter">Süper Gold Mermer Kesici</h3>
                                 <p data-i18n="products.superGoldMarbleCutterText">Mermer sulu kesim uygulamaları için profesyonel makine testeresi.</p>
                             </div>
                         </article>
-                        <article class="pro-urun-kart marble-product-card">
+                        <article class="pro-urun-kart marble-product-card" data-stone-product-group="makine">
                             <img src="super-gold-neolit-dekton.jpeg" alt="Süper Gold Neolit ve Dekton">
                             <div class="pro-urun-icerik">
                                 <h3 data-i18n="products.superGoldNeolithDekton">Süper Gold Neolit ve Dekton</h3>
                                 <p data-i18n="products.superGoldNeolithDektonText">Neolit ve Dekton yüzeylerin sulu kesimi için profesyonel makine testeresi.</p>
                             </div>
                         </article>
-                        <article class="pro-urun-kart marble-product-card">
+                        <article class="pro-urun-kart marble-product-card" data-stone-product-group="makine">
                             <img src="elektrolize-mermer-kesici.jpeg" alt="Elektrolize Mermer Kesici">
                             <div class="pro-urun-icerik">
                                 <h3 data-i18n="products.electroplatedMarbleCutter">Elektrolize Mermer Kesici</h3>
@@ -308,7 +296,6 @@
                             </div>
                         </article>
                     </div>
-                </div>
                 <div class="granite-product-grid" aria-label="Bil-Pa mermer ürün görselleri">
                     <a class="granite-product-card" href="mermer-kesici-urun.html?product=1" target="_blank" rel="noopener" aria-label="180 × 22,23 mm mermer kesiciyi incele"><img src="mermer-kesici-180-22-23.jpeg" alt="Bil-Pa 180 × 22,23 mm mermer kesici" loading="lazy"><span class="granite-product-open">180 × 22,23 mm · Ürünü İncele</span></a>
                     <a class="granite-product-card" href="mermer-kesici-urun.html?product=2" target="_blank" rel="noopener" aria-label="125 mm M14 mermer kesiciyi incele"><img src="mermer-kesici-125-m14.jpeg" alt="Bil-Pa 125 mm M14 mermer kesici" loading="lazy"><span class="granite-product-open">125 mm M14 · Ürünü İncele</span></a>
