@@ -83,8 +83,12 @@ const translations = {
             cuttingTitle: "Kesim & İşleme Katalogları",
             cuttingText: "Mermer ve granit uygulamalarına özel profesyonel ürün gruplarımızı keşfedin.",
             professionalSeries: "PROFESYONEL SERİ",
-            marbleCutters: "MERMER KESİCİLER",
-            graniteCutters: "GRANİT KESİCİ",
+            marbleCutters: "MERMER",
+            graniteCutters: "GRANİT",
+            machineCutters: "MAKİNE KESİCİLER",
+            drillers: "DELİCİLER",
+            abrasives: "AŞINDIRICILAR",
+            comingSoon: "Bu kategorinin ürünleri yakında eklenecek.",
             inspectProduct: "ÜRÜNÜ İNCELE",
             close: "Kapat",
             marbleDrill: "MERMER DELİCİ (VAKUMLU)",
@@ -831,8 +835,12 @@ const translations = {
             cuttingTitle: "Cutting & Processing Catalogs",
             cuttingText: "Explore our professional product groups for marble and granite applications.",
             professionalSeries: "PROFESSIONAL SERIES",
-            marbleCutters: "MARBLE CUTTERS",
-            graniteCutters: "GRANITE CUTTER",
+            marbleCutters: "MARBLE",
+            graniteCutters: "GRANITE",
+            machineCutters: "MACHINE CUTTERS",
+            drillers: "DRILL BITS",
+            abrasives: "ABRASIVES",
+            comingSoon: "Products for this category will be added soon.",
             inspectProduct: "VIEW PRODUCT",
             close: "Close",
             marbleDrill: "VACUUM MARBLE DRILLS",
@@ -1561,10 +1569,12 @@ document.addEventListener("DOMContentLoaded", () => {
 function openRequestedCatalog() {
     const catalog = new URLSearchParams(window.location.search).get("catalog");
     if (!catalog || !document.getElementById("urunler")) return;
-    if (catalog === "granit") showCuttingSeries("granit");
-    else if (catalog === "mermer") {
-        showCuttingSeries("mermer");
-        showMarbleSubcategory("mermer-sulu-makine-testereleri");
+    if (catalog === "granit" || catalog === "mermer") {
+        showCuttingSeries(catalog);
+        const group = new URLSearchParams(window.location.search).get("group");
+        if (["makine", "deliciler", "asindiricilar"].includes(group)) {
+            showStoneSubcategory(catalog, group);
+        }
     }
     else if (catalog === "kesim") selectCatalogCategory("kesim");
     else if (catalog === "mutfak" || catalog === "banyo") selectCatalogCategory(catalog);
@@ -2137,8 +2147,47 @@ function showCuttingSeries(type) {
     const target = document.getElementById(seriesTargets[type] || "");
     if (target) {
         target.classList.add("active");
+        target.querySelectorAll("[data-stone-subcategory]").forEach((card) => {
+            card.classList.remove("active");
+            card.setAttribute("aria-pressed", "false");
+        });
+        target.querySelector(".stone-subcategory-content").hidden = true;
+        target.querySelector(".stone-subcategory-empty").hidden = true;
         requestAnimationFrame(() => scrollToVisibleSection(target));
     }
+}
+
+function showStoneSubcategory(stone, group) {
+    const section = document.getElementById(stone === "mermer" ? "mermer-kesiciler-serisi" : "granit-kesiciler-serisi");
+    if (!section || !section.classList.contains("active") || !["makine", "deliciler", "asindiricilar"].includes(group)) return;
+
+    section.querySelectorAll("[data-stone-subcategory]").forEach((card) => {
+        const active = card.dataset.stoneSubcategory === `${stone}:${group}`;
+        card.classList.toggle("active", active);
+        card.setAttribute("aria-pressed", String(active));
+    });
+
+    const content = section.querySelector(".stone-subcategory-content");
+    const empty = section.querySelector(".stone-subcategory-empty");
+    const products = Array.from(content.querySelectorAll(".granite-product-card"));
+    let count = 0;
+    products.forEach((card) => {
+        const visible = (card.dataset.stoneProductGroup || "makine") === group;
+        card.hidden = !visible;
+        if (visible) count++;
+    });
+    content.hidden = count === 0 && group !== "makine";
+    empty.hidden = count !== 0 || group === "makine";
+
+    if (stone === "mermer") {
+        section.querySelectorAll("[data-marble-subcategory]").forEach((card) => {
+            card.classList.remove("active");
+            card.setAttribute("aria-pressed", "false");
+        });
+        section.querySelectorAll(".marble-subcategory-products").forEach((panel) => { panel.hidden = true; });
+        section.querySelector(".marble-subcategory-grid").hidden = group !== "makine";
+    }
+    requestAnimationFrame(() => scrollToVisibleSection(group === "makine" || count ? content : empty));
 }
 
 function showMarbleSubcategory(type) {
