@@ -86,6 +86,22 @@
 @media(max-width:700px){.social-showcase{align-items:stretch;flex-direction:column;margin:34px 16px 52px;padding:22px}.social-showcase-link{width:100%}.contact-options{flex-direction:column;align-items:stretch;padding:0 16px}.contact-action{white-space:normal;text-align:center}}
 @media(max-width:900px){.kitchen-filter-group,.kitchen-filter-group.wide{grid-column:span 6}}
 @media(max-width:620px){.kitchen-filter-panel{padding:17px;border-radius:18px}.kitchen-filter-head{align-items:flex-start;flex-direction:column}.kitchen-filter-grid{display:block}.kitchen-filter-group,.kitchen-filter-group.wide{margin-bottom:18px}.kitchen-filter-options{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}.kitchen-filter-btn{flex:0 0 auto}.kitchen-filter-footer{align-items:stretch;flex-direction:column-reverse}.kitchen-sort{width:100%}.kitchen-clear-btn{align-self:flex-start}}
+
+/* Tamamlayıcı ürünler */
+.more-products{max-width:1120px;margin:68px auto 76px;padding:0 20px;text-align:center}
+.more-products-kicker{display:block;margin-bottom:9px;color:#d5b66c;font-size:.74rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.more-products h2{margin:0;color:#fff;font-size:clamp(1.7rem,4vw,2.7rem)}
+.more-products-intro{max-width:720px;margin:13px auto 28px;color:#aaa;line-height:1.7}
+.more-products-track{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.more-product-card{position:relative;display:block;overflow:hidden;min-height:230px;border:1px solid rgba(216,179,90,.28);border-radius:22px;background:#080808;text-decoration:none;box-shadow:0 18px 44px rgba(0,0,0,.3);transition:.25s ease}
+.more-product-card:hover,.more-product-card:focus-visible{transform:translateY(-4px);border-color:#d8b35a;outline:none}
+.more-product-card img{width:100%;height:100%;min-height:230px;object-fit:cover;display:block;transition:transform .35s ease}
+.more-product-card:hover img{transform:scale(1.025)}
+.more-product-label{position:absolute;left:0;right:0;bottom:0;padding:50px 18px 18px;background:linear-gradient(transparent,rgba(0,0,0,.94));color:#f4df9d;font-size:1rem;font-weight:800;letter-spacing:.04em;text-align:left}
+.more-products-note{margin:22px 0 16px;color:#b9b9b9;font-size:.88rem}
+.more-products-whatsapp{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 22px;border:1px solid #d7b36a;border-radius:999px;background:#d7b36a;color:#111;font-weight:800;text-decoration:none}
+@media(max-width:650px){.more-products{margin:48px auto 58px;padding:0 16px;text-align:left}.more-products-intro{margin-left:0}.more-products-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:13px;padding:2px 1px 12px;scrollbar-width:none}.more-products-track::-webkit-scrollbar{display:none}.more-product-card{flex:0 0 84%;min-height:210px;scroll-snap-align:start}.more-product-card img{min-height:210px}.more-products-note{text-align:center}.more-products-whatsapp{display:flex;width:100%;box-sizing:border-box}}
+
 </style>
 <script defer src="script.js?v=20260930-51"></script>
 <script type="application/ld+json">
@@ -771,6 +787,26 @@
             </div>
         </div>
     </section>
+
+
+    <section class="more-products reveal" aria-labelledby="moreProductsTitle">
+        <span class="more-products-kicker">TAMAMLAYICI ÜRÜNLER</span>
+        <h2 id="moreProductsTitle">Aradığınız Her Şey Bil-Pa’da</h2>
+        <p class="more-products-intro">Kataloğumuzda yer almayan tamamlayıcı ürünler ve özel talepleriniz için bizimle iletişime geçebilirsiniz.</p>
+        <div class="more-products-track">
+            <a class="more-product-card" href="https://wa.me/905334026564?text=Merhaba%2C%20silikon%20ve%20uygulama%20ekipmanlar%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer">
+                <img src="silikon-uygulama-ekipmanlari.jpeg" alt="Bil-Pa silikon ve uygulama ekipmanları">
+                <span class="more-product-label">Silikon &amp; Uygulama Ekipmanları</span>
+            </a>
+            <a class="more-product-card" href="https://wa.me/905334026564?text=Merhaba%2C%20silikon%20%C3%A7e%C5%9Fitleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer">
+                <img src="silikon-cesitleri.jpeg" alt="Bil-Pa silikon çeşitleri">
+                <span class="more-product-label">Silikon Çeşitleri</span>
+            </a>
+        </div>
+        <p class="more-products-note">Stok ve ürün bilgisi için iletişime geçin.</p>
+        <a class="more-products-whatsapp" href="https://wa.me/905334026564?text=Merhaba%2C%20arad%C4%B1%C4%9F%C4%B1m%20bir%20%C3%BCr%C3%BCn%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer">Aradığınız ürünü sorun →</a>
+    </section>
+
 
     <section id="hakkimizda" class="about service-network reveal">
         <div class="network-copy">
