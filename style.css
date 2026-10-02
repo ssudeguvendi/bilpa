@@ -3394,3 +3394,94 @@ section > h2{
     }
 }
 
+
+
+/* DESKTOP PRODUCT DETAIL COMPACT LAYOUT */
+@media (min-width:901px){
+    .urun-sayfa{
+        max-width:1240px;
+        padding:42px 40px 72px;
+    }
+
+    .urun-grid{
+        grid-template-columns:minmax(0,.82fr) minmax(430px,1fr);
+        gap:clamp(34px,4vw,54px);
+        align-items:start;
+    }
+
+    .urun-resim{
+        position:sticky;
+        top:112px;
+        align-self:start;
+    }
+
+    .urun-resim img{
+        width:100%;
+        max-height:560px;
+        object-fit:contain;
+        border-radius:20px;
+        background:#090d14;
+    }
+
+    .urun-bilgi h1{
+        font-size:clamp(38px,4vw,50px);
+        line-height:1.04;
+        margin-bottom:14px;
+    }
+
+    .urun-bilgi > h3{
+        margin-top:14px;
+    }
+
+    .urun-bilgi p{
+        margin-top:12px;
+        margin-bottom:20px;
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    .urun-bilgi .renk-paleti{
+        margin-top:16px;
+        gap:9px;
+    }
+
+    .renk{
+        padding:9px 10px;
+        min-height:44px;
+    }
+
+    .ozellikler{
+        margin-top:24px;
+    }
+
+    .technical-drawing-section{
+        width:min(780px,76vw);
+        margin-top:48px;
+        padding:22px;
+    }
+
+    .technical-drawing-heading{
+        margin-bottom:16px;
+    }
+
+    .technical-drawing-heading h2{
+        font-size:28px;
+    }
+
+    .technical-drawing-section > img{
+        width:100%;
+        max-height:620px;
+        object-fit:contain;
+        margin-inline:auto;
+    }
+}
+
+@media (min-width:1500px){
+    .urun-sayfa{
+        max-width:1320px;
+    }
+
+    .urun-resim img{
+        max-height:610px;
+    }
+}
