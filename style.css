@@ -527,6 +527,7 @@ h2{
 }
 
 .solution-icon{
+    position:relative;
     display:grid;
     place-items:center;
     width:58px;
@@ -536,9 +537,12 @@ h2{
     border-radius:17px;
     color:#dfc47e;
     background:linear-gradient(145deg,rgba(216,179,90,.12),rgba(216,179,90,.025));
+    overflow:hidden;
 }
 
 .solution-icon svg{
+    position:relative;
+    z-index:1;
     width:29px;
     height:29px;
     fill:none;
@@ -546,6 +550,58 @@ h2{
     stroke-width:1.45;
     stroke-linecap:round;
     stroke-linejoin:round;
+}
+
+.solution-icon::after{
+    content:"";
+    position:absolute;
+    inset:-45%;
+    background:linear-gradient(110deg,transparent 39%,rgba(255,231,173,.22) 50%,transparent 61%);
+    transform:translateX(-82%);
+    animation:solutionIconSweep 4.8s ease-in-out infinite;
+    pointer-events:none;
+}
+
+.solution-card:nth-child(1) .solution-icon svg{
+    animation:deliveryCruise 3.4s ease-in-out infinite;
+}
+
+.solution-card:nth-child(2) .solution-icon svg{
+    animation:diamondGlow 3.2s ease-in-out infinite;
+}
+
+.solution-card:nth-child(2) .solution-icon::after{animation-delay:.8s}
+
+.solution-card:nth-child(3) .solution-icon svg{
+    animation:supportPulse 3s ease-in-out infinite;
+}
+
+.solution-card:nth-child(3) .solution-icon::after{animation-delay:1.6s}
+
+@keyframes solutionIconSweep{
+    0%,62%{transform:translateX(-82%);opacity:0}
+    72%{opacity:1}
+    88%,100%{transform:translateX(82%);opacity:0}
+}
+
+@keyframes deliveryCruise{
+    0%,100%{transform:translateX(-2px)}
+    50%{transform:translateX(2px)}
+}
+
+@keyframes diamondGlow{
+    0%,100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(225,190,110,0))}
+    50%{transform:scale(1.08);filter:drop-shadow(0 0 6px rgba(225,190,110,.48))}
+}
+
+@keyframes supportPulse{
+    0%,100%{transform:translateY(0);filter:drop-shadow(0 0 0 rgba(225,190,110,0))}
+    50%{transform:translateY(-2px);filter:drop-shadow(0 0 5px rgba(225,190,110,.35))}
+}
+
+@media(prefers-reduced-motion:reduce){
+    .solution-icon::after,
+    .solution-icon svg{animation:none!important}
 }
 
 .solution-card h3{
