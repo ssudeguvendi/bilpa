@@ -469,11 +469,11 @@ h2{
     overflow:hidden;
     margin:30px 8% 0;
     padding:80px 6%;
-    border:1px solid #202a38;
+    border:1px solid rgba(216,179,90,.28);
     border-radius:28px;
     background:
-        radial-gradient(circle at 85% 10%, rgba(142,154,174,.10), transparent 34%),
-        linear-gradient(145deg,#090d14,#0d131d);
+        radial-gradient(circle at 85% 10%, rgba(216,179,90,.12), transparent 34%),
+        linear-gradient(145deg,#080a0e,#101116);
 }
 
 .solution-section::after{
@@ -490,7 +490,7 @@ h2{
 .solution-eyebrow{
     display:block;
     margin-bottom:16px;
-    color:#8f9aad;
+    color:#d5b66c;
     font-size:12px;
     font-weight:800;
     letter-spacing:4px;
@@ -514,23 +514,49 @@ h2{
 }
 
 .solution-card{
-    min-height:220px;
-    padding:28px;
-    background:rgba(7,10,15,.68);
+    min-height:250px;
+    padding:30px;
+    border-color:rgba(216,179,90,.24);
+    background:linear-gradient(155deg,rgba(22,22,21,.96),rgba(7,9,13,.92));
+    box-shadow:0 18px 48px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.035);
 }
 
-.solution-number{
-    display:block;
-    margin-bottom:38px;
-    color:#667184;
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:2px;
+.solution-card:hover{
+    border-color:rgba(225,190,110,.64);
+    box-shadow:0 24px 58px rgba(0,0,0,.38),0 0 0 1px rgba(216,179,90,.06);
+}
+
+.solution-icon{
+    display:grid;
+    place-items:center;
+    width:58px;
+    height:58px;
+    margin-bottom:30px;
+    border:1px solid rgba(216,179,90,.38);
+    border-radius:17px;
+    color:#dfc47e;
+    background:linear-gradient(145deg,rgba(216,179,90,.12),rgba(216,179,90,.025));
+}
+
+.solution-icon svg{
+    width:29px;
+    height:29px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.45;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.solution-card h3{
+    color:#f4f0e7;
+    font-size:clamp(1.08rem,1.8vw,1.35rem);
+    line-height:1.35;
 }
 
 .solution-card p{
     margin-top:12px;
-    color:#8f9aaa;
+    color:#aeb3bc;
     font-size:16px;
     line-height:1.7;
 }
@@ -2123,7 +2149,7 @@ footer{
         padding:24px;
     }
 
-    .solution-number{
+    .solution-icon{
         margin-bottom:24px;
     }
 

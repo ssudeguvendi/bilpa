@@ -54,15 +54,15 @@ const translations = {
             quoteButton: "Teklif Al"
         },
         features: {
-            eyebrow: "BIL-PA AYRICALIĞI",
-            title: "İhtiyacınıza Hızlı, Güvenilir Çözüm",
-            intro: "Doğru ürünü, güçlü tedarik ve hızlı iletişimle işletmenize ulaştırıyoruz.",
-            card1Title: "Seçkin Ürünler",
-            card1Text: "Dayanıklılık ve estetiği bir araya getiren güvenilir ürün seçenekleri.",
-            card2Title: "Hızlı Geri Dönüş",
-            card2Text: "Talebinize vakit kaybetmeden net ve çözüm odaklı yanıt.",
-            card3Title: "Uzman Yönlendirme",
-            card3Text: "Projenize ve kullanım alanınıza en uygun ürünü birlikte belirleyelim."
+            eyebrow: "BIL-PA GÜVENCESİ",
+            title: "Neden Bil-Pa?",
+            intro: "Ürün seçiminden teslimat sonrasına kadar güvenilir ve çözüm odaklı destek sunuyoruz.",
+            card1Title: "Türkiye Geneli Sevkiyat",
+            card1Text: "Güvenli paketleme ve güçlü tedarik ağımızla ürünlerinizi Türkiye'nin 81 iline ulaştırıyoruz.",
+            card2Title: "Profesyonel Ürün Çözümleri",
+            card2Text: "Mermer, granit ve doğal taş uygulamalarına uygun, işin ihtiyacına göre seçilmiş ürün çözümleri.",
+            card3Title: "Satış Öncesi ve Sonrası Destek",
+            card3Text: "Doğru ürün seçiminden kullanım sürecine kadar satış öncesi ve sonrası yanınızdayız."
         },
         products: {
             title: "Ürün Grupları",
@@ -805,15 +805,15 @@ const translations = {
             quoteButton: "Get a Quote"
         },
         features: {
-            eyebrow: "THE BIL-PA DIFFERENCE",
-            title: "Fast, Reliable Solutions for Your Needs",
-            intro: "We deliver the right product to your business through strong supply and responsive communication.",
-            card1Title: "Selected Products",
-            card1Text: "Reliable product options that combine durability with refined design.",
-            card2Title: "Quick Response",
-            card2Text: "Clear, solution-focused answers to your request without delay.",
-            card3Title: "Expert Guidance",
-            card3Text: "Let us identify the best product for your project and intended use."
+            eyebrow: "THE BIL-PA ASSURANCE",
+            title: "Why Bil-Pa?",
+            intro: "Reliable, solution-focused support from product selection through after-sales.",
+            card1Title: "Nationwide Delivery",
+            card1Text: "We deliver products to all 81 provinces of Türkiye through secure packaging and a strong supply network.",
+            card2Title: "Professional Product Solutions",
+            card2Text: "Carefully selected product solutions for marble, granite and natural stone applications.",
+            card3Title: "Pre-Sales and After-Sales Support",
+            card3Text: "We support you from choosing the right product through its use in the field."
         },
         products: {
             title: "Product Groups",
